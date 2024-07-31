@@ -10,6 +10,7 @@ export class NavComponent {
   isLoggedIn: boolean = false;
   role: string = '';
   isDropdownOpen = false;
+  telisOpen = false;
 
 
   // Bascule l'état du menu entre ouvert et fermé
@@ -20,6 +21,7 @@ export class NavComponent {
   // Ferme le menu
   closeMenu() {
     this.isMenuOpen = false;
+    this.telisOpen = false;
   }
 
 
@@ -29,5 +31,8 @@ export class NavComponent {
 
   closeDropdown() {
     this.isDropdownOpen = false;
+  }
+  toggleDropdown() {
+    this.telisOpen = !this.telisOpen;
   }
 }

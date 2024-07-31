@@ -49,7 +49,7 @@ header {
 .nav__list {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 0 20px;
     list-style-type: none;
     margin-left: 41px;
     gap: 32px;
@@ -216,6 +216,12 @@ header {
     gap: 20px;
 }
 
+.arrow-tel {
+    display: none;
+}
+
+
+
 @media screen and (max-width: 1920px) and (min-width: 1368px) {
     .nav {
         margin: 24px calc(167px + (60 - 167) * ((1920px - 100vw) / (1920 - 1368)));
@@ -265,8 +271,8 @@ header {
         position: fixed;
         top: 0;
         right: -100%;
-        background-color: #ede9ea;
-        width: 70%;
+        background-color: $color-white;
+        width: 100%;
         height: 100%;
         box-shadow: 2px 0 12px hsla(0, 0%, 0%, 0.2);
         padding: 6rem 0 0 0;
@@ -284,6 +290,89 @@ header {
 
     .sign-in-min {
         display: block;
+    }
+
+    // NAV
+    .arrow-pc {
+        display: none;
+    }
+
+    .arrow-tel {
+        display: block;
+    }
+
+    .dropdown {
+        height: auto;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .filter-dropdown {
+        display: none;
+    }
+
+    .dropdown-menu {
+        position: static;
+        display: none;
+        padding: 0;
+    }
+    .dropdown-menu-show{
+        display: block;
+    }
+
+    .container-drop-down{
+        flex-direction: column;
+        hr{
+            display: none;
+        }
+    }
+
+    .container-produit{
+        margin: 16px 0;
+        flex-direction: column;
+    }
+    .nav_link-dropdown{
+        margin: 0;
+    }
+
+    .nav__link, .nav_link-dropdown, .nav_link-dropdown-produit{
+        font-size: 14px;
+    }
+    .nav_link-dropdown-produit img{
+        height: 25px;
+    }
+
+    .nav_link-dropdown-produit span{
+        width: 72px;
+        height: 47px;
+    }
+
+    .nav_link-dropdown{
+        justify-content: start;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .container-drop-down{
+        padding-right: 40px;
+    }
+
+    .nav__item {
+        border-bottom: solid $color-gold 0.063rem;
+        padding: 16px 0;
+    }
+
+    .more{
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .nav__list{
+        gap: 0;
+    }
+
+    .nav__link{
+        gap: 10px;
     }
 }
 
@@ -336,9 +425,6 @@ header {
         margin-right: 10px;
     }
 
-    .nav__menu {
-        width: 80%;
-    }
 }
 
 /* For large devices */

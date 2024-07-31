@@ -34,13 +34,26 @@
       <div class="nav__menu" id="nav-menu" [ngClass]="{'show-menu': isMenuOpen}">
         <ul class="nav__list">
           <li class="nav__item dropdown" (mouseenter)="openDropdown()" (mouseleave)="closeDropdown()">
-            <a routerLink="" class="nav__link">Couteaux disponible
-              <svg aria-hidden="true" class="arrow-down" xmlns="http://www.w3.org/2000/svg" fill="none"
+            <a routerLink="" class="nav__link more" *ngIf="!telisOpen" (click)="toggleDropdown()">Couteaux disponible
+              <svg aria-hidden="true" class="arrow-down arrow-pc" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="4 10 8 4" [ngClass]="{'rotate': isDropdownOpen}">
                 <path stroke="currentColor" d="m4 10 4 4 4-4"></path>
               </svg>
+              <svg aria-hidden="true"
+                class="arrow-item arrow-tel" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 16">
+                <path stroke="currentColor" stroke-width="1.5"
+                  d="M.000162 8H15.3335m0 0-6.08131 6m6.08131-6L9.2522 2"></path>
+              </svg>
             </a>
-            <ul class="dropdown-menu" [ngClass]="{'show': isDropdownOpen}">
+
+            <a routerLink="" *ngIf="telisOpen" class="nav__link" (click)="toggleDropdown()"><svg style=" transform: rotate(180deg);" aria-hidden="true"
+              class="arrow-item arrow-tel" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 16">
+              <path stroke="currentColor" stroke-width="1.5"
+                d="M.000162 8H15.3335m0 0-6.08131 6m6.08131-6L9.2522 2"></path>
+            </svg>Retour
+              
+            </a>
+            <ul class="dropdown-menu" [ngClass]="{'show': isDropdownOpen, 'dropdown-menu-show': telisOpen}">
               <div class="container-drop-down">
                 <li><a class="nav_link-dropdown" href="#">Voir tout les couteaux disponibles <svg aria-hidden="true"
                       class="arrow-item" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 16">
@@ -63,16 +76,16 @@
               </div>
             </ul>
           </li>
-          <li class="nav__item">
+          <li class="nav__item" *ngIf="!telisOpen">
             <a routerLink="" class="nav__link" (click)="closeMenu()">Galerie des couteau</a>
           </li>
-          <li class="nav__item">
+          <li class="nav__item" *ngIf="!telisOpen">
             <a routerLink="" class="nav__link" (click)="closeMenu()">Atelier</a>
           </li>
-          <li class="nav__item">
+          <li class="nav__item" *ngIf="!telisOpen">
             <a routerLink="" class="nav__link" (click)="closeMenu()">Actualité</a>
           </li>
-          <li class="nav__item sign-in-min">
+          <li class="nav__item sign-in-min" *ngIf="!telisOpen">
             <a routerLink="" class="nav__link" (click)="closeMenu()">Sign in</a>
           </li>
         </ul>
