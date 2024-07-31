@@ -33,6 +33,8 @@ export class NavComponent {
     this.isDropdownOpen = false;
   }
   toggleDropdown() {
-    this.telisOpen = !this.telisOpen;
+    if (window.innerWidth <= 1024) {
+      this.telisOpen = !this.telisOpen;
+    }
   }
 }
