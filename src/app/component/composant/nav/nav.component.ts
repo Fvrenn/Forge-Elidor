@@ -9,6 +9,7 @@ export class NavComponent {
   isMenuOpen: boolean = false;
   isLoggedIn: boolean = false;
   role: string = '';
+  isDropdownOpen = false;
 
 
   // Bascule l'état du menu entre ouvert et fermé
@@ -22,4 +23,11 @@ export class NavComponent {
   }
 
 
+  openDropdown() {
+    this.isDropdownOpen = true;
+  }
+
+  closeDropdown() {
+    this.isDropdownOpen = false;
+  }
 }
