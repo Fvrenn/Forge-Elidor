@@ -64,6 +64,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centre le contenu verticalement */
+    margin-top: 21px;
 }
 
 .slide img {
@@ -99,6 +100,14 @@ a {
     z-index: 1;
     width: 30px;
     height: 30px;
+}
+
+.container-rond .rond-voir-plus img:last-child {
+    transition: transform 0.3s ease;
+}
+
+.container-rond:hover .rond-voir-plus img:last-child {
+    transform: translate(-35%, -50%);
 }
 
 // SLIDER 
@@ -145,7 +154,7 @@ button {
     display: flex;
     gap: 5px;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin: auto 0;
 }
 
 .pagination span {
@@ -167,7 +176,7 @@ button {
     position: absolute;
     bottom: 35px;
     right: 25.5px;
-    height: 100%; 
+    height: 65%;
 }
 
 @keyframes rotation {
@@ -186,5 +195,9 @@ button {
     }
     .slide img {
         height: 100%; /* Prend toute la hauteur du parent */
+    }
+
+    .container-controleur {
+        height: 72%;
     }
 }
