@@ -1,10 +1,24 @@
 @import '../../../../../../styles/variables.scss';
 
+.container-section {
+    display: flex;
+    align-items: stretch; /* Assure que les enfants prennent la même hauteur */
+    flex-direction: column;
+}
+
+.container-hero,
+.container-slider {
+    flex: 1; /* Les deux divs prennent des largeurs égales */
+    margin: 0 6px;
+}
+
 .container-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre le contenu verticalement */
     background-color: $color-green;
     padding: 37px 10px 44px 29px;
     border-radius: 46px;
-    margin: 0px 6px;
 }
 
 h1 {
@@ -45,22 +59,19 @@ a {
     margin-top: 37.5px;
 }
 
-.container-slider{
-    margin: 22px 6px;
-}
-
-.slide{
-    img {
-        width: 100%;
-        height: 454px;
-        object-fit: cover;
-        object-position: center;
-        border-radius: 53px;
-    }
-}
-
 .container-slider {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre le contenu verticalement */
+}
+
+.slide img {
+    width: 100%;
+    height: 454px; 
+    object-fit: cover; /* Couvre l'espace disponible */
+    object-position: center;
+    border-radius: 53px;
 }
 
 .rond-voir-plus {
@@ -70,7 +81,6 @@ a {
     z-index: 1;
     width: 120px;
     height: 120px;
-
 }
 
 .rond-voir-plus img:nth-child(1) {
@@ -78,6 +88,7 @@ a {
     position: absolute;
     width: 100%;
     height: 100%;
+    animation: rotation 15s infinite linear;
 }
 
 .rond-voir-plus img:nth-child(2) {
@@ -90,81 +101,90 @@ a {
     height: 30px;
 }
 
-
 // SLIDER 
 /* swiper.component.scss */
 .swiper-container {
     position: relative;
     width: 100%;
+    height: 100%; /* Prend toute la hauteur du parent */
     overflow: hidden;
-  }
-  
-  .swiper {
+}
+
+.swiper {
     display: flex;
+    height: 100%; /* Prend toute la hauteur du parent */
     transition: transform 0.5s ease-in-out;
-  }
-  
-  .slide {
+}
+
+.slide {
     min-width: 100%;
     box-sizing: border-box;
   }
-  
-  button {
+
+button {
     background-color: $color-blanc;
     border: none;
     padding: 14px 5px;
     cursor: pointer;
     border-radius: 100px;
-  }
+}
 
-  .arrow-nex{
+.arrow-nex {
     background-color: transparent;
     border: 2px solid $color-blanc;
     color: $color-blanc;
-  }
-  .container-btn{
+}
+
+.container-btn {
     display: inline-flex;
     flex-direction: column;
     gap: 6px;
-  }
+}
 
-  .pagination {
+.pagination {
     display: flex;
     gap: 5px;
     flex-direction: column;
     margin-bottom: 20px;
-  }
-  
-  .pagination span {
+}
+
+.pagination span {
     height: 33.22px;
     width: 7.67px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 100px;
     cursor: pointer;
-  }
-  
-  .pagination .active {
-    background-color: white;
-  }
+}
 
-  .container-controleur{
+.pagination .active {
+    background-color: white;
+}
+
+.container-controleur {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     position: absolute;
     bottom: 35px;
     right: 25.5px;
-  }
+    height: 100%; 
+}
 
-  .rond-voir-plus img:nth-child(1) {
-    animation: rotation 15s infinite linear;
-  }
-
-  @keyframes rotation {
+@keyframes rotation {
     from {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     to {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
+
+@media (min-width: 800px) {
+    .container-section{
+        flex-direction: row;
+    }
+    .slide img {
+        height: 100%; /* Prend toute la hauteur du parent */
+    }
+}
