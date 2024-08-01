@@ -11,9 +11,26 @@
     </div>
 
     <div class="container-slider">
-        <!-- hero.component.html -->
 
+        <div class="swiper-container">
+            <div class="swiper" [style.transform]="'translateX(' + currentSlide * -100 + '%)'">
+                <div class="slide" *ngFor="let slide of slides">
+                    <img [src]="slide.image" [alt]="slide.caption">
+                </div>
+            </div>
 
+            <div class="container-controleur">
+                <div class="container-btn">
+                    <button (click)="prevSlide()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-up"><path d="M8 6L12 2L16 6"/><path d="M12 2V22"/></svg></button>
+                    <button class="arrow-nex"  (click)="nextSlide()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-down"><path d="M8 18L12 22L16 18"/><path d="M12 2V22"/></svg></button>
+                </div>
+
+                <div class="pagination">
+                    <span *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlide"
+                        (click)="goToSlide(i)"></span>
+                </div>
+            </div>
+        </div>
 
 
         <div class="rond-voir-plus">
