@@ -1,0 +1,92 @@
+@import '../../../../../../styles/variables.scss';
+
+.container-hero {
+    background-color: $color-green;
+    padding: 37px 10px 44px 29px;
+    border-radius: 46px;
+    margin: 0px 6px;
+}
+
+h1 {
+    font-size: $h1-size;
+    font-family: $satoshi;
+    color: $color-white;
+    font-weight: $black;
+}
+
+h2 {
+    font-size: $h2-size;
+    font-family: $bodoni;
+    color: $color-white;
+    font-weight: $regular;
+    margin-top: 9px;
+}
+
+p {
+    font-size: $p-size;
+    font-family: $satoshi;
+    color: $color-white;
+    font-weight: $regular;
+    margin-top: 22px;
+}
+
+a {
+    color: $color-black;
+    text-decoration: none;
+    font-family: $satoshi;
+    font-weight: $medium;
+    background-color: $color-blanc;
+    padding: 10.5px 34.5px;
+    border-radius: 55px;
+    font-size: $btn-size;
+}
+
+.btn {
+    margin-top: 37.5px;
+}
+
+swiper-container {
+    margin: 22px 6px;
+
+}
+
+swiper-slide {
+    img {
+        width: 100%;
+        height: 454px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 53px;
+    }
+}
+
+.container-slider {
+    position: relative;
+}
+
+.rond-voir-plus {
+    position: absolute;
+    top: 25px;
+    right: 19px;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+
+}
+
+.rond-voir-plus img:nth-child(1) {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.rond-voir-plus img:nth-child(2) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+}
