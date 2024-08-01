@@ -178,6 +178,9 @@ button {
     right: 25.5px;
     height: 65%;
 }
+.container-rond{
+    padding: 0;
+}
 
 @keyframes rotation {
     from {
@@ -200,4 +203,10 @@ button {
     .container-controleur {
         height: 72%;
     }
+
+    .container-slider{
+        margin-top: 0px;
+    }
+
+
 }
