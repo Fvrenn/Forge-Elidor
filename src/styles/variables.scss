@@ -2,7 +2,8 @@
 
 // COLOR 
 $color-dark: #2B2B2F;
-$color-green: #49443B;
+$color-green: #98957F;
+$color-brown: #49443B;
 $color-white: #fffff6;
 $color-gold: #dcd2bb;
 $color-black: #000000;
@@ -10,7 +11,7 @@ $color-blanc: #ffffff;
 // FONT SIZE
 $h1-size: clamp(27px, 4vw + 1rem, 84px);
 $h2-size: clamp(42px, 3.5vw + 1rem, 71px);
-$p-size: clamp(16px, 1vw + 1rem, 20px);
+$p-size: clamp(16px, 1vw + 0.7rem, 20px);
 $btn-size: clamp(16px, 0.3vw + 1rem, 22px);
   
 // FONT FAMILY
@@ -22,3 +23,27 @@ $satoshi:  'Satoshi-Variable';
 $regular: 400;
 $black: 900;
 $medium: 500;
+$bold: 700;
+
+h1 {
+    font-size: $h1-size;
+    font-family: $satoshi;
+    color: $color-white;
+    font-weight: $black;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: $h2-size;
+    font-family: $bodoni;
+    color: $color-white;
+    font-weight: $regular;
+}
+
+p {
+    font-size: $p-size;
+    font-family: $satoshi;
+    color: $color-white;
+    font-weight: $regular;
+}
+

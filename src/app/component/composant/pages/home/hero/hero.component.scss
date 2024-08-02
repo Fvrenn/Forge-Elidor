@@ -1,47 +1,17 @@
 @import '../../../../../../styles/variables.scss';
-
+p {
+    margin-top: 22px;
+}
 .container-section {
     display: flex;
     align-items: stretch; /* Assure que les enfants prennent la même hauteur */
     flex-direction: column;
-}
-
-.container-hero,
-.container-slider {
-    flex: 1; /* Les deux divs prennent des largeurs égales */
-    margin: 0 6px;
-}
-
-.container-hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centre le contenu verticalement */
-    background-color: $color-green;
-    padding: 37px 10px 44px 29px;
-    border-radius: 46px;
-}
-
-h1 {
-    font-size: $h1-size;
-    font-family: $satoshi;
-    color: $color-white;
-    font-weight: $black;
+    margin: 0 clamp(6px, 1vw + 1rem, 49px);
+    gap: clamp(22px, 1vw + 1rem, 33px);
 }
 
 h2 {
-    font-size: $h2-size;
-    font-family: $bodoni;
-    color: $color-white;
-    font-weight: $regular;
     margin-top: 9px;
-}
-
-p {
-    font-size: $p-size;
-    font-family: $satoshi;
-    color: $color-white;
-    font-weight: $regular;
-    margin-top: 22px;
 }
 
 a {
@@ -55,6 +25,23 @@ a {
     font-size: $btn-size;
 }
 
+.container-hero,
+.container-slider {
+    flex: 1; /* Les deux divs prennent des largeurs égales */
+}
+
+.container-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre le contenu verticalement */
+    background-color: $color-brown;
+    padding: 37px 10px 44px 29px;
+    border-radius: 46px;
+    max-width: 799px;
+}
+
+
+
 .btn {
     margin-top: 37.5px;
 }
@@ -64,7 +51,6 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centre le contenu verticalement */
-    margin-top: 21px;
 }
 
 .slide img {
@@ -209,4 +195,11 @@ button {
     }
 
 
+}
+
+@media screen and (min-width: 1100px) {
+    .container-section {
+        margin: 0 clamp(6px, 1vw + 3rem, 49px);
+    }
+    
 }

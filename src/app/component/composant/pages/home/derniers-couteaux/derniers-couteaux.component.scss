@@ -1,0 +1,190 @@
+@import '../../../../../../styles/variables.scss';
+
+.container-dernier-couteau {
+    background-color: $color-green;
+    border-radius: 45px;
+    padding-top: 51px;
+    padding-bottom: clamp(62px, 9vw + 2rem, 211px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: clamp(22px, 3vw + 1rem, 45px);
+}
+
+.container-card {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 95%);
+    gap: clamp(24px, 2vw + 1rem, 32px);
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-container {
+    position: relative;
+}
+
+article .card .img-container img {
+    width: 100%;
+    height: 209px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 36px;
+}
+
+.like {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    svg {
+        color: $color-blanc;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.info-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.info-container .txt {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.info-container .txt p {
+    font-size: 20px !important;
+}
+
+.info-container .txt p:nth-child(1) {
+    font-weight: $medium;
+}
+
+.info-container .txt p:nth-child(2) {
+    font-weight: $bold;
+}
+
+.fleche-more {
+    margin-top: auto;
+}
+
+.container-fleche {
+    background-color: $color-white;
+    border-radius: 9px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+    text-align: end;
+
+    img {
+        width: 21px;
+    }
+}
+
+.container-card article:nth-child(4) {
+    display: none;
+}
+
+.un {
+    display: none;
+}
+
+.container-btn a {
+    color: $color-black;
+    text-decoration: none;
+    font-family: $satoshi;
+    font-weight: $medium;
+    background-color: $color-blanc;
+    padding: 10.5px 34.5px;
+    border-radius: 55px;
+    font-size: $btn-size;
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.txt-pc {
+    display: none;
+}
+
+.deux {
+    margin-top: 45px;
+}
+
+@media screen and (min-width: 326px) {
+    .container-card {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 315px);
+        justify-content: center;
+        margin-top: clamp(30px, 5.8vw + 1rem, 125px);
+
+    }
+
+}
+
+@media screen and (min-width: 800px) {
+    .container-dernier-couteau {
+        display: block;
+    }
+
+    .container-dernier-couteau {
+        padding-top: 51px;
+        padding-left: clamp(48px, 4vw + 3rem, 106px);
+        padding-right: clamp(48px, 4vw + 3rem, 106px);
+    }
+
+    .container-card {
+        justify-content: start;
+    }
+
+
+}
+
+@media screen and (min-width: 1020px) {
+    .un {
+        display: block;
+    }
+
+    .deux {
+        display: none;
+    }
+
+    .container-ligne-1 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 1398px) {
+    .container-card article:nth-child(4) {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1778px) {
+    .txt-pc {
+        display: block;
+    }
+
+    .txt-tel {
+        display: none;
+    }
+}
