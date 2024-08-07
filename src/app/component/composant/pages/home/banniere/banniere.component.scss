@@ -1,0 +1,43 @@
+@import '../../../../../../styles/variables.scss';
+
+h1, h6 {
+    color: $color-white;
+    text-align: center;
+}
+
+.img-container {
+    height: clamp(254px, 34vw, 652px);
+    width: 100%;
+    position: relative;
+    margin-top: 35px;
+}
+
+.img-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: clamp(24px, 2vw, 45px);
+}
+
+.container-texte {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+}
+h6{
+    font-family: $lora;
+    font-size: clamp(21px, 2.9vw, 44px);
+    font-weight: $light;
+    margin-top: clamp(15px, 2vw, 29px);
+}
+@media screen and (min-width: 900px) {
+    .img-container {
+        margin-top: clamp(79px, 7vw, 120px);
+    }
+    .container-texte {
+        width: 70%;
+    } 
+}

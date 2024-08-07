@@ -1,0 +1,190 @@
+@import '../../../../../../styles/variables.scss';
+
+.img-container {
+    width: 100%;
+    position: relative;
+    height: 253px;
+}
+
+.img-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 26px;
+}
+
+.date-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    span {
+        background-color: $color-green;
+        color: $color-blanc;
+        font-family: $satoshi;
+        font-weight: $bold;
+        padding: 8px 19px;
+        border-radius: 55px;
+        font-size: clamp(16px, 1.5vw, 19px);
+    }
+}
+
+.container-btn a, .deux a {
+    color: $color-blanc;
+    text-decoration: none;
+    font-family: $satoshi;
+    font-weight: $medium;
+    background-color: $color-green;
+    padding: 10.5px 34.5px;
+    border-radius: 55px;
+    font-size: $btn-size;
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.txt-pc {
+    color: $color-brown;
+}
+
+h1 {
+    color: $color-brown;
+}
+
+.container-actu-section {
+    padding: 0 25px;
+}
+
+.container-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 41px;
+}
+
+.container-actu article:nth-child(3),
+.container-actu article:nth-child(4) {
+    display: none;
+}
+
+.un {
+    display: none;
+}
+
+.container-txt p {
+    color: $color-brown;
+}
+
+.container-txt p:nth-child(1) {
+    font-weight: $bold;
+    margin-top: 18px;
+}
+
+.container-txt p:nth-child(2) {
+    margin-top: 15px;
+}
+
+.container-a {
+    margin-top: 24px;
+}
+
+.container-a a {
+    color: $color-blanc;
+    background-color: $color-green;
+    padding: 9.5px 41.5px;
+    border-radius: 55px;
+    font-family: $satoshi;
+}
+
+.txt-pc{
+    display: none;
+}
+
+.txt-tel{
+    display: block;
+    color: $color-brown;
+}
+
+.container-actu{
+    margin-top: clamp(32px, 3.5vw, 86px);
+}
+
+.container-actu-section{
+    margin-top: clamp(45px, 8.7vw, 152px);
+}
+@media screen and (min-width: 370px) {
+    .container-actu-section {
+        padding: 0 35px;
+    }
+
+    .container-article {
+        width: 305px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .img-container {
+        width: clamp(305px, 45vw, 355px);
+        height: 253px;
+    }
+}
+
+@media screen and (min-width: 678px) {
+    .container-article {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        width: auto;
+        gap: 34px;
+        margin-bottom: 50px;
+    }
+
+    .container-txt {
+        width: 338px;
+    }
+}
+
+@media screen and (min-width: 1020px) {
+    .un {
+        display: block;
+    }
+
+    .deux {
+        display: none;
+    }
+
+    .container-ligne-1 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+   
+}
+
+@media screen and (min-width: 1100px) {
+    .container-actu {
+        columns: 2;
+    }
+    .container-actu article:nth-child(3),
+    .container-actu article:nth-child(4) {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 1778px) {
+    .txt-pc {
+        display: block;
+    }
+
+    .txt-tel {
+        display: none;
+    }
+}
