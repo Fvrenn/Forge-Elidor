@@ -1,0 +1,84 @@
+@import '../../../../styles/variables.scss';
+footer{
+    margin-top: clamp(210px, 13vw, 260px);
+}
+
+.contact h4{
+    margin-top: 24px;
+}
+h4{
+    font-weight: $bold;
+    color: $color-white;
+    margin-bottom: clamp(5px, 2vw, 41px);
+    margin-top: 22px;
+    text-transform: uppercase;
+}
+
+
+ul{
+    list-style: none;
+    font-family: $satoshi;
+    font-size: clamp(16px, 2vw, 18px);
+}
+ul li{
+    color: $color-white;
+    line-height: 28px;
+}
+a{
+    text-decoration: none;
+    color: $color-white;
+    font-weight: $medium;
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    padding: clamp(39px, 8vw, 83px) clamp(24px, 8vw, 133px) clamp(58px, 8vw, 102px) clamp(24px, 8vw, 104px);
+    border-radius: 45px;
+    background-color: $color-green;
+    flex-direction: column;
+}
+.social{
+    display: flex;
+    gap: clamp(7.5px, 2vw, 10px);
+    align-items: center;
+    margin-top: clamp(13px, 2vw, 19px);
+}
+.social svg{
+    width: clamp(25px, 2vw, 34px);
+    color: $color-white;
+}
+
+.section-logo-social img{
+    height: clamp(34px, 3vw, 48px);
+}
+
+.info-footer span{
+    color: $color-green;
+    font-family: $satoshi;
+    font-size: 18px;
+    font-weight: $bold;
+}
+
+.info-footer{
+    margin: clamp(13px, 8vw, 15px) clamp(9px, 8vw, 69px) ;
+
+}
+@media screen and (min-width: 800px){
+    .content{
+        flex-direction: row;
+    }
+    h4{
+        margin-top: 0;
+    }
+    .contact h4{
+        margin-top: 0px;
+    }
+}
+@media screen and (min-width: 1100px){
+    .content{
+        flex-direction: row;
+    }
+    .a-propos{
+        margin-right: clamp(0px, 10vw, 200px);
+    }
+}
