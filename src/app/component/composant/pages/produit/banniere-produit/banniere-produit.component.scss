@@ -1,0 +1,58 @@
+@import '../../../../../../styles/variables.scss';
+.header-produit{
+    position: relative;
+}
+
+.header-produit {
+    width: 100%;
+    height: 241px;
+    
+    img{
+        object-fit: cover;
+        object-position: center;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.txt-header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px clamp(24px, 13vw - 10rem, 262px) 0  clamp(24px, 13vw - 10rem, 262px);
+    span{
+        font-size: clamp(16px, 2vw, 20px);
+        font-family: $satoshi;
+        color: $color-white;
+    }
+}
+
+.container-centre{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: clamp(6px, 1vw, 39px);
+    h3{
+        font-size: clamp(27px, 7vw, 62px);
+        font-family: $lora;
+        color: $color-white; 
+        font-weight: $medium;
+    }
+    p{
+       
+        width: clamp(303px, 34vw, 634px);
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .txt-header{
+        padding: 20px clamp(24px, 8vw , 262px) 0  clamp(24px, 8vw, 262px);
+    }
+}
+
+@media screen and (min-width: 1400px){
+    .txt-header{
+        padding: 20px clamp(24px, 10vw , 262px) 0  clamp(24px, 10vw, 262px);
+    }
+}

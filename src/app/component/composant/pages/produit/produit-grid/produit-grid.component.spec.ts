@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExceptionComponent } from './exception.component';
+import { ProduitGridComponent } from './produit-grid.component';
 
-describe('ExceptionComponent', () => {
-  let component: ExceptionComponent;
-  let fixture: ComponentFixture<ExceptionComponent>;
+describe('ProduitGridComponent', () => {
+  let component: ProduitGridComponent;
+  let fixture: ComponentFixture<ProduitGridComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ExceptionComponent]
+      declarations: [ProduitGridComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ExceptionComponent);
+    fixture = TestBed.createComponent(ProduitGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
