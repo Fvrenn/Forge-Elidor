@@ -30,8 +30,8 @@
 
 .container-centre{
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    flex-direction: column;
     margin-top: clamp(6px, 1vw, 39px);
     h3{
         font-size: clamp(27px, 7vw, 62px);
@@ -42,6 +42,13 @@
     p{
        
         width: clamp(303px, 34vw, 634px);
+    }
+}
+
+@media screen and (min-width: 800px){
+    .container-centre{
+        align-items: center;
+        flex-direction: row;
     }
 }
 

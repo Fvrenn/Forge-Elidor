@@ -128,6 +128,7 @@ header {
     visibility: hidden;
     transition: opacity 0.2s ease-in, visibility 0.2s ease-in;
     opacity: 0;
+    z-index: 100;
 }
 
 .filter-dropdown.show {

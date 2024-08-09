@@ -1,0 +1,204 @@
+@import '../../../../../../styles/variables.scss';
+
+
+.btn-container {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+.btn-container button{
+    color: $color-brown;
+    background-color: transparent;
+    border: 1px solid $color-brown;
+    padding: 6px 0;
+    min-width: 188px;
+    font-family: $lora;
+    font-size: 16px;
+    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+    &:hover{
+        background-color: $color-brown;
+        color: $color-white;
+        cursor: pointer;
+    }
+    
+}
+
+
+
+article {
+    max-width: 406px;
+
+    img {
+        width: 100%;
+        height: 269px;
+        object-fit: cover;
+    }
+}
+.header-texte {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h6 {
+        color: $color-brown;
+        font-size: clamp(16px, 1.4vw, 20px);
+        font-family: $satoshi;
+        font-weight: $medium;
+    }
+}
+
+.info-container{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 10px;
+}
+.container-info-txt p {
+    color: $color-brown;
+    font-size: clamp(16px, 1.4vw, 20px);
+    font-family: $satoshi;
+    font-weight: $regular;
+}
+
+.card-img{
+    position: relative;
+}
+
+.card:hover .add-basket {
+    visibility: visible;
+    bottom: 18px;
+    opacity: 1;
+    transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.add-basket {
+    position: absolute;
+    bottom: 4px;
+    width: 100%;
+    padding: 0 14px;
+    visibility: hidden;
+    opacity: 0;
+    transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s 0.3s; // Ajout du délai pour visibility
+    a {
+        color: $color-brown;
+        text-decoration: none;
+        font-size: clamp(16px, 1.4vw, 20px);
+        background-color: $color-white;
+        padding: 6.5px 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        transition: background-color 0.1s ease-in-out;
+    }
+}
+
+.add-basket.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 18px;
+    transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.add-basket a:hover{
+    background-color: #ebebe4;
+    
+}
+
+.card-img img {
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
+
+.container-card {
+    display: flex;
+    justify-content: center;
+    padding: clamp(23px, 4vw, 60px) ;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    max-width: 1705px;
+}
+
+.card {
+    overflow: hidden;
+    width: calc(25% - 14px); 
+    flex: 1 1 calc(100% - 20px);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+
+
+
+
+
+.info-container {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.header-texte {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.dimenssion{
+    margin-top: 4px;
+    font-weight: $medium !important;
+}
+
+.container-info-txt {
+    flex-grow: 1;
+}
+
+
+@media screen and (max-width: 838px) {
+    .scroll-container {
+        width: clamp(200px, 90vw, 800px);
+        overflow-x: auto;
+    margin-bottom: 38px;
+    }
+    
+    .btn-container {
+        white-space: nowrap;
+    }
+}
+
+
+
+@media (min-width: 400px) {
+    .card {
+      flex: none;
+      width: calc(50% - 5px);
+    }
+    .row{
+        gap: 10px;
+    }
+}
+
+@media (min-width: 800px) {
+
+    .card {
+        width: calc(33.333% - 14px);
+    }
+    .row{
+        gap: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .card {
+        width: calc(25% - 18px);
+    }
+}
