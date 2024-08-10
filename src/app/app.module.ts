@@ -16,6 +16,7 @@ import { HomeComponent } from './component/pages/home/home.component';
 import { ProduitComponent } from './component/pages/produit/produit.component';
 import { ProduitGridComponent } from './component/composant/pages/produit/produit-grid/produit-grid.component';
 import { BanniereProduitComponent } from './component/composant/pages/produit/banniere-produit/banniere-produit.component';
+import { GalerieComponent } from './component/pages/galerie/galerie.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { BanniereProduitComponent } from './component/composant/pages/produit/ba
     HomeComponent,
     ProduitComponent,
     ProduitGridComponent,
-    BanniereProduitComponent
+    BanniereProduitComponent,
+    GalerieComponent
   ],
   imports: [
     BrowserModule,
