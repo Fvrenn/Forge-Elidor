@@ -5,8 +5,7 @@
 
 .header-produit {
     width: 100%;
-    height: 241px;
-    
+    height: 311px;
     img{
         object-fit: cover;
         object-position: center;
@@ -39,12 +38,18 @@
         color: $color-white; 
         font-weight: $medium;
     }
-    p{
-       
-        width: clamp(303px, 34vw, 634px);
-    }
 }
 
+@media (min-width: 336px) {
+    .container-centre p {
+        width: clamp(303px, 34vw, 634px);
+    }
+
+    .header-produit {
+        width: 100%;
+        height: 241px;
+    }
+}
 @media screen and (min-width: 800px){
     .container-centre{
         align-items: center;
