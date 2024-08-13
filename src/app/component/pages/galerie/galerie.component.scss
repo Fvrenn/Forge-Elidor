@@ -4,7 +4,7 @@
 .btn-container {
     display: flex;
     gap: 14px;
-    margin-bottom: 30px;
+    margin-bottom: 8px;
 }
 
 .btn-container button {
@@ -25,27 +25,122 @@
 
 }
 
-.masonry {
-    column-count: 4; /* Nombre de colonnes */
-    column-gap: 1em; /* Espace entre les colonnes */
-  }
   
-  .masonry-item {
-    break-inside: avoid;
-    margin-bottom: 1em;
-  }
-  
-  .masonry-item img {
-    width: 100%;
+  .container img {
+    max-width: 90%;
     display: block;
+    margin: 0 auto;
   }
   
+  .container figure {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 10px;
+    break-inside: avoid;
+  }
+  
+  .container figure > img {
+    grid-row: 1 / -1;
+    grid-column: 1;
+  }
+  
+  .container figure a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  
+  .container {
+    column-count: 1;
+    column-gap: 10px;
+  }
+.container-card{
+    max-width: 1730px;
+    // margin: 0 auto;
+}
+
+.container-produit{
+    margin-top: clamp(20px, 2.7vw, 51px);
+}
+
+.scroll-container{
+    margin-bottom: clamp(23px, 1.7vw, 35px) !important;
+}
+
+
+@media screen and (min-width: 672px) {
+    .container {
+        column-count: 2;
+      }
+
+      .container-card{
+        margin: 0 23px;
+      }
+      .container img {
+        // max-width: 317.3px;
+        max-width: 100%;
+      }
+}
+
+@media screen and (min-width: 1034px) {
+    .container {
+        column-count: 3;
+        column-gap: 13.6px;
+      }
+
+      .container-card{
+        margin: 0 29px;
+      }
+      .container img {
+        // max-width: 317.3px;
+        max-width: 100%;
+      }
+
+      .container figure {
+        margin-bottom: 13.6px;
+      }
+}
+
+@media screen and (min-width: 1364px) {
+    .container {
+        column-count: 4;
+      }
+      
+      .container img {
+        // max-width: 317.3px;
+        max-width: 100%;
+      }
+}
+@media screen and (min-width: 1764px) {
+    .container-card{
+        margin: 0 auto;
+    }
+}
+
 
 @media screen and (max-width: 838px) {
     .scroll-container {
         width: clamp(200px, 90vw, 800px);
         overflow-x: auto;
-        margin-bottom: 38px;
+        margin: 0px auto;
+
+           // Custom scrollbar styles
+           &::-webkit-scrollbar {
+            height: 3px; 
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $color-brown; 
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: $color-brown; 
+        }
     }
 
     .btn-container {
