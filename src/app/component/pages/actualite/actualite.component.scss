@@ -1,0 +1,12 @@
+@import '../../../../styles/variables.scss';
+
+.title{
+    padding: 0 clamp(28px, 5vw, 106px);
+}
+h1{
+    color: $color-brown;
+}
+
+.container-card{
+    margin-top: clamp(45px, 4vw, 58px);
+}

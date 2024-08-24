@@ -1,0 +1,75 @@
+@import '../../../../../../styles/variables.scss';
+
+.container-actu {
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+    padding: 0 28px;
+}
+
+.img {
+    width: 246px;
+    height: 219px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 26px;
+    }
+}
+
+h5 {
+    font-family: $satoshi;
+    font-size: clamp(19px, 2vw, 21px);
+    color: $color-brown;
+    font-family: $bold;
+    margin-bottom: 5px;
+}
+
+.date {
+    svg {
+        color: #ADADAD;
+        width: 16px;
+        height: 16px;
+    }
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: $satoshi;
+    color: #ADADAD;
+    font-size: clamp(14px, 2vw, 16px);
+    font-weight: $bold;
+}
+
+.txt-container p {
+    color: $color-brown;
+    font-weight: $medium;
+}
+
+article{
+    margin-bottom: 30px;
+}
+
+
+@media screen and (min-width: 900px) {
+
+    .container-actu {
+        flex-direction: row;
+        gap: 45px;
+        align-items: center;
+        padding: 0 clamp(28px, 5vw, 106px);
+    }
+
+    .txt-container {
+        width: clamp(881px, 50vw, 940px);
+    }
+
+    .img {
+        width: 246px;
+        height: 204px;
+    }
+
+    
+}
