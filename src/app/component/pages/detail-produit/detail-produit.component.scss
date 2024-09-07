@@ -21,13 +21,14 @@
     display: flex;
 }
 
-.container-petit-img{
+.container-petit-img {
     height: 96px;
     width: 96px;
     overflow: hidden;
     cursor: pointer;
     max-width: calc(33.33% - 12.67px);
-    img{
+
+    img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -35,9 +36,10 @@
     }
 }
 
-.container-petit-img:hover img{
+.container-petit-img:hover img {
     transform: scale(1.13);
 }
+
 .container-text {
     h3 {
         font-family: $satoshi;
@@ -72,6 +74,7 @@
         justify-content: center;
         font-weight: $regular;
         transition: background-color 0.3s;
+
         &:hover {
             background-color: darken($color-brown, 6%);
             cursor: pointer;
@@ -81,8 +84,14 @@
     .container-basket {
         margin-top: 16px;
     }
+
 }
 
+p {
+    color: $color-dark;
+    margin-bottom: 27px;
+    font-weight: $regular;
+}
 
 .container-text p:nth-of-type(1) {
     margin-top: 42px;
@@ -101,15 +110,15 @@
     .container-content {
         flex-direction: row;
         justify-content: center;
-        gap: clamp(15px, 5vw , 107px);
+        gap: clamp(15px, 5vw, 107px);
     }
 
-    .container-text{
+    .container-text {
         max-width: clamp(390px, 42vw, 600px);
-      
+        margin-top: 90px;
     }
 
-    .container-img{
+    .container-img {
         width: clamp(473px, 42vw, 689px);
     }
 
@@ -122,12 +131,16 @@
     .petite-image {
         max-width: 330px;
     }
-    
+
+    p {
+        margin-bottom: 63px;
+    }
+
 }
 
 
-@media screen and (min-width: 1128px){
-    .container-text{
+@media screen and (min-width: 1128px) {
+    .container-text {
         a {
             font-size: clamp(16px, 1.5vw, 20px);
         }
