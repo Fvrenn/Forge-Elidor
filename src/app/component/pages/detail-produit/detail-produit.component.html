@@ -2,11 +2,13 @@
     <div class="container">
         <div class="container-content">
             <div class="container-img">
-                <div class="grande-image"><img src="../../../../assets/images/couteau/couteau_1.jpg" alt=""></div>
+                <div class="grande-image">
+                    <img [src]="imagePrincipale" alt="Image principale">
+                </div>
                 <div class="petite-image">
-                    <img src="../../../../assets/images/couteau/couteau_18.jpg" alt="">
-                    <img src="../../../../assets/images/couteau/couteau_18.jpg" alt="">
-                    <img src="../../../../assets/images/couteau/couteau_18.jpg" alt="">
+                    <div class="container-petit-img" *ngFor="let image of images">
+                        <img [src]="image" (click)="changerImagePrincipale(image)" alt="Miniature" class="miniature">
+                    </div>
                 </div>
             </div>
             <div class="container-text">
