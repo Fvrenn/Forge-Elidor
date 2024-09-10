@@ -1,0 +1,110 @@
+@import '../../../../styles/variables.scss';
+
+.img img {
+    width: 516px;
+    height: 611px;
+    object-fit: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+    margin-top: 80px;
+    padding: 0 24px;
+}
+
+.form {
+    width: 500px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+h4 {
+    font-family: $lora;
+    font-size: clamp(32px, 5vw, 58px);
+    color: $color-dark;
+    font-weight: $regular;
+}
+
+label {
+    font-family: $satoshi;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+input {
+    background-color: #F9F9F0;
+    padding: 16px 18px;
+    font-family: $satoshi;
+    font-size: 17px;
+    color: #858582;
+    outline-color: $color-green;
+    border: none;
+    width: 100%;
+}
+
+a {
+    font-family: $satoshi;
+    color: $color-dark;
+    font-size: 16px;
+    font-weight: $regular;
+    text-decoration: underline;
+}
+
+button {
+    font-family: $lora;
+    color: $color-blanc;
+    background-color: $color-green;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-weight: $regular;
+    margin-top: 41px;
+    font-size: 16px;
+    transition: background-color 0.1s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        background-color: darken($color-green, 10%);
+    }
+}
+
+.block-link {
+    display: block;
+    margin-top: 6px;
+    font-family: $satoshi;
+}
+
+form {
+    margin-top: 33px;
+}
+
+.reinitialiser {
+    display: block;
+    margin-top: 14px;
+}
+
+.img {
+    display: none;
+}
+
+#username {
+    margin-bottom: 16px;
+}
+
+.container-input{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 1164px) {
+    .img {
+        display: block;
+    }
+
+
+}

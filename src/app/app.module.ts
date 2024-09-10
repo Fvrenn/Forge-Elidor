@@ -19,6 +19,23 @@ import { BanniereProduitComponent } from './component/composant/pages/produit/ba
 import { GalerieComponent } from './component/pages/galerie/galerie.component';
 import { ActualiteComponent } from './component/pages/actualite/actualite.component';
 import { ActualiteCompComponent } from './component/composant/pages/actualite/actualite-comp/actualite-comp.component';
+import { AdminLayoutComponent } from './component/pages/admin/admin-layout/admin-layout.component';
+import { LoginComponent } from './component/pages/login/login.component';
+import { DashboardComponent } from './component/pages/admin/dashboard/dashboard.component';
+import { CouteauxlistComponent } from './component/pages/admin/couteaux/couteauxlist/couteauxlist.component';
+import { CouteauxaddComponent } from './component/pages/admin/couteaux/couteauxadd/couteauxadd.component';
+import { CouteauxeditComponent } from './component/pages/admin/couteaux/couteauxedit/couteauxedit.component';
+import { CategorieslistComponent } from './component/pages/admin/categories/categorieslist/categorieslist.component';
+import { CategoriesaddComponent } from './component/pages/admin/categories/categoriesadd/categoriesadd.component';
+import { CategorieseditComponent } from './component/pages/admin/categories/categoriesedit/categoriesedit.component';
+import { NewslistComponent } from './component/pages/admin/news/newslist/newslist.component';
+import { NewsaddComponent } from './component/pages/admin/news/newsadd/newsadd.component';
+import { NewseditComponent } from './component/pages/admin/news/newsedit/newsedit.component';
+import { UtilisateurslistComponent } from './component/pages/admin/utilisateurs/utilisateurslist/utilisateurslist.component';
+import { UtilisateurseeditComponent } from './component/pages/admin/utilisateurs/utilisateurseedit/utilisateurseedit.component';
+import { CommandeslistComponent } from './component/pages/admin/commandes/commandeslist/commandeslist.component';
+import { CommandesdetailComponent } from './component/pages/admin/commandes/commandesdetail/commandesdetail.component';
+import { RegisterComponent } from './component/pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +55,24 @@ import { ActualiteCompComponent } from './component/composant/pages/actualite/ac
     BanniereProduitComponent,
     GalerieComponent,
     ActualiteComponent,
-    ActualiteCompComponent
+    ActualiteCompComponent,
+    AdminLayoutComponent,
+    LoginComponent,
+    DashboardComponent,
+    CouteauxlistComponent,
+    CouteauxaddComponent,
+    CouteauxeditComponent,
+    CategorieslistComponent,
+    CategoriesaddComponent,
+    CategorieseditComponent,
+    NewslistComponent,
+    NewsaddComponent,
+    NewseditComponent,
+    UtilisateurslistComponent,
+    UtilisateurseeditComponent,
+    CommandeslistComponent,
+    CommandesdetailComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
