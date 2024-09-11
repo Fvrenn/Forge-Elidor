@@ -1,179 +1,269 @@
-// Main container layout
+@import '../../../../../styles/variables.scss';
+
 .dashboard {
-    display: flex;
+  display: flex;
+  font-family: $satoshi;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: $color-blanc;
+  height: 100vh;
+  padding: 20px;
+
+  .logo {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
   }
-  
-  // Sidebar styling
-  .sidebar {
-    width: 250px;
-    background-color: #f4f4f9;
-    height: 100vh;
-    padding: 20px;
-  
-    .logo {
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 40px;
+
+  .nav-links {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 20px;
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        font-weight: $bold;
+      }
     }
-  
-    .nav-links {
-      list-style: none;
-      padding: 0;
-  
-      li {
-        margin-bottom: 20px;
-  
-        a {
-          text-decoration: none;
-          color: #333;
-          font-size: 18px;
-          display: flex;
-          align-items: center;
-  
-          &:hover {
-            color: #5e72e4;
-          }
+  }
+}
+
+.main-content {
+  flex: 1;
+  padding: 0px;
+  background-color: #f5f5eb;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: $color-blanc;
+    padding: 13px 30px;
+
+    .search-bar {
+      input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 300px;
+        border-radius: 19px;
+        background-color: #F5F6FA;
+      }
+    }
+
+    .profile-section {
+      display: flex;
+      align-items: center;
+
+      .notification-icon {
+        font-size: 20px;
+        margin-right: 20px;
+      }
+
+      .profile {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+
+        span {
+          font-size: 16px;
         }
       }
     }
   }
-  
-  // Main content styling
-  .main-content {
-    flex: 1;
-    padding: 20px;
-  
-    header {
+}
+
+.container {
+  padding: 20px;
+
+  .product-stock {
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: $color-brown;
+      text-transform: none;
+      font-weight: $bold;
+    }
+
+    .product-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
-  
-      .search-bar {
-        input {
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          width: 300px;
+
+      input {
+        height: 38px;
+        background-color: $color-blanc;
+        border-radius: 19px;
+        border: 1px solid #D5D5D5;
+        padding: 13px 17px;
+      }
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 8px 8px 0px 0px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: $color-blanc;
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+
+        img {
+          width: 60px;
+          height: 60px;
+          border-radius: 8px;
+          object-fit: cover;
         }
       }
-  
-      .profile-section {
+
+      th {
+        // background-color: $color-blanc;
+        font-weight: bold;
+      }
+
+      .container-action {
         display: flex;
         align-items: center;
-  
-        .notification-icon {
-          font-size: 20px;
-          margin-right: 20px;
-        }
-  
-        .profile {
+
+        .container-svg {
+          padding: 8.5px 16.5px;
+          background-color: #fafbfd;
           display: flex;
           align-items: center;
-  
-          img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
+          justify-content: center;
+        }
+
+        .edit {
+          border-radius: 8px 0px 0px 8px;
+          border-width: 0.6px 0.3px 0.6px 0.6px;
+          border-style: solid;
+          border-color: #D5D5D5;
+          svg {
+            color: #646465;
           }
-  
-          span {
-            font-size: 16px;
+        }
+
+        .del {
+          border-radius: 0px 8px 8px 0px;
+          border-width: 0.6px 0.6px 0.6px 0.3px;
+          border-style: solid;
+          border-color: #D5D5D5;
+          svg {
+            color: #EF3826;
           }
         }
       }
     }
-  
-    .product-stock {
-      h1 {
-        font-size: 28px;
-        margin-bottom: 20px;
+
+    .color-dots {
+      display: flex;
+
+      .color {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 5px;
       }
-  
-      .table-wrapper {
-        overflow-x: auto;
-  
-        table {
+
+      .black {
+        background-color: #000;
+      }
+
+      .pink {
+        background-color: #f09;
+      }
+
+      .silver {
+        background-color: #ccc;
+      }
+    }
+
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .edit {
+      color: #5e72e4;
+    }
+
+    .delete {
+      color: #e74c3c;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+
+  .main-content {
+    padding: 10px;
+
+    header {
+      .search-bar {
+        input {
           width: 100%;
-          border-collapse: collapse;
-  
-          th,
-          td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-          }
-  
-          th {
-            background-color: #f8f9fa;
-            font-weight: bold;
-          }
-  
-          tr:hover {
-            background-color: #f1f1f1;
-          }
-  
-          .color-dots {
-            display: flex;
-  
-            .color {
-              width: 20px;
-              height: 20px;
-              border-radius: 50%;
-              margin-right: 5px;
-  
-              &.black {
-                background-color: #000;
-              }
-  
-              &.pink {
-                background-color: #f09;
-              }
-  
-              &.silver {
-                background-color: #ccc;
-              }
-            }
-          }
-  
-          button {
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-size: 18px;
-          }
-  
-          .edit {
-            color: #5e72e4;
-          }
-  
-          .delete {
-            color: #e74c3c;
-          }
         }
       }
     }
   }
-  
-  // Responsivity
-  @media (max-width: 768px) {
-    .dashboard {
-      flex-direction: column;
-    }
-  
-    .sidebar {
-      width: 100%;
-      height: auto;
-    }
-  
-    .main-content {
-      padding: 10px;
-    }
-  
-    header .search-bar input {
-      width: 100%;
-    }
+}
+
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  font-size: 16px;
+  transition: background-color 0.1s;
+  &:hover {
+    background-color: rgba($color-green, 0.6); 
+    color: white !important;
+    border-radius: 6px;
   }
-  
+}
+
+.nav-links li.active-link a {
+  background-color: $color-green; 
+  color: white !important;
+  font-weight: 600 !important;
+  border-radius: 6px;
+}
+
