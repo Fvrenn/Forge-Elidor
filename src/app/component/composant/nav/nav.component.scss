@@ -221,7 +221,19 @@ header {
     display: none;
 }
 
-
+.nav-icons svg{
+    width: 20px;
+    height: 20px;
+}
+.nav-icons svg g {
+    transition: fill 0.1s ease-in-out;
+}
+.nav-icons:hover {
+    cursor: pointer;
+    svg g{
+        fill: $color-green;
+    }
+}
 
 @media screen and (max-width: 1920px) and (min-width: 1368px) {
     .nav {
