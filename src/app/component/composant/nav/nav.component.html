@@ -72,9 +72,7 @@
             <a [routerLink]="['/login']" class="nav__link" (click)="closeMenu()">Connexion</a>
           </li> 
           
-          <li class="nav__item" >
-            <a [routerLink]="['/admin']" class="nav__link">Tableau de bord</a>
-          </li>
+       
 
         </ul>
 
@@ -94,6 +92,7 @@
       <div class="container__left-item">
         <a [routerLink]="['/login']" class="nav__link sign-in-default" *ngIf="!isLoggedIn">Connexion</a>
         <a (click)="logout()" class="nav__link" *ngIf="isLoggedIn">Déconnexion</a>
+          <a [routerLink]="['/admin']" *ngIf="isAdmin" class="nav__link">Tableau de bord</a>
           <a class="nav-icons">
             <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="240.000000pt" height="240.000000pt"
               viewBox="0 0 240.000000 240.000000" preserveAspectRatio="xMidYMid meet">

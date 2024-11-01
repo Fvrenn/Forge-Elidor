@@ -19,7 +19,7 @@ import { UtilisateurslistComponent } from './component/pages/admin/utilisateurs/
 import { CommandeslistComponent } from './component/pages/admin/commandes/commandeslist/commandeslist.component';
 import { RegisterComponent } from './component/pages/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
-
+import { AdminGuard } from './guards/admin.guard';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'produit', component: ProduitComponent },
@@ -33,9 +33,10 @@ const routes: Routes = [
   // Routes admin
   {
     path: 'admin',
-    component: AdminLayoutComponent,  // Ce layout n'a pas de navbar/footer
+    component: AdminLayoutComponent,
+    canActivate: [AdminGuard],
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Redirection vers le dashboard
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'couteaux', component: CouteauxlistComponent },
       { path: 'couteaux/add', component: CouteauxaddComponent },

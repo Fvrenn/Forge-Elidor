@@ -13,12 +13,16 @@ export class NavComponent implements OnInit{
   role: string = '';
   isDropdownOpen = false;
   telisOpen = false;
-
+  isAdmin: boolean = false;
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.authService.isLoggedIn.subscribe((loggedIn: boolean) => {
       this.isLoggedIn = loggedIn;
+    });
+
+    this.authService.role.subscribe((role: string | null) => {
+      this.isAdmin = role === 'admin';
     });
   }
   // Bascule l'état du menu entre ouvert et fermé
