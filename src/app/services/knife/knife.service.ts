@@ -14,7 +14,7 @@ export class KnifeService {
     return this.http.get<any>(this.apiUrl);
   }
 
-  addKnife(knife: any): Observable<any> {
+  addKnife(knife: FormData): Observable<any> {
     return this.http.post<any>(this.apiUrl, knife);
   }
 }

@@ -1,13 +1,16 @@
 const express = require('express');
 const Knife = require('../models/Knife');
 const { authenticateAdmin } = require('../middlewares/auth');
+const upload = require('../config/multer');
 
 const router = express.Router();
 
 // Ajouter un couteau
-router.post('/', authenticateAdmin, async (req, res) => {
+router.post('/', authenticateAdmin, upload.single('image'), async (req, res) => {
   try {
-    const knife = await Knife.create(req.body);
+    const { nom, prix, texte, taille_lame, categorie } = req.body;
+    const image = req.file ? `uploads/knife/${req.file.filename}` : null;
+    const knife = await Knife.create({ nom, prix, texte, taille_lame, image, categorie });
     res.status(201).json(knife);
   } catch (error) {
     res.status(400).json({ error: error.message });

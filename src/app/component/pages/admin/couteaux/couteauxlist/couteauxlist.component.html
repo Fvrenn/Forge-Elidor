@@ -19,7 +19,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let knife of knives">
-            <td><img [src]="knife.image" alt="{{ knife.nom }}" /></td>
+            <td><img [src]="'http://localhost:5000/' + knife.image" alt="{{ knife.nom }}" /></td>
             <td>{{ knife.nom }}</td>
             <td>{{ knife.categorie }}</td>
             <td>{{ knife.prix | currency }}</td>

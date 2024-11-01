@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const sequelize = require('./config/database');
 const authRoutes = require('./routes/auth');
@@ -10,6 +11,9 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+// Servir les fichiers statiques du dossier uploads
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/knives', knifeRoutes);

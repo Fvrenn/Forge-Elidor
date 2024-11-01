@@ -15,7 +15,6 @@ export class CouteauxlistComponent implements OnInit {
   ngOnInit(): void {
     this.knifeService.getKnives().subscribe(
       (data: any[]) => {
-        console.log('Knives data:', data); // Ajoutez cette ligne pour vérifier les données
         this.knives = data;
       },
       (error: any) => {

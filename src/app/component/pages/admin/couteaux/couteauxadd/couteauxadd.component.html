@@ -1,1 +1,38 @@
-<p>couteauxadd works!</p>
+<section class="couteaux-add">
+    <div class="container">
+      <button (click)="navigateToList()" class="btn btn-secondary">Retour</button>
+      <h2>Ajouter un nouveau couteau</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" name="nom" class="form-control" [(ngModel)]="couteau.nom" required>
+        </div>
+        <div class="form-group">
+          <label for="prix">Prix</label>
+          <input type="number" id="prix" name="prix" class="form-control" [(ngModel)]="couteau.prix" required>
+        </div>
+        <div class="form-group">
+          <label for="texte">Texte</label>
+          <textarea id="texte" name="texte" class="form-control" [(ngModel)]="couteau.texte" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="taille_lame">Taille de la lame</label>
+          <input type="number" step="0.01" id="taille_lame" name="taille_lame" class="form-control" [(ngModel)]="couteau.taille_lame" required>
+        </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input type="file" id="image" name="image" class="form-control" (change)="onFileSelected($event)" required>
+        </div>
+        <div class="form-group">
+          <label for="categorie">Catégorie</label>
+          <select id="categorie" name="categorie" class="form-control" [(ngModel)]="couteau.categorie" required>
+            <option value="cuisine">Cuisine</option>
+            <option value="outdoor">Outdoor</option>
+            <option value="pliant">Pliant</option>
+            <option value="exception">Exception</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+      </form>
+    </div>
+  </section>
