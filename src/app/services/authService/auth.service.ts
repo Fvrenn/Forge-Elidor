@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-
-  private apiUrl = 'http://localhost:5000/api/auth'; // Assurez-vous que l'URL correspond à votre backend
+  private apiUrl = 'http://localhost:5000/api/auth';
   private loggedIn = new BehaviorSubject<boolean>(this.hasToken());
   private userRole = new BehaviorSubject<string | null>(this.getRole());
 
@@ -53,7 +52,6 @@ export class AuthService {
     this.userRole.next(null);
     this.router.navigate(['/login']);
   }
-
 
 
   getToken(): string | null {

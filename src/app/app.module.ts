@@ -41,6 +41,7 @@ import { RegisterComponent } from './component/pages/register/register.component
 
 import { AuthService } from './services/authService/auth.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { KnifeService } from './services/knife/knife.service';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
   ],
   providers: [
     AuthService,
+    KnifeService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

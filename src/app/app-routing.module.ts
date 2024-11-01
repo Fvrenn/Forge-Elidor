@@ -20,6 +20,7 @@ import { CommandeslistComponent } from './component/pages/admin/commandes/comman
 import { RegisterComponent } from './component/pages/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin.guard';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'produit', component: ProduitComponent },
