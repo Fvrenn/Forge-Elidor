@@ -13,6 +13,10 @@ export class CouteauxlistComponent implements OnInit {
   constructor(private knifeService: KnifeService, private router: Router) {}
 
   ngOnInit(): void {
+    this.loadKnives();
+  }
+
+  loadKnives(): void {
     this.knifeService.getKnives().subscribe(
       (data: any[]) => {
         this.knives = data;
@@ -25,5 +29,16 @@ export class CouteauxlistComponent implements OnInit {
 
   navigateToAddKnife(): void {
     this.router.navigate(['/admin/couteaux/add']);
+  }
+
+  deleteKnife(id: number): void {
+    this.knifeService.deleteKnife(id).subscribe(
+      () => {
+        this.knives = this.knives.filter(knife => knife.id !== id);
+      },
+      (error: any) => {
+        console.error('Failed to delete knife', error);
+      }
+    );
   }
 }

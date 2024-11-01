@@ -27,4 +27,19 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Supprimer un couteau par ID
+router.delete('/:id', authenticateAdmin, async (req, res) => {
+  try {
+    const id = req.params.id;
+    const knife = await Knife.findByPk(id);
+    if (!knife) {
+      return res.status(404).json({ error: 'Couteau non trouvé' });
+    }
+    await knife.destroy();
+    res.status(204).send();
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
 module.exports = router;
