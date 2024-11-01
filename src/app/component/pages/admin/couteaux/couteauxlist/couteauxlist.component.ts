@@ -7,7 +7,7 @@ import { KnifeService } from '../../../../../services/knife/knife.service';
   templateUrl: './couteauxlist.component.html',
   styleUrl: './couteauxlist.component.scss'
 })
-export class CouteauxlistComponent implements OnInit{
+export class CouteauxlistComponent implements OnInit {
   knives: any[] = [];
 
   constructor(private knifeService: KnifeService, private router: Router) {}
@@ -15,6 +15,7 @@ export class CouteauxlistComponent implements OnInit{
   ngOnInit(): void {
     this.knifeService.getKnives().subscribe(
       (data: any[]) => {
+        console.log('Knives data:', data); // Ajoutez cette ligne pour vérifier les données
         this.knives = data;
       },
       (error: any) => {
