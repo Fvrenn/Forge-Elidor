@@ -1,24 +1,21 @@
 <section class="login">
     <div class="container">
-        <div class="img"><img src="../../../../assets/images/a-propos/DSC04848.JPG" alt=""></div>
-        <div class="form">
-            <h4>Login</h4>
-            <form>
-                <div class="form-group">
-                    <label for="username">Adress Email</label>
-                    <input type="text" id="username" name="username" class="form-control"
-                        placeholder="Votre adress email">
-                </div>
-                <div class="form-group">
-                    <label for="password">Mots de passe</label>
-                    <input type="password" id="password" name="password" class="form-control"
-                        placeholder="Votre mots de passe">
-                </div>
-                <a class="reinitialiser">Réinitialiser le mot de passe</a>
-                <button [routerLink]="['/admin']" class="btn btn-primary">Login</button>
-                <span class="block-link">Vous n’avez pas de compte? <a [routerLink]="['/register']"> Crée en un !</a></span>
-
-            </form>
-        </div>
+      <div class="img"><img src="../../../../assets/images/a-propos/DSC04848.JPG" alt=""></div>
+      <div class="form">
+        <h4>Login</h4>
+        <form (ngSubmit)="login()">
+          <div class="form-group">
+            <label for="email">Adress Email</label>
+            <input type="text" id="email" name="email" class="form-control" [(ngModel)]="email" placeholder="Votre adress email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Mots de passe</label>
+            <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password" placeholder="Votre mots de passe" required>
+          </div>
+          <a class="reinitialiser">Réinitialiser le mot de passe</a>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <span class="block-link">Vous n’avez pas de compte? <a [routerLink]="['/register']"> Crée en un !</a></span>
+        </form>
+      </div>
     </div>
-</section>
+  </section>

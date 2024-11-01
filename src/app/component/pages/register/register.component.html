@@ -1,34 +1,29 @@
 <section class="register">
     <div class="container">
-        <div class="img"><img src="../../../../assets/images/a-propos/337549619_129471643274124_7330559572900771221_n.jpg" alt=""></div>
-        <div class="form">
-            <h4>Crée un compte</h4>
-            <form>
-                <div class="container-input">
-                    <div class="form-group">
-                        <label for="username">Nom</label>
-                        <input type="text" id="username" name="username" class="form-control"
-                            placeholder="Votre nom">
-                    </div>
-                    <div class="form-group">
-                        <label for="username">Prenom</label>
-                        <input type="text" id="username" name="username" class="form-control"
-                            placeholder="Votre prenom">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="username">Adress Email</label>
-                    <input type="text" id="username" name="username" class="form-control"
-                        placeholder="Votre adress email">
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Mots de passe</label>
-                    <input type="password" id="password" name="password" class="form-control"
-                        placeholder="Votre mots de passe">
-                </div>
-                <button [routerLink]="['/admin']" class="btn btn-primary">Crée un compte</button>
-            </form>
-        </div>
+      <div class="img"><img src="../../../../assets/images/a-propos/337549619_129471643274124_7330559572900771221_n.jpg" alt=""></div>
+      <div class="form">
+        <h4>Crée un compte</h4>
+        <form (ngSubmit)="register()">
+          <div class="container-input">
+            <div class="form-group">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" class="form-control" [(ngModel)]="nom" placeholder="Votre nom" required>
+            </div>
+            <div class="form-group">
+              <label for="prenom">Prenom</label>
+              <input type="text" id="prenom" name="prenom" class="form-control" [(ngModel)]="prenom" placeholder="Votre prenom" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Adress Email</label>
+            <input type="email" id="email" name="email" class="form-control" [(ngModel)]="email" placeholder="Votre adress email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Mots de passe</label>
+            <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password" placeholder="Votre mots de passe" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Crée un compte</button>
+        </form>
+      </div>
     </div>
-</section>
+  </section>

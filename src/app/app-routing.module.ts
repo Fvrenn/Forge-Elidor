@@ -18,6 +18,7 @@ import { NewslistComponent } from './component/pages/admin/news/newslist/newslis
 import { UtilisateurslistComponent } from './component/pages/admin/utilisateurs/utilisateurslist/utilisateurslist.component';
 import { CommandeslistComponent } from './component/pages/admin/commandes/commandeslist/commandeslist.component';
 import { RegisterComponent } from './component/pages/register/register.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,8 +27,8 @@ const routes: Routes = [
   { path: 'detail-produit', component: DetailProduitComponent },
   { path: 'galerie', component: GalerieComponent },
   { path: 'actualite', component: ActualiteComponent },
-  { path: 'login', component: LoginComponent },
-  {path: 'register', component: RegisterComponent},
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
 
   // Routes admin
   {

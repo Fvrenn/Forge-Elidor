@@ -68,17 +68,14 @@
           <li class="nav__item" *ngIf="!telisOpen">
             <a [routerLink]="['/actualite']" class="nav__link" (click)="closeMenu()">Actualité</a>
           </li>
-          <li class="nav__item sign-in-min" *ngIf="!telisOpen">
-            <a [routerLink]="['/login']" class="nav__link" (click)="closeMenu()">Sign in</a>
+          <li class="nav__item sign-in-min" *ngIf="!telisOpen && !isLoggedIn">
+            <a [routerLink]="['/login']" class="nav__link" (click)="closeMenu()">Connexion</a>
           </li> 
           
           <li class="nav__item" >
             <a [routerLink]="['/admin']" class="nav__link">Tableau de bord</a>
           </li>
-          
-          <li class="nav__item " *ngIf="!telisOpen && isLoggedIn">
-            <a  class="nav__link">Déconnexion</a>
-          </li>
+
         </ul>
 
         <!-- CLOSE BUTTON  -->
@@ -95,7 +92,8 @@
 
     <div class="nav__actions">
       <div class="container__left-item">
-        <a [routerLink]="['/login']" class="nav__link sign-in-default" *ngIf="!isLoggedIn">Sign in</a>
+        <a [routerLink]="['/login']" class="nav__link sign-in-default" *ngIf="!isLoggedIn">Connexion</a>
+        <a (click)="logout()" class="nav__link" *ngIf="isLoggedIn">Déconnexion</a>
           <a class="nav-icons">
             <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="240.000000pt" height="240.000000pt"
               viewBox="0 0 240.000000 240.000000" preserveAspectRatio="xMidYMid meet">

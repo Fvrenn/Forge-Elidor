@@ -1,5 +1,7 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; // Ajoutez cette ligne
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +38,9 @@ import { UtilisateurseeditComponent } from './component/pages/admin/utilisateurs
 import { CommandeslistComponent } from './component/pages/admin/commandes/commandeslist/commandeslist.component';
 import { CommandesdetailComponent } from './component/pages/admin/commandes/commandesdetail/commandesdetail.component';
 import { RegisterComponent } from './component/pages/register/register.component';
+
+import { AuthService } from './services/authService/auth.service';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -76,9 +81,14 @@ import { RegisterComponent } from './component/pages/register/register.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
