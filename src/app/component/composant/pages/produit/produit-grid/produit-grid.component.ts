@@ -19,10 +19,13 @@ export class ProduitGridComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadKnives();
-    this.routerSubscription = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      this.applyFilterFromUrl();
+    this.route.params.subscribe(params => {
+      if (params['category']) {
+        this.selectedCategory = params['category'];
+        this.filterKnives(this.selectedCategory);
+      } else {
+        this.filterKnives('');
+      }
     });
   }
 

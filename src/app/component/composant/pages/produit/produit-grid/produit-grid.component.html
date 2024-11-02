@@ -1,14 +1,14 @@
 <section>
   <div class="container-produit">
     <div class="container-card">
-      <div style="width: 100%;">
+      <div class="grand">
         <div class="scroll-container">
           <div class="btn-container">
-            <button [routerLink]="['/produit', '']">Voir Tout</button>
-            <button [routerLink]="['/produit', 'cuisine']">Couteaux de Cuisine</button>
-            <button [routerLink]="['/produit', 'outdoor']">Couteaux Outdoor</button>
-            <button [routerLink]="['/produit', 'pliant']">Couteaux Pliant</button>
-            <button [routerLink]="['/produit', 'exception']">Couteaux D'exception</button>
+            <button [routerLink]="['/produit', '']" routerLinkActive="active-btn" [routerLinkActiveOptions]="{ exact: true }">Voir Tout</button>
+            <button [routerLink]="['/produit', 'cuisine']" routerLinkActive="active-btn">Couteaux de Cuisine</button>
+            <button [routerLink]="['/produit', 'outdoor']" routerLinkActive="active-btn">Couteaux Outdoor</button>
+            <button [routerLink]="['/produit', 'pliant']" routerLinkActive="active-btn">Couteaux Pliant</button>
+            <button [routerLink]="['/produit', 'exception']" routerLinkActive="active-btn">Couteaux D'exception</button>
           </div>
         </div>
         <div class="txt-container">

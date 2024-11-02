@@ -187,6 +187,14 @@ article {
 }
 
 
+.active-btn {
+    background-color: $color-brown !important;
+    color: $color-white !important;
+}
+.grand{
+    width: 100%;
+}
+
 @media screen and (max-width: 838px) {
     .scroll-container {
         width: clamp(200px, 90vw, 800px);

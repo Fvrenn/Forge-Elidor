@@ -55,7 +55,7 @@ export class BanniereProduitComponent implements OnInit, OnDestroy {
         break;
       default:
         this.currentCategory = 'Tous les couteaux';
-        this.bannerImage = '../../../../../../assets/images/produit/banniere-produit/banniere-cuisine.jpg';
+        this.bannerImage = '../../../../../../assets/images/produit/banniere-produit/banniere-tout.jpg';
         break;
     }
   }
