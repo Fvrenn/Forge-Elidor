@@ -20,10 +20,14 @@ import { CommandeslistComponent } from './component/pages/admin/commandes/comman
 import { RegisterComponent } from './component/pages/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { ProduitGridComponent } from './component/composant/pages/produit/produit-grid/produit-grid.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'produit', component: ProduitComponent },
+  { path: 'produit', component: ProduitComponent, children: [
+    { path: '', component: ProduitGridComponent },
+    { path: ':category', component: ProduitGridComponent }
+  ]},
   { path: 'atelier', component: AtelierComponent },
   { path: 'detail-produit', component: DetailProduitComponent },
   { path: 'galerie', component: GalerieComponent },

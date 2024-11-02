@@ -16,6 +16,7 @@ export class NavComponent implements OnInit{
   isAdmin: boolean = false;
   constructor(private authService: AuthService, private router: Router) {}
 
+
   ngOnInit(): void {
     this.authService.isLoggedIn.subscribe((loggedIn: boolean) => {
       this.isLoggedIn = loggedIn;
@@ -25,6 +26,7 @@ export class NavComponent implements OnInit{
       this.isAdmin = role === 'admin';
     });
   }
+  
   // Bascule l'état du menu entre ouvert et fermé
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -53,5 +55,14 @@ export class NavComponent implements OnInit{
     if (window.innerWidth <= 1024) {
       this.telisOpen = !this.telisOpen;
     }
+  }
+
+  navigateToCategory(category: string): void {
+    this.router.navigate(['/produit'], { queryParams: { category } }).then(() => {
+      const produitGridComponent = document.querySelector('app-produit-grid');
+      if (produitGridComponent) {
+        (produitGridComponent as any).filterKnives(category);
+      }
+    });
   }
 }

@@ -27,9 +27,9 @@
               </svg>Retour
 
             </a>
-            <ul class="dropdown-menu" [ngClass]="{'show': isDropdownOpen, 'dropdown-menu-show': telisOpen}">
+            <ul class="dropdown-menu" [ngClass]="{'show': isDropdownOpen, 'dropdown-menu-show': telisOpen}" >
               <div class="container-drop-down">
-                <li><a class="nav_link-dropdown" href="#">Voir tout les couteaux disponibles <svg aria-hidden="true"
+                <li><a class="nav_link-dropdown" [routerLink]="['/produit']" [queryParams]="{ category: '' }" href="#">Voir tout les couteaux disponibles <svg aria-hidden="true"
                       class="arrow-item" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 16">
                       <path stroke="currentColor" stroke-width="1.5"
                         d="M.000162 8H15.3335m0 0-6.08131 6m6.08131-6L9.2522 2"></path>
@@ -37,19 +37,19 @@
                 </li>
                 <hr>
                 <div class="container-produit">
-                  <li><a [routerLink]="['/produit']" class="nav_link-dropdown-produit" href="#"> <span><img
+                  <li><a [routerLink]="['/produit']" [queryParams]="{ category: 'cuisine' }" class="nav_link-dropdown-produit" href="#"> <span><img
                           src="../../../../assets/icons/nav/cuisine.svg" alt=""> <img
                           src="../../../../assets/icons/nav/cuisine-hover.svg" alt=""> </span>Couteaux de cuisines</a>
                   </li>
-                  <li><a [routerLink]="['/produit']" class="nav_link-dropdown-produit" href="#"> <span><img
+                  <li><a [routerLink]="['/produit']" [queryParams]="{ category: 'pliant' }" class="nav_link-dropdown-produit" href="#"> <span><img
                           src="../../../../assets/icons/nav/pliant.svg" alt=""> <img
                           src="../../../../assets/icons/nav/pliant-hover.svg" alt=""> </span>Couteaux pliant</a>
                   </li>
-                  <li><a [routerLink]="['/produit']" class="nav_link-dropdown-produit" href="#"> <span><img
+                  <li><a [routerLink]="['/produit']" [queryParams]="{ category: 'outdoor' }" class="nav_link-dropdown-produit" href="#"> <span><img
                           src="../../../../assets/icons/nav/outdor.svg" alt=""> <img
-                          src="../../../../assets/icons/nav/outdor-hover.svg" alt=""> </span>Couteaux outdor</a>
+                          src="../../../../assets/icons/nav/outdor-hover.svg" alt=""> </span>Couteaux outdoor</a>
                   </li>
-                  <li><a [routerLink]="['/produit']" class="nav_link-dropdown-produit" href="#"> <span><img
+                  <li><a [routerLink]="['/produit']" [queryParams]="{ category: 'exception' }" class="nav_link-dropdown-produit" href="#"> <span><img
                           src="../../../../assets/icons/nav/exception.svg" alt=""> <img
                           src="../../../../assets/icons/nav/exception-hover.svg" alt=""> </span>Couteaux
                       d'exceptiion</a>

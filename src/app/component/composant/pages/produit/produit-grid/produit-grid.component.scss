@@ -3,6 +3,7 @@
 
 .btn-container {
     display: flex;
+    flex-wrap: wrap;
     gap: 14px;
     margin-bottom: 30px;
 }
@@ -195,6 +196,7 @@ article {
     
     .btn-container {
         white-space: nowrap;
+        flex-wrap: nowrap;
     }
 }
 
