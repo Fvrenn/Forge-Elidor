@@ -1,41 +1,41 @@
 <section>
-    <div class="container-produit">
-      <div class="container-card">
-        <div style="width: 100%;">
-          <div class="scroll-container">
-            <div class="btn-container">
-              <button (click)="filterKnives('')">Voir Tout</button>
-              <button (click)="filterKnives('Cuisine')">Couteaux de Cuisine</button>
-              <button (click)="filterKnives('Outdoor')">Couteaux Outdoor</button>
-              <button (click)="filterKnives('Pliant')">Couteaux Pliant</button>
-              <button (click)="filterKnives('Exception')">Couteaux D'exception</button>
-            </div>
+  <div class="container-produit">
+    <div class="container-card">
+      <div style="width: 100%;">
+        <div class="scroll-container">
+          <div class="btn-container">
+            <button [routerLink]="['/produit', '']">Voir Tout</button>
+            <button [routerLink]="['/produit', 'cuisine']">Couteaux de Cuisine</button>
+            <button [routerLink]="['/produit', 'outdoor']">Couteaux Outdoor</button>
+            <button [routerLink]="['/produit', 'pliant']">Couteaux Pliant</button>
+            <button [routerLink]="['/produit', 'exception']">Couteaux D'exception</button>
           </div>
-          <div class="txt-container">
-            <h4>{{ filteredKnives.length }} Couteaux disponibles</h4>
-            <p>Ces couteaux sont encore disponibles à la vente.</p>
-          </div>
-          <div class="row">
-            <div class="card" *ngFor="let knife of filteredKnives">
-              <div class="card-img" (mouseenter)="showBasket($event)" (mouseleave)="hideBasket($event)">
-                <img [src]="'http://localhost:5000/' + knife.image" alt="{{ knife.nom }}">
-                <div class="add-basket">
-                  <a href="">Ajouter au panier</a>
-                </div>
+        </div>
+        <div class="txt-container">
+          <h4>{{ filteredKnives.length }} Couteaux disponibles</h4>
+          <p>Ces couteaux sont encore disponibles à la vente.</p>
+        </div>
+        <div class="row">
+          <div class="card" *ngFor="let knife of filteredKnives">
+            <div class="card-img" (mouseenter)="showBasket($event)" (mouseleave)="hideBasket($event)">
+              <img [src]="'http://localhost:5000/' + knife.image" alt="{{ knife.nom }}">
+              <div class="add-basket">
+                <a href="">Ajouter au panier</a>
               </div>
-              <div class="info-container">
-                <div class="header-texte">
-                  <h6>{{ knife.nom }}</h6>
-                  <h6>{{ knife.prix | currency }}</h6>
-                </div>
-                <div class="container-info-txt">
-                  <p class="para">{{ knife.texte }}</p>
-                  <p class="dimenssion">{{ knife.taille_lame }} cm</p>
-                </div>
+            </div>
+            <div class="info-container">
+              <div class="header-texte">
+                <h6>{{ knife.nom }}</h6>
+                <h6>{{ knife.prix | currency }}</h6>
+              </div>
+              <div class="container-info-txt">
+                <p class="para">{{ knife.texte }}</p>
+                <p class="dimenssion">{{ knife.taille_lame }} cm</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
