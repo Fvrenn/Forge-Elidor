@@ -31,6 +31,10 @@ export class CouteauxlistComponent implements OnInit {
     this.router.navigate(['/admin/couteaux/add']);
   }
 
+  navigateToEditKnife(id: number): void {
+    this.router.navigate(['/admin/couteaux/edit', id]);
+  }
+
   deleteKnife(id: number): void {
     this.knifeService.deleteKnife(id).subscribe(
       () => {

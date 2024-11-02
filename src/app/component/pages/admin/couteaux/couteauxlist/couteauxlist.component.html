@@ -26,7 +26,7 @@
             <td>{{ knife.texte }}</td>
             <td>
               <div class="container-action">
-                <div class="container-svg edit">
+                <div class="container-svg edit" (click)="navigateToEditKnife(knife.id)">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="File / Note_Edit">
                       <path id="Vector"

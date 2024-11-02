@@ -1,38 +1,56 @@
 <section class="couteaux-add">
-    <div class="container">
-      <button (click)="navigateToList()" class="btn btn-secondary">Retour</button>
-      <h2>Ajouter un nouveau couteau</h2>
-      <form (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="nom">Nom</label>
-          <input type="text" id="nom" name="nom" class="form-control" [(ngModel)]="couteau.nom" required>
+  <div class="container">
+    <button (click)="navigateToList()" class="btn retour">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Arrow / Arrow_Left_MD">
+          <path id="Vector" d="M19 12H5M5 12L11 18M5 12L11 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </svg>
+      Retour
+    </button>
+    <h1>Ajouter un nouveau couteau</h1>
+    <form (ngSubmit)="onSubmit()" class="form-container">
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" class="form-control" [(ngModel)]="couteau.nom" required>
+      </div>
+      <div class="form-group">
+        <label for="prix">Prix</label>
+        <input type="number" id="prix" name="prix" class="form-control" [(ngModel)]="couteau.prix" required>
+      </div>
+      <div class="form-group">
+        <label for="taille_lame">Taille de la lame</label>
+        <input type="number" step="0.01" id="taille_lame" name="taille_lame" class="form-control" [(ngModel)]="couteau.taille_lame" required>
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input type="file" id="image" name="image" class="form-control" (change)="onFileSelected($event)" required>
+      </div>
+      <div class="form-group">
+        <label for="categorie">Catégorie</label>
+        <div class="select-menu" [class.active]="dropdownActive" (click)="toggleDropdown()">
+          <div class="select-btn">
+            <span class="sBtn-text">{{ selectedCategory }}</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="Arrow / Chevron_Down">
+                <path id="Vector" d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </svg>
+          </div>
+          <ul class="options">
+            <li class="option" *ngFor="let category of categories" (click)="selectCategory(category)">
+              <span class="option-text">{{ category }}</span>
+            </li>
+          </ul>
         </div>
-        <div class="form-group">
-          <label for="prix">Prix</label>
-          <input type="number" id="prix" name="prix" class="form-control" [(ngModel)]="couteau.prix" required>
-        </div>
-        <div class="form-group">
-          <label for="texte">Texte</label>
-          <textarea id="texte" name="texte" class="form-control" [(ngModel)]="couteau.texte" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="taille_lame">Taille de la lame</label>
-          <input type="number" step="0.01" id="taille_lame" name="taille_lame" class="form-control" [(ngModel)]="couteau.taille_lame" required>
-        </div>
-        <div class="form-group">
-          <label for="image">Image</label>
-          <input type="file" id="image" name="image" class="form-control" (change)="onFileSelected($event)" required>
-        </div>
-        <div class="form-group">
-          <label for="categorie">Catégorie</label>
-          <select id="categorie" name="categorie" class="form-control" [(ngModel)]="couteau.categorie" required>
-            <option value="cuisine">Cuisine</option>
-            <option value="outdoor">Outdoor</option>
-            <option value="pliant">Pliant</option>
-            <option value="exception">Exception</option>
-          </select>
-        </div>
+      </div>
+      <div class="form-group text">
+        <label for="texte">Texte</label>
+        <textarea id="texte" name="texte" class="form-control" [(ngModel)]="couteau.texte" required></textarea>
+      </div>
+      <div class="form-group button-group">
         <button type="submit" class="btn btn-primary">Ajouter</button>
-      </form>
-    </div>
-  </section>
+      </div>
+    </form>
+  </div>
+</section>

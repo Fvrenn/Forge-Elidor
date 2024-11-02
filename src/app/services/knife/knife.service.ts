@@ -14,8 +14,16 @@ export class KnifeService {
     return this.http.get<any>(this.apiUrl);
   }
 
+  getKnifeById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+
   addKnife(knife: FormData): Observable<any> {
     return this.http.post<any>(this.apiUrl, knife);
+  }
+
+  updateKnife(id: number, knife: FormData): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, knife);
   }
 
   deleteKnife(id: number): Observable<any> {

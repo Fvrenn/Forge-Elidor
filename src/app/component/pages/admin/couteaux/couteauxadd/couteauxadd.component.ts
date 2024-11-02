@@ -17,11 +17,24 @@ export class CouteauxaddComponent {
     categorie: 'cuisine'
   };
   selectedFile: File | null = null;
+  categories: string[] = ['Cuisine', 'Outdoor', 'Pliant', 'Exception'];
+  selectedCategory: string = 'Cuisine';
+  dropdownActive: boolean = false;
 
   constructor(private knifeService: KnifeService, private router: Router) {}
 
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0];
+  }
+
+  toggleDropdown(): void {
+    this.dropdownActive = !this.dropdownActive;
+  }
+
+  selectCategory(category: string): void {
+    this.selectedCategory = category;
+    this.couteau.categorie = category;
+    this.dropdownActive = false; // Ferme le dropdown après la sélection
   }
 
   onSubmit(): void {

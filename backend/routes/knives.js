@@ -26,7 +26,71 @@ router.get('/', async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 });
+// Récupérer un couteau par ID
+router.get('/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const knife = await Knife.findByPk(id);
+    if (!knife) {
+      return res.status(404).json({ error: 'Couteau non trouvé' });
+    }
+    res.json(knife);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
 
+// Mettre à jour un couteau par ID
+router.put('/:id', authenticateAdmin, upload.single('image'), async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { nom, prix, texte, taille_lame, categorie } = req.body;
+    const knife = await Knife.findByPk(id);
+    if (!knife) {
+      return res.status(404).json({ error: 'Couteau non trouvé' });
+    }
+    const image = req.file ? `uploads/knife/${req.file.filename}` : knife.image;
+    await knife.update({ nom, prix, texte, taille_lame, image, categorie });
+    res.json(knife);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+
+
+
+
+// Récupérer un couteau par ID
+router.get('/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const knife = await Knife.findByPk(id);
+    if (!knife) {
+      return res.status(404).json({ error: 'Couteau non trouvé' });
+    }
+    res.json(knife);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Mettre à jour un couteau par ID
+router.put('/:id', authenticateAdmin, upload.single('image'), async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { nom, prix, texte, taille_lame, categorie } = req.body;
+    const knife = await Knife.findByPk(id);
+    if (!knife) {
+      return res.status(404).json({ error: 'Couteau non trouvé' });
+    }
+    const image = req.file ? `uploads/knife/${req.file.filename}` : knife.image;
+    await knife.update({ nom, prix, texte, taille_lame, image, categorie });
+    res.json(knife);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
 // Supprimer un couteau par ID
 router.delete('/:id', authenticateAdmin, async (req, res) => {
   try {
