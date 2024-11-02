@@ -29,7 +29,7 @@ const routes: Routes = [
     { path: ':category', component: ProduitGridComponent }
   ]},
   { path: 'atelier', component: AtelierComponent },
-  { path: 'detail-produit', component: DetailProduitComponent },
+  { path: 'detail-produit/:id', component: DetailProduitComponent },
   { path: 'galerie', component: GalerieComponent },
   { path: 'actualite', component: ActualiteComponent },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },

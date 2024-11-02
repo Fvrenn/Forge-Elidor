@@ -39,7 +39,7 @@ export class ProduitGridComponent implements OnInit, OnDestroy {
     this.knifeService.getKnives().subscribe(
       (data: any[]) => {
         this.knives = data;
-        this.applyFilterFromUrl();
+        this.filterKnives(this.selectedCategory);
       },
       (error: any) => {
         console.error('Failed to fetch knives', error);
@@ -77,5 +77,9 @@ export class ProduitGridComponent implements OnInit, OnDestroy {
     if (element) {
       element.classList.remove('show');
     }
+  }
+
+  navigateToDetail(id: number): void {
+    this.router.navigate(['/detail-produit', id]);
   }
 }

@@ -16,7 +16,7 @@
           <p>Ces couteaux sont encore disponibles à la vente.</p>
         </div>
         <div class="row">
-          <div class="card" *ngFor="let knife of filteredKnives">
+          <div class="card" *ngFor="let knife of filteredKnives" (click)="navigateToDetail(knife.id)">
             <div class="card-img" (mouseenter)="showBasket($event)" (mouseleave)="hideBasket($event)">
               <img [src]="'http://localhost:5000/' + knife.image" alt="{{ knife.nom }}">
               <div class="add-basket">

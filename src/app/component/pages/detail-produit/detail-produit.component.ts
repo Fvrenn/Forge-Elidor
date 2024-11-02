@@ -1,21 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { KnifeService } from '../../../services/knife/knife.service';
 
 @Component({
   selector: 'app-detail-produit',
   templateUrl: './detail-produit.component.html',
-  styleUrl: './detail-produit.component.scss'
+  styleUrls: ['./detail-produit.component.scss']
 })
+export class DetailProduitComponent implements OnInit {
+  couteau: any = {};
+  imagePrincipale: string = '';
+  images: string[] = [];
 
-export class DetailProduitComponent {
-  imagePrincipale: string = '../../../../assets/images/couteau/couteau_1.jpg';
-  
-  images: string[] = [
-    '../../../../assets/images/couteau/couteau_1.jpg',
-    '../../../../assets/images/couteau/couteau_9.jpg',
-    '../../../../assets/images/couteau/couteau_4.jpg'
-  ];
+  constructor(private knifeService: KnifeService, private route: ActivatedRoute) {}
 
-  changerImagePrincipale(nouvelleImage: string) {
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.knifeService.getKnifeById(+id).subscribe(
+        (data: any) => {
+          this.couteau = data;
+          this.imagePrincipale = this.getFullImagePath(data.image);
+          this.images = [this.getFullImagePath(data.image)]; // Ajoutez d'autres images si disponibles
+        },
+        (error: any) => {
+          console.error('Failed to fetch knife', error);
+        }
+      );
+    }
+  }
+
+  getFullImagePath(image: string): string {
+    return `http://localhost:5000/${image}`;
+  }
+
+  changerImagePrincipale(nouvelleImage: string): void {
     this.imagePrincipale = nouvelleImage;
   }
 }
