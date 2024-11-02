@@ -20,8 +20,8 @@ export class DetailProduitComponent implements OnInit {
       this.knifeService.getKnifeById(+id).subscribe(
         (data: any) => {
           this.couteau = data;
-          this.imagePrincipale = this.getFullImagePath(data.image);
-          this.images = [this.getFullImagePath(data.image)]; // Ajoutez d'autres images si disponibles
+          this.imagePrincipale = this.getFullImagePath(data.images[0]);
+          this.images = data.images.map((image: string) => this.getFullImagePath(image));
         },
         (error: any) => {
           console.error('Failed to fetch knife', error);

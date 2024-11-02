@@ -13,18 +13,18 @@ export class CouteauxaddComponent {
     prix: 0,
     texte: '',
     taille_lame: 0,
-    image: '',
+    images: [],
     categorie: 'cuisine'
   };
-  selectedFile: File | null = null;
+  selectedFiles: File[] = [];
   categories: string[] = ['Cuisine', 'Outdoor', 'Pliant', 'Exception'];
   selectedCategory: string = 'Cuisine';
   dropdownActive: boolean = false;
 
   constructor(private knifeService: KnifeService, private router: Router) {}
 
-  onFileSelected(event: any): void {
-    this.selectedFile = event.target.files[0];
+  onFilesSelected(event: any): void {
+    this.selectedFiles = Array.from(event.target.files);
   }
 
   toggleDropdown(): void {
@@ -38,13 +38,15 @@ export class CouteauxaddComponent {
   }
 
   onSubmit(): void {
-    if (this.selectedFile) {
+    if (this.selectedFiles.length > 0) {
       const formData = new FormData();
       formData.append('nom', this.couteau.nom);
       formData.append('prix', this.couteau.prix.toString());
       formData.append('texte', this.couteau.texte);
       formData.append('taille_lame', this.couteau.taille_lame.toString());
-      formData.append('image', this.selectedFile, this.selectedFile.name);
+      this.selectedFiles.forEach((file, index) => {
+        formData.append('images', file, file.name);
+      });
       formData.append('categorie', this.couteau.categorie);
 
       this.knifeService.addKnife(formData).subscribe(

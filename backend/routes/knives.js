@@ -6,13 +6,26 @@ const upload = require('../config/multer');
 const router = express.Router();
 
 // Ajouter un couteau
-router.post('/', authenticateAdmin, upload.single('image'), async (req, res) => {
+router.post('/', authenticateAdmin, upload.array('images', 10), async (req, res) => {
   try {
+    console.log('Request body:', req.body);
+    console.log('Uploaded files:', req.files);
+
     const { nom, prix, texte, taille_lame, categorie } = req.body;
-    const image = req.file ? `uploads/knife/${req.file.filename}` : null;
-    const knife = await Knife.create({ nom, prix, texte, taille_lame, image, categorie });
+    const images = req.files.map(file => `uploads/knife/${file.filename}`);
+    
+    const knife = await Knife.create({
+      nom,
+      prix: parseFloat(prix),
+      texte,
+      taille_lame: parseFloat(taille_lame),
+      images,
+      categorie
+    });
+
     res.status(201).json(knife);
   } catch (error) {
+    console.error('Error creating knife:', error);
     res.status(400).json({ error: error.message });
   }
 });
@@ -23,43 +36,10 @@ router.get('/', async (req, res) => {
     const knives = await Knife.findAll();
     res.json(knives);
   } catch (error) {
+    console.error('Error fetching knives:', error);
     res.status(400).json({ error: error.message });
   }
 });
-// Récupérer un couteau par ID
-router.get('/:id', async (req, res) => {
-  try {
-    const id = req.params.id;
-    const knife = await Knife.findByPk(id);
-    if (!knife) {
-      return res.status(404).json({ error: 'Couteau non trouvé' });
-    }
-    res.json(knife);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
-
-// Mettre à jour un couteau par ID
-router.put('/:id', authenticateAdmin, upload.single('image'), async (req, res) => {
-  try {
-    const id = req.params.id;
-    const { nom, prix, texte, taille_lame, categorie } = req.body;
-    const knife = await Knife.findByPk(id);
-    if (!knife) {
-      return res.status(404).json({ error: 'Couteau non trouvé' });
-    }
-    const image = req.file ? `uploads/knife/${req.file.filename}` : knife.image;
-    await knife.update({ nom, prix, texte, taille_lame, image, categorie });
-    res.json(knife);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
-
-
-
-
 
 // Récupérer un couteau par ID
 router.get('/:id', async (req, res) => {
@@ -71,37 +51,22 @@ router.get('/:id', async (req, res) => {
     }
     res.json(knife);
   } catch (error) {
+    console.error('Error fetching knife:', error);
     res.status(400).json({ error: error.message });
   }
 });
 
-// Mettre à jour un couteau par ID
-router.put('/:id', authenticateAdmin, upload.single('image'), async (req, res) => {
-  try {
-    const id = req.params.id;
-    const { nom, prix, texte, taille_lame, categorie } = req.body;
-    const knife = await Knife.findByPk(id);
-    if (!knife) {
-      return res.status(404).json({ error: 'Couteau non trouvé' });
-    }
-    const image = req.file ? `uploads/knife/${req.file.filename}` : knife.image;
-    await knife.update({ nom, prix, texte, taille_lame, image, categorie });
-    res.json(knife);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
-// Supprimer un couteau par ID
+// Supprimer un couteau
 router.delete('/:id', authenticateAdmin, async (req, res) => {
   try {
-    const id = req.params.id;
-    const knife = await Knife.findByPk(id);
+    const knife = await Knife.findByPk(req.params.id);
     if (!knife) {
       return res.status(404).json({ error: 'Couteau non trouvé' });
     }
     await knife.destroy();
     res.status(204).send();
   } catch (error) {
+    console.error('Error deleting knife:', error);
     res.status(400).json({ error: error.message });
   }
 });

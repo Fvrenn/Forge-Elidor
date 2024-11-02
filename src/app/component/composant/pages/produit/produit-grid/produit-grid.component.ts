@@ -13,19 +13,27 @@ export class ProduitGridComponent implements OnInit, OnDestroy {
   knives: any[] = [];
   filteredKnives: any[] = [];
   selectedCategory: string = '';
-  private routerSubscription!: Subscription; // Utiliser l'opérateur !
+  private routerSubscription!: Subscription;
 
-  constructor(private knifeService: KnifeService, private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private knifeService: KnifeService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    // Charger les couteaux initialement
     this.loadKnives();
-    this.route.params.subscribe(params => {
-      if (params['category']) {
-        this.selectedCategory = params['category'];
-        this.filterKnives(this.selectedCategory);
-      } else {
-        this.filterKnives('');
-      }
+
+    // S'abonner aux changements de route
+    this.routerSubscription = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      const currentUrl = this.router.url;
+      const category = currentUrl.split('/').pop(); // Récupère le dernier segment de l'URL
+      console.log('Current URL:', currentUrl);
+      console.log('Category from URL:', category);
+      this.filterKnives(category || '');
     });
   }
 
@@ -39,7 +47,9 @@ export class ProduitGridComponent implements OnInit, OnDestroy {
     this.knifeService.getKnives().subscribe(
       (data: any[]) => {
         this.knives = data;
-        this.filterKnives(this.selectedCategory);
+        const currentUrl = this.router.url;
+        const category = currentUrl.split('/').pop();
+        this.filterKnives(category || '');
       },
       (error: any) => {
         console.error('Failed to fetch knives', error);
@@ -47,22 +57,26 @@ export class ProduitGridComponent implements OnInit, OnDestroy {
     );
   }
 
-  applyFilterFromUrl(): void {
-    const url = this.router.url;
-    const category = url.split('/').pop();
-    if (category && category !== 'produit') {
-      this.filterKnives(category);
-    } else {
-      this.filterKnives('');
-    }
-  }
-
   filterKnives(category: string): void {
-    if (category) {
-      this.filteredKnives = this.knives.filter(knife => knife.categorie.toLowerCase() === category.toLowerCase());
+    console.log('Filtering by category:', category);
+    console.log('All knives before filter:', this.knives);
+
+    if (category && category !== '') {
+      this.filteredKnives = this.knives.filter(knife => {
+        const normalizedKnifeCategory = knife.categorie.toLowerCase();
+        const normalizedUrlCategory = category.toLowerCase();
+        console.log('Comparing categories:', {
+          knife: normalizedKnifeCategory,
+          url: normalizedUrlCategory,
+          matches: normalizedKnifeCategory === normalizedUrlCategory
+        });
+        return normalizedKnifeCategory === normalizedUrlCategory;
+      });
     } else {
       this.filteredKnives = this.knives;
     }
+
+    console.log('Filtered knives:', this.filteredKnives);
   }
 
   showBasket(event: MouseEvent): void {

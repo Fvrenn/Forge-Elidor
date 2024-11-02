@@ -23,14 +23,20 @@ const Knife = sequelize.define('Knife', {
     type: DataTypes.DECIMAL(5, 2),
     allowNull: false,
   },
-  image: {
-    type: DataTypes.STRING,
+  images: {
+    type: DataTypes.TEXT, // Stocke le JSON comme texte
     allowNull: false,
+    get() {
+      const rawValue = this.getDataValue('images');
+      return rawValue ? JSON.parse(rawValue) : [];
+    },
+    set(value) {
+      this.setDataValue('images', JSON.stringify(value));
+    }
   },
   categorie: {
     type: DataTypes.ENUM('cuisine', 'outdoor', 'pliant', 'exception'),
     allowNull: false,
   },
 });
-
 module.exports = Knife;
