@@ -59,8 +59,64 @@
               </div>
             </ul>
           </li>
-          <li class="nav__item" *ngIf="!telisOpen">
-            <a [routerLink]="['/galerie']" class="nav__link" (click)="closeMenu()">Galerie des couteau</a>
+          <li class="nav__item dropdown" (mouseenter)="openGalleryDropdown()" (mouseleave)="closeGalleryDropdown()" *ngIf="!telisOpen">
+            <a class="nav__link more">Galerie des couteaux
+              <svg aria-hidden="true" class="arrow-down arrow-pc" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="4 10 8 4" [ngClass]="{'rotate': isGalleryDropdownOpen}">
+                <path stroke="currentColor" d="m4 10 4 4 4-4"></path>
+              </svg>
+            </a>
+            <ul class="dropdown-menu" [ngClass]="{'show': isGalleryDropdownOpen}">
+              <div class="container-drop-down">
+                <li>
+                  <a class="nav_link-dropdown" [routerLink]="['/galerie']" href="#">
+                    Voir toute la galerie 
+                    <svg aria-hidden="true" class="arrow-item" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 16">
+                      <path stroke="currentColor" stroke-width="1.5" d="M.000162 8H15.3335m0 0-6.08131 6m6.08131-6L9.2522 2"></path>
+                    </svg>
+                  </a>
+                </li>
+                <hr>
+                <div class="container-produit">
+                  <li>
+                    <a [routerLink]="['/galerie', 'cuisine']" class="nav_link-dropdown-produit" href="#">
+                      <span>
+                        <img src="../../../../assets/icons/nav/cuisine.svg" alt="">
+                        <img src="../../../../assets/icons/nav/cuisine-hover.svg" alt="">
+                      </span>
+                      Couteaux de cuisines
+                    </a>
+                  </li>
+                  <li>
+                    <a [routerLink]="['/galerie', 'pliant']" class="nav_link-dropdown-produit" href="#">
+                      <span>
+                        <img src="../../../../assets/icons/nav/pliant.svg" alt="">
+                        <img src="../../../../assets/icons/nav/pliant-hover.svg" alt="">
+                      </span>
+                      Couteaux pliant
+                    </a>
+                  </li>
+                  <li>
+                    <a [routerLink]="['/galerie', 'outdoor']" class="nav_link-dropdown-produit" href="#">
+                      <span>
+                        <img src="../../../../assets/icons/nav/outdor.svg" alt="">
+                        <img src="../../../../assets/icons/nav/outdor-hover.svg" alt="">
+                      </span>
+                      Couteaux outdoor
+                    </a>
+                  </li>
+                  <li>
+                    <a [routerLink]="['/galerie', 'exception']" class="nav_link-dropdown-produit" href="#">
+                      <span>
+                        <img src="../../../../assets/icons/nav/exception.svg" alt="">
+                        <img src="../../../../assets/icons/nav/exception-hover.svg" alt="">
+                      </span>
+                      Couteaux d'exception
+                    </a>
+                  </li>
+                </div>
+              </div>
+            </ul>
           </li>
           <li class="nav__item" *ngIf="!telisOpen">
             <a [routerLink]="['/atelier']" class="nav__link" (click)="closeMenu()">Atelier</a>

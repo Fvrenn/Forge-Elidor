@@ -39,10 +39,16 @@ import { UtilisateurseeditComponent } from './component/pages/admin/utilisateurs
 import { CommandeslistComponent } from './component/pages/admin/commandes/commandeslist/commandeslist.component';
 import { CommandesdetailComponent } from './component/pages/admin/commandes/commandesdetail/commandesdetail.component';
 import { RegisterComponent } from './component/pages/register/register.component';
+import { GalleryaddComponent } from './component/pages/admin/gallery/galleryadd/galleryadd.component';
+import { GalleryeditComponent } from './component/pages/admin/gallery/galleryedit/galleryedit.component';
+import { GallerylistComponent } from './component/pages/admin/gallery/gallerylist/gallerylist.component';
 
 import { AuthService } from './services/authService/auth.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { KnifeService } from './services/knife/knife.service';
+import { GalleryService } from './services/gallery/gallery.service';
+
+
 
 @NgModule({
   declarations: [
@@ -79,7 +85,10 @@ import { KnifeService } from './services/knife/knife.service';
     UtilisateurseeditComponent,
     CommandeslistComponent,
     CommandesdetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    GalleryaddComponent,
+    GalleryeditComponent,
+    GallerylistComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +100,7 @@ import { KnifeService } from './services/knife/knife.service';
   providers: [
     AuthService,
     KnifeService,
+    GalleryService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

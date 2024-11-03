@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class BanniereProduitComponent implements OnInit, OnDestroy {
   currentCategory: string = '';
   bannerImage: string = '';
+  pageType: string = 'Produits'; // Nouvelle propriété pour gérer le type de page
   private routerSubscription!: Subscription;
 
   constructor(private router: Router, private route: ActivatedRoute) {}
@@ -22,7 +23,6 @@ export class BanniereProduitComponent implements OnInit, OnDestroy {
       this.updateContent();
     });
 
-    // Initial content update
     this.updateContent();
   }
 
@@ -34,8 +34,10 @@ export class BanniereProduitComponent implements OnInit, OnDestroy {
 
   private updateContent(): void {
     const url = this.router.url;
+    // Détermine si nous sommes sur la page galerie ou produits
+    this.pageType = url.includes('/galerie') ? 'Galerie' : 'Produits';
+    
     const category = url.split('/').pop();
-
     switch(category) {
       case 'cuisine':
         this.currentCategory = 'Couteaux de Cuisine';

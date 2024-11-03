@@ -1,0 +1,35 @@
+<section class="gallery-add">
+    <div class="container">
+      <button (click)="navigateToList()" class="btn retour">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="Arrow / Arrow_Left_MD">
+            <path id="Vector" d="M19 12H5M5 12L11 18M5 12L11 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+        Retour
+      </button>
+      <h1>Ajouter une nouvelle image</h1>
+      <form (ngSubmit)="onSubmit()" class="form-container">
+        <div class="form-group">
+          <label for="title">Titre</label>
+          <input type="text" id="title" name="title" class="form-control" [(ngModel)]="title" required>
+        </div>
+<div class="form-group">
+  <label for="category">Catégorie</label>
+  <select id="category" name="category" class="form-control" [(ngModel)]="category" required>
+    <option value="cuisine">Cuisine</option>
+    <option value="outdoor">Outdoor</option>
+    <option value="pliant">Pliant</option>
+    <option value="exception">Exception</option>
+  </select>
+</div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input type="file" id="image" name="image" class="form-control" (change)="onFileSelected($event)" required>
+        </div>
+        <div class="form-group button-group">
+          <button type="submit" class="btn btn-primary">Ajouter</button>
+        </div>
+      </form>
+    </div>
+  </section>

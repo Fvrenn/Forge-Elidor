@@ -48,3 +48,21 @@ p {
     font-weight: $regular;
 }
 
+.button-green {
+    align-self: flex-start;
+    height: auto;
+    display: flex;
+    padding: 10px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid $color-green !important;
+    background: $color-green !important;
+    color: #fff;
+    cursor: pointer;
+    transition: box-shadow 0.1s ease-in-out;
+    &:hover{
+        box-shadow: 0px 1px 2px 0px rgba(10, 13, 18, 0.05), 0px 0px 0px 4px rgba($color-brown, 0.2) !important;
+    }
+  }

@@ -12,6 +12,7 @@ export class NavComponent implements OnInit{
   isLoggedIn: boolean = false;
   role: string = '';
   isDropdownOpen = false;
+  isGalleryDropdownOpen = false; // Ajout de la nouvelle propriété
   telisOpen = false;
   isAdmin: boolean = false;
   constructor(private authService: AuthService, private router: Router) {}
@@ -25,6 +26,14 @@ export class NavComponent implements OnInit{
     this.authService.role.subscribe((role: string | null) => {
       this.isAdmin = role === 'admin';
     });
+  }
+
+  openGalleryDropdown() {
+    this.isGalleryDropdownOpen = true;
+  }
+
+  closeGalleryDropdown() {
+    this.isGalleryDropdownOpen = false;
   }
   
   // Bascule l'état du menu entre ouvert et fermé

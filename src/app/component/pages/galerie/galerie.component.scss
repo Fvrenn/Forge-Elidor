@@ -25,7 +25,11 @@
 
 }
 
-  
+  .active-btn{
+    background-color: $color-brown !important;
+    color: #fffff6 !important;
+    cursor: pointer;
+  }
   .container img {
     max-width: 90%;
     display: block;

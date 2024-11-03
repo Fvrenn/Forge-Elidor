@@ -1,43 +1,31 @@
 <app-banniere-produit></app-banniere-produit>
 <section>
-    <div class="container-produit">
-
-        <div class="container-card">
-                <div class="scroll-container">
-                    <div class="btn-container">
-                        <button>Voir Tout</button>
-                        <button>Couteaux de Cuisine</button>
-                        <button>Couteaux Outdor</button>
-                        <button>Couteaux D'exception</button>
-                    </div>
-                </div>
-                <div class="container">
-                    <figure>
-                        <img src="../../../../assets/images/couteau/couteau_1.jpg" alt="A windmill" />
-                    </figure>
-                    <figure>
-                        <img src="../../../../assets/images/couteau/couteau_12.jpg"
-                            alt="The Clifton Suspension Bridge" />
-                    </figure>
-                    <figure>
-                        <img src="../../../../assets/images/couteau/couteau_13.jpg" alt="Sunset and boats" />
-                    </figure>
-                    <figure>
-                        <img src="../../../../assets/images/couteau/couteau_18.jpg" alt="a river in the snow" />
-                    </figure>
-                    <figure>
-                        <img src="../../../../assets/images/couteau/couteau_2.jpg"
-                            alt="a single checked balloon" />
-                    </figure>
-                    <figure>
-                        <img src="../../../../assets/images/couteau/couteau_4.jpg"
-                            alt="a hot air balloon shaped like a dog" />
-                    </figure>
-                    <figure>
-                        <img src="../../../../assets/images/couteau/couteau_5.jpg"
-                            alt="View from a hot air balloon of other balloons" />
-                    </figure>
-                </div>
+  <div class="container-produit">
+    <div class="container-card">
+      <div class="scroll-container">
+        <div class="btn-container">
+          <button [routerLink]="['/galerie']" routerLinkActive="active-btn" [routerLinkActiveOptions]="{ exact: true }">
+            Voir Tout
+          </button>
+          <button [routerLink]="['/galerie', 'cuisine']" routerLinkActive="active-btn">
+            Couteaux de Cuisine
+          </button>
+          <button [routerLink]="['/galerie', 'outdoor']" routerLinkActive="active-btn">
+            Couteaux Outdoor
+          </button>
+          <button [routerLink]="['/galerie', 'pliant']" routerLinkActive="active-btn">
+            Couteaux Pliant
+          </button>
+          <button [routerLink]="['/galerie', 'exception']" routerLinkActive="active-btn">
+            Couteaux d'Exception
+          </button>
         </div>
+      </div>
+      <div class="container">
+        <figure *ngFor="let image of images">
+          <img [src]="'http://localhost:5000/' + image.image" [alt]="image.title" />
+        </figure>
+      </div>
     </div>
+  </div>
 </section>

@@ -21,16 +21,23 @@ import { RegisterComponent } from './component/pages/register/register.component
 import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin.guard';
 import { ProduitGridComponent } from './component/composant/pages/produit/produit-grid/produit-grid.component';
+import { GallerylistComponent } from './component/pages/admin/gallery/gallerylist/gallerylist.component';
+import { GalleryaddComponent } from './component/pages/admin/gallery/galleryadd/galleryadd.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'produit', component: ProduitComponent, children: [
-    { path: '', component: ProduitGridComponent },
-    { path: ':category', component: ProduitGridComponent }
-  ]},
+  {
+    path: 'produit',
+    component: ProduitComponent,
+    children: [
+      { path: '', component: ProduitGridComponent },
+      { path: ':category', component: ProduitGridComponent },
+    ],
+  },
   { path: 'atelier', component: AtelierComponent },
   { path: 'detail-produit/:id', component: DetailProduitComponent },
   { path: 'galerie', component: GalerieComponent },
+  { path: 'galerie/:category', component: GalerieComponent },
   { path: 'actualite', component: ActualiteComponent },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
@@ -51,16 +58,17 @@ const routes: Routes = [
       { path: 'news', component: NewslistComponent },
       { path: 'utilisateurs', component: UtilisateurslistComponent },
       { path: 'commandes', component: CommandeslistComponent },
+      { path: 'gallery', component: GallerylistComponent },
+      { path: 'gallery/add', component: GalleryaddComponent },
     ],
   },
 
   // Redirection par défaut si aucune route n'est trouvée
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
