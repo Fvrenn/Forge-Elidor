@@ -13,6 +13,19 @@
     object-fit: cover;
 }
 
+.container-img {
+    p {
+      a {
+        color: inherit;
+        text-decoration: none;
+        
+        &:hover {
+          color: $color-brown;
+        }
+      }
+    }
+  }
+
 .petite-image {
     gap: 19px;
     max-width: 322px;
@@ -113,7 +126,7 @@ p {
     }
 
     .container-text {
-        max-width: clamp(390px, 42vw, 600px);
+        min-width: clamp(390px, 42vw, 600px);
         margin-top: 90px;
     }
 
