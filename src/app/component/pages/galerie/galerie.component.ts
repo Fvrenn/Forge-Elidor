@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class GalerieComponent implements OnInit {
   images: any[] = [];
   category: string | null = null;
+  selectedImage: any = null; // Nouvelle propriété pour la lightbox
 
   constructor(
     private galleryService: GalleryService,
@@ -17,7 +18,6 @@ export class GalerieComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Récupérer la catégorie à partir de l'URL
     this.route.paramMap.subscribe(params => {
       this.category = params.get('category');
       this.loadImages();
@@ -46,5 +46,13 @@ export class GalerieComponent implements OnInit {
         }
       );
     }
+  }
+
+  openLightbox(image: any): void {
+    this.selectedImage = image;
+  }
+
+  closeLightbox(): void {
+    this.selectedImage = null;
   }
 }

@@ -22,10 +22,14 @@
         </div>
       </div>
       <div class="container">
-        <figure *ngFor="let image of images">
+        <figure *ngFor="let image of images" (click)="openLightbox(image)">
           <img [src]="'http://localhost:5000/' + image.image" [alt]="image.title" />
         </figure>
       </div>
     </div>
   </div>
 </section>
+
+<div class="lightbox" *ngIf="selectedImage" (click)="closeLightbox()">
+  <img [src]="'http://localhost:5000/' + selectedImage.image" [alt]="selectedImage.title" />
+</div>
