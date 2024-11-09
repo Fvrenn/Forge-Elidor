@@ -13,6 +13,24 @@
     object-fit: cover;
 }
 
+.grande-image {
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+  
+    img {
+      height: 246px;
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.1s ease-out;
+  
+      &.zoomed {
+        transform-origin: 0 0;
+        transform: scale(1.5);
+      }
+    }
+  }
+
 .container-img {
     p {
       a {

@@ -3,13 +3,17 @@
     <div class="container-content">
       <div class="container-img">
         <p>
-          <a [routerLink]="['/produit']" style="cursor: pointer;">Produits</a> > 
+          <a [routerLink]="['/produit', '']" style="cursor: pointer;">Produits</a> > 
           <a [routerLink]="['/produit', couteau?.categorie?.toLowerCase() || '']" style="cursor: pointer;">
             {{ couteau?.categorie || 'Chargement...' }}
           </a>
         </p>
-        <div class="grande-image">
-          <img [src]="imagePrincipale" alt="Image principale">
+        <div class="grande-image" #imageContainer>
+          <img [src]="imagePrincipale" alt="Image principale" 
+               (mousemove)="zoomImage($event)" 
+               (mouseleave)="resetZoom()"
+               (mouseenter)="enableZoom()"
+               #zoomImg>
         </div>
         <div class="petite-image">
           <div class="container-petit-img" *ngFor="let image of images">

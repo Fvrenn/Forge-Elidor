@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { KnifeService } from '../../../services/knife/knife.service';
 
@@ -11,7 +11,9 @@ export class DetailProduitComponent implements OnInit {
   couteau: any = {};
   imagePrincipale: string = '';
   images: string[] = [];
-
+  @ViewChild('zoomImg') zoomImg!: ElementRef;
+  @ViewChild('imageContainer') imageContainer!: ElementRef;
+  isZoomed = false;
   constructor(private knifeService: KnifeService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -28,6 +30,32 @@ export class DetailProduitComponent implements OnInit {
         }
       );
     }
+  }
+
+  
+  zoomImage(e: MouseEvent) {
+    if (!this.isZoomed) return;
+
+    const image = this.zoomImg.nativeElement;
+    const container = this.imageContainer.nativeElement;
+    const rect = container.getBoundingClientRect();
+
+    // Calcule la position relative du curseur dans le conteneur
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+
+    // Déplace l'image en fonction de la position du curseur
+    image.style.transformOrigin = `${x * 100}% ${y * 100}%`;
+  }
+
+  enableZoom() {
+    this.isZoomed = true;
+    this.zoomImg.nativeElement.classList.add('zoomed');
+  }
+
+  resetZoom() {
+    this.isZoomed = false;
+    this.zoomImg.nativeElement.classList.remove('zoomed');
   }
 
   getFullImagePath(image: string): string {
