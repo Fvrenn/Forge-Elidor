@@ -47,6 +47,7 @@ import { AuthService } from './services/authService/auth.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { KnifeService } from './services/knife/knife.service';
 import { GalleryService } from './services/gallery/gallery.service';
+import { NewsService } from './services/news/news.service';
 
 
 
@@ -101,6 +102,7 @@ import { GalleryService } from './services/gallery/gallery.service';
     AuthService,
     KnifeService,
     GalleryService,
+    NewsService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

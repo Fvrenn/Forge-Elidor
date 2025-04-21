@@ -23,6 +23,8 @@ import { AdminGuard } from './guards/admin.guard';
 import { ProduitGridComponent } from './component/composant/pages/produit/produit-grid/produit-grid.component';
 import { GallerylistComponent } from './component/pages/admin/gallery/gallerylist/gallerylist.component';
 import { GalleryaddComponent } from './component/pages/admin/gallery/galleryadd/galleryadd.component';
+import { NewsaddComponent } from './component/pages/admin/news/newsadd/newsadd.component';
+import { NewseditComponent } from './component/pages/admin/news/newsedit/newsedit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -56,6 +58,8 @@ const routes: Routes = [
       { path: 'categories', component: CategorieslistComponent },
       { path: 'categories/add', component: CategoriesaddComponent },
       { path: 'news', component: NewslistComponent },
+      { path: 'news/add', component: NewsaddComponent },
+      { path: 'news/edit/:id', component: NewseditComponent },
       { path: 'utilisateurs', component: UtilisateurslistComponent },
       { path: 'commandes', component: CommandeslistComponent },
       { path: 'gallery', component: GallerylistComponent },

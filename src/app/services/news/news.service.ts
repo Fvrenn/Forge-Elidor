@@ -5,28 +5,28 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class KnifeService {
-  private apiUrl = 'http://localhost:5000/api/knives';
+export class NewsService {
+  private apiUrl = 'http://localhost:5000/api/news';
 
   constructor(private http: HttpClient) {}
 
-  getKnives(): Observable<any> {
+  getNews(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
 
-  getKnifeById(id: number): Observable<any> {
+  getNewsById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
-  addKnife(formData: FormData): Observable<any> {
+  addNews(formData: FormData): Observable<any> {
     return this.http.post<any>(this.apiUrl, formData);
   }
 
-  updateKnife(id: number, formData: FormData): Observable<any> {
+  updateNews(id: number, formData: FormData): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/${id}`, formData);
   }
 
-  deleteKnife(id: number): Observable<any> {
+  deleteNews(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 }

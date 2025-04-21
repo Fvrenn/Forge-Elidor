@@ -1,1 +1,50 @@
-<p>newsedit works!</p>
+<section class="news-edit">
+    <div class="container">
+      <button (click)="navigateToList()" class="btn retour">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="Arrow / Arrow_Left_MD">
+            <path id="Vector" d="M19 12H5M5 12L11 18M5 12L11 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+        Retour
+      </button>
+      <h1>Modifier une actualité</h1>
+      
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+      
+      <div *ngIf="isLoading" class="loading-spinner">
+        Chargement...
+      </div>
+      
+      <form *ngIf="!isLoading" (ngSubmit)="onSubmit()" class="form-container">
+        <div class="form-group">
+          <label for="title">Titre</label>
+          <input type="text" id="title" name="title" class="form-control" [(ngModel)]="news.titre" required>
+        </div>
+        <div class="form-group">
+          <label for="publicationDate">Date de publication</label>
+          <input type="date" id="publicationDate" name="publicationDate" class="form-control" [(ngModel)]="news.date_publication" required>
+        </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input type="file" id="image" name="image" class="form-control" (change)="onImageSelected($event)">
+          <small class="form-text text-muted">Laissez vide pour conserver l'image actuelle</small>
+          <div *ngIf="previewImage" class="image-preview mt-2">
+            <img [src]="previewImage" alt="Aperçu de l'image" style="max-width: 200px;">
+          </div>
+        </div>
+        <div class="form-group text">
+          <label for="content">Contenu de l'article</label>
+          <textarea id="content" name="content" class="form-control" [(ngModel)]="news.contenu" required></textarea>
+        </div>
+        <div class="form-group button-group">
+          <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+            <span *ngIf="!isLoading">Enregistrer les modifications</span>
+            <span *ngIf="isLoading">Chargement...</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
