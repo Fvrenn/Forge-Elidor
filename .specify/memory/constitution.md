@@ -1,50 +1,39 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: none -> 1.0.0
+- Added principles:
+  - I. Technical Architecture
+  - II. Styling & UI Implementation
+  - III. Code & Language Conventions
+  - IV. E-commerce & Data Integrity
+  - V. Development Strategy & Quality
+- Removed sections: SECTION_2_NAME, SECTION_3_NAME from template.
+- Templates requiring review:
+  - [?] .specify/templates/plan-template.md
+  - [?] .specify/templates/spec-template.md
+  - [?] .specify/templates/tasks-template.md
+  - [?] .gemini/commands/*.toml
+-->
+# Forge Elidor Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Technical Architecture
+The project MUST use Next.js with the App Router for the frontend and Medusa.js (v2) for the e-commerce backend. The entire application stack MUST be containerized with Docker to ensure consistent deployment via Coolify on Hostinger infrastructure.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Styling & UI Implementation
+A hybrid styling approach is MANDATORY. Core UI development WILL use Tailwind CSS and shadcn/ui for rapid construction of standard components. Project-specific artistic designs, including fluid typography and `clamp()` functions from the legacy project, MUST be implemented using SCSS.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Code & Language Conventions
+All code, including variable names, functions, comments, and commit messages, MUST be written in English. The user-facing interface (UI) text and content MUST be exclusively in French.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. E-commerce & Data Integrity
+The system MUST enforce a "unique item" model where every product has a stock of exactly one. A strict locking mechanism is REQUIRED during checkout to prevent concurrent sales of the same item. All product images and visual assets MUST be hosted on an external storage service to optimize site performance.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
-
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Development Strategy & Quality
+The project follows a Minimum Viable Product (MVP) strategy, prioritizing development velocity and high-fidelity visual presentation. Automated testing is INTENTIONALLY deferred at this stage to accelerate initial delivery.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+All development activities must align with the principles outlined in this constitution. Any deviation requires a formal amendment to this document. The development strategy prioritizes MVP delivery; this supersedes requirements for comprehensive testing or auxiliary features not defined herein.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-21 | **Last Amended**: 2025-12-21
