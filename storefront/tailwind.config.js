@@ -34,6 +34,10 @@ module.exports = {
           80: "#1F2937",
           90: "#111827",
         },
+        brand: {
+          light: "#FFFFF6",
+          dark: "#49453B",
+        },
       },
       borderRadius: {
         none: "0px",
@@ -60,6 +64,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
+          "var(--font-satoshi)",
           "Inter",
           "-apple-system",
           "BlinkMacSystemFont",
@@ -68,6 +73,10 @@ module.exports = {
           "Helvetica Neue",
           "Ubuntu",
           "sans-serif",
+        ],
+        serif: [
+          "var(--font-lora)",
+          "serif",
         ],
       },
       keyframes: {

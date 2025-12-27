@@ -2,6 +2,12 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@layer base {
+  body {
+    @apply bg-brand-light text-grey-90;
+  }
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
@@ -37,7 +43,7 @@
   select:-webkit-autofill:focus {
     border: 1px solid #212121;
     -webkit-text-fill-color: #212121;
-    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    -webkit-box-shadow: 0 0 0px 1000px #FFFFF6 inset;
     transition: background-color 5000s ease-in-out 0s;
   }
 
@@ -55,7 +61,7 @@
   }
 
   .contrast-btn {
-    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
+    @apply px-4 py-2 border border-brand-dark rounded-full hover:bg-brand-dark hover:text-brand-light transition-colors duration-200 ease-in;
   }
 
   .text-xsmall-regular {

@@ -82,10 +82,48 @@ const CartDropdown = ({
       <Popover className="relative h-full">
         <PopoverButton className="h-full">
           <LocalizedClientLink
-            className="hover:text-ui-fg-base"
+            className="hover:text-ui-fg-base flex gap-2 items-center"
             href="/cart"
             data-testid="nav-cart-link"
-          >{`Cart (${totalItems})`}</LocalizedClientLink>
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 240 240"
+              className="h-6 w-6"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                transform="translate(0.000000,240.000000) scale(0.100000,-0.100000)"
+                fill="currentColor"
+                stroke="none"
+              >
+                <path
+                  d="M0 2350 l0 -50 93 0 93 0 210 -791 c199 -751 210 -791 236 -805 45
+       -23 192 -62 300 -79 226 -35 584 -30 802 11 117 22 233 62 257 87 29 31 132
+       243 175 362 76 211 125 402 163 635 12 69 23 137 26 153 l5 27 -880 0 -880 0
+       0 -50 0 -50 821 0 821 0 -6 -27 c-3 -16 -8 -48 -11 -73 -12 -80 -56 -272 -87
+       -380 -71 -243 -190 -510 -237 -534 -36 -19 -138 -43 -261 -63 -149 -24 -524
+       -24 -676 0 -143 22 -256 52 -269 70 -5 8 -104 373 -220 811 l-210 796 -132 0
+       -133 0 0 -50z"
+                />
+                <path
+                  d="M767 486 c-55 -21 -103 -61 -134 -114 -24 -40 -28 -58 -28 -123 0
+       -67 4 -81 30 -125 99 -159 326 -164 425 -8 101 160 -4 368 -192 380 -39 3 -77
+       -1 -101 -10z m153 -106 c45 -23 80 -80 80 -130 0 -74 -76 -150 -149 -150 -77
+       0 -151 74 -151 150 0 48 35 107 78 129 48 26 93 26 142 1z"
+                />
+                <path
+                  d="M1667 486 c-55 -21 -103 -61 -134 -114 -24 -40 -28 -58 -28 -123 0
+       -67 4 -81 30 -125 99 -159 326 -164 425 -8 101 160 -4 368 -192 380 -39 3 -77
+       -1 -101 -10z m153 -106 c45 -23 80 -80 80 -130 0 -74 -76 -150 -149 -150 -77
+       0 -151 74 -151 150 0 48 35 107 78 129 48 26 93 26 142 1z"
+                />
+              </g>
+            </svg>
+            <span>({totalItems})</span>
+          </LocalizedClientLink>
         </PopoverButton>
         <Transition
           show={cartDropdownOpen}
