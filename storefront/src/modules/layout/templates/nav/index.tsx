@@ -7,7 +7,7 @@ import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import StoreDropdown from "@modules/layout/components/store-dropdown"
-import SideMenu from "@modules/layout/components/side-menu"
+import BurgerMenu from "@modules/layout/components/burger-menu"
 
 export default async function Nav() {
   const [regions, locales, currentLocale] = await Promise.all([
@@ -20,7 +20,9 @@ export default async function Nav() {
     <div className="sticky top-0 inset-x-0 z-50 group">
       <header className="relative h-16 mx-auto border-b duration-200 bg-brand-light border-ui-border-base">
         <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
-          <div className="flex-none pr-12 h-full flex items-center">
+          {/* Mobile: Burger + Logo */}
+          <div className="flex-none pr-4 small:pr-12 h-full flex items-center gap-x-2 small:gap-x-0">
+            <BurgerMenu />
             <LocalizedClientLink
               href="/"
               className="txt-compact-xlarge-plus uppercase"
@@ -34,6 +36,7 @@ export default async function Nav() {
             </LocalizedClientLink>
           </div>
 
+          {/* Desktop: Navigation links (hidden on mobile) */}
           <div className="hidden small:flex items-center gap-x-8 h-full flex-grow">
             <StoreDropdown />
             <LocalizedClientLink
@@ -56,6 +59,7 @@ export default async function Nav() {
             </LocalizedClientLink>
           </div>
 
+          {/* Account + Cart (Account hidden on mobile) */}
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
             <div className="hidden small:flex items-center gap-x-6 h-full">
               <LocalizedClientLink
