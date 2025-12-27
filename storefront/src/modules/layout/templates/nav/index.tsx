@@ -6,6 +6,7 @@ import { getLocale } from "@lib/data/locale-actions"
 import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
+import StoreDropdown from "@modules/layout/components/store-dropdown"
 import SideMenu from "@modules/layout/components/side-menu"
 
 export default async function Nav() {
@@ -34,26 +35,21 @@ export default async function Nav() {
           </div>
 
           <div className="hidden small:flex items-center gap-x-8 h-full flex-grow">
+            <StoreDropdown />
             <LocalizedClientLink
-              className="hover:text-ui-fg-base font-serif font-normal small:text-base"
-              href="/store"
-            >
-              Couteaux disponible
-            </LocalizedClientLink>
-            <LocalizedClientLink
-              className="hover:text-ui-fg-base font-serif font-normal small:text-base"
+              className="hover:text-ui-fg-base font-serif font-normal small:text-base h-full flex items-center transition-colors duration-200 border-b-2 border-transparent hover:border-brand-dark"
               href="/collections"
             >
               Galerie des couteau
             </LocalizedClientLink>
             <LocalizedClientLink
-              className="hover:text-ui-fg-base font-serif font-normal small:text-base"
+              className="hover:text-ui-fg-base font-serif font-normal small:text-base h-full flex items-center transition-colors duration-200 border-b-2 border-transparent hover:border-brand-dark"
               href="/about"
             >
               Atelier
             </LocalizedClientLink>
             <LocalizedClientLink
-              className="hover:text-ui-fg-base font-serif font-normal small:text-base"
+              className="hover:text-ui-fg-base font-serif font-normal small:text-base h-full flex items-center transition-colors duration-200 border-b-2 border-transparent hover:border-brand-dark"
               href="/contact"
             >
               Actualité
@@ -63,7 +59,7 @@ export default async function Nav() {
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
             <div className="hidden small:flex items-center gap-x-6 h-full">
               <LocalizedClientLink
-                className="hover:text-ui-fg-base font-serif"
+                className="hover:text-ui-fg-base font-serif h-full flex items-center transition-colors duration-200 border-b-2 border-transparent hover:border-brand-dark"
                 href="/account"
                 data-testid="nav-account-link"
               >

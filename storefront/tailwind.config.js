@@ -37,6 +37,7 @@ module.exports = {
         brand: {
           light: "#FFFFF6",
           dark: "#49453B",
+          accent: "#DCD2BB",
         },
       },
       borderRadius: {
