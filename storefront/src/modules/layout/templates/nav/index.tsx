@@ -29,7 +29,7 @@ export default async function Nav() {
               data-testid="nav-store-link"
             >
               <img
-                src="/logo/dark/logo-long-dark.svg"
+                src="/logo/dark/logo-long-dark.png"
                 alt="Forge Elidor Logo"
                 className="h-8 w-auto"
               />

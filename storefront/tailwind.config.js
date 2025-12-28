@@ -38,6 +38,12 @@ module.exports = {
           light: "#FFFFF6",
           dark: "#49453B",
           accent: "#DCD2BB",
+          green: "#98957F",
+          brown: "#49443B",
+          darkGray: "#2B2B2F",
+          gold: "#dcd2bb",
+          black: "#000000",
+          white: "#ffffff",
         },
       },
       borderRadius: {
@@ -77,6 +83,10 @@ module.exports = {
         ],
         serif: [
           "var(--font-lora)",
+          "serif",
+        ],
+        bodoni: [
+          "var(--font-bodoni-moda)",
           "serif",
         ],
       },
@@ -153,6 +163,7 @@ module.exports = {
       },
       animation: {
         ring: "ring 2.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
+        "spin-slow": "ring 15s linear infinite",
         "fade-in-right":
           "fade-in-right 0.3s cubic-bezier(0.5, 0, 0.5, 1) forwards",
         "fade-in-top": "fade-in-top 0.2s cubic-bezier(0.5, 0, 0.5, 1) forwards",

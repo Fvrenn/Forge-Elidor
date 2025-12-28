@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1487.62 1487.62">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Lora-Regular, Lora;
+        font-size: 179px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="Calque_1-2" data-name="Calque 1">
+    <circle class="cls-2" cx="743.81" cy="743.81" r="543.18"/>
+    <text class="cls-1" transform="translate(235.41 435.38) rotate(-53.07)"><tspan x="0" y="0">V</tspan></text>
+    <text class="cls-1" transform="translate(340.25 305.33) rotate(-35.82)"><tspan x="0" y="0">O</tspan></text>
+    <text class="cls-1" transform="translate(502.56 202.55) rotate(-21.14)"><tspan x="0" y="0">I</tspan></text>
+    <text class="cls-1" transform="translate(608.08 165.03) rotate(-7.71)"><tspan x="0" y="0">R</tspan></text>
+    <text class="cls-1" transform="translate(772.07 150.18) rotate(8.03)"><tspan x="0" y="0">E</tspan></text>
+    <text class="cls-1" transform="translate(931.6 182.06) rotate(20.77)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-1" transform="translate(1023.26 219.34) rotate(33.33)"><tspan x="0" y="0">P</tspan></text>
+    <text class="cls-1" transform="translate(1152.61 312.95) rotate(48.47)"><tspan x="0" y="0">L</tspan></text>
+    <text class="cls-1" transform="translate(1251.02 431.62) rotate(64.84)"><tspan x="0" y="0">U</tspan></text>
+    <text class="cls-1" transform="translate(1321.28 604.68) rotate(81.42)"><tspan x="0" y="0">S</tspan></text>
+    <text class="cls-1" transform="translate(1335.82 756.8) rotate(93.49)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-1" transform="translate(1326.71 855.02) rotate(105)"><tspan x="0" y="0">-</tspan></text>
+    <text class="cls-1" transform="translate(1283.85 987.06) rotate(116.57)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-1" transform="translate(1237.79 1074.8) rotate(129.49)"><tspan x="0" y="0">V</tspan></text>
+    <text class="cls-1" transform="translate(1127.22 1200.05) rotate(146.76)"><tspan x="0" y="0">O</tspan></text>
+    <text class="cls-1" transform="translate(960.47 1295.39) rotate(161.46)"><tspan x="0" y="0">I</tspan></text>
+    <text class="cls-1" transform="translate(853.34 1328.08) rotate(174.87)"><tspan x="0" y="0">R</tspan></text>
+    <text class="cls-1" transform="translate(688.87 1335.61) rotate(-169.38)"><tspan x="0" y="0">E</tspan></text>
+    <text class="cls-1" transform="translate(530.92 1296.54) rotate(-156.63)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-1" transform="translate(441.03 1255.14) rotate(-144.09)"><tspan x="0" y="0">P</tspan></text>
+    <text class="cls-1" transform="translate(316.02 1155.83) rotate(-128.96)"><tspan x="0" y="0">L</tspan></text>
+    <text class="cls-1" transform="translate(223.03 1032.86) rotate(-112.56)"><tspan x="0" y="0">U</tspan></text>
+    <text class="cls-1" transform="translate(160.7 856.81) rotate(-96)"><tspan x="0" y="0">S</tspan></text>
+    <text class="cls-1" transform="translate(152.96 704.19) rotate(-83.95)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-1" transform="translate(166.48 606.48) rotate(-72.4)"><tspan x="0" y="0">-</tspan></text>
+    <text class="cls-1" transform="translate(215.29 476.5) rotate(-60.85)"><tspan x="0" y="0"> </tspan></text>
+  </g>
+</svg>
