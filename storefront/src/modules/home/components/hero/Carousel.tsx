@@ -118,7 +118,7 @@ const Carousel = ({ slides, autoPlayInterval = 6000, className = "" }: CarouselP
                             <img
                                 src={slide.image}
                                 alt={slide.caption}
-                                className="w-full h-[454px] md:h-full object-cover object-center rounded-[53px]"
+                                className="w-full h-full object-cover object-center rounded-3xl md:rounded-[46px] lg:rounded-[53px]"
                                 loading={index === 0 ? "eager" : "lazy"}
                             />
                         </div>
@@ -126,24 +126,25 @@ const Carousel = ({ slides, autoPlayInterval = 6000, className = "" }: CarouselP
                 </div>
 
                 {/* Controls Container */}
-                <div className="flex flex-col-reverse items-center absolute bottom-9 right-6 h-[65%] md:h-[72%]">
+                <div className="flex flex-col-reverse items-center absolute bottom-4 right-3 h-[60%] md:bottom-6 md:right-5 md:h-[65%] lg:bottom-9 lg:right-6 lg:h-[72%]">
                     {/* Navigation Buttons */}
-                    <div className="inline-flex flex-col gap-1.5">
+                    <div className="inline-flex flex-col gap-1">
                         <button
                             onClick={prevSlide}
-                            className="bg-white border-none py-3.5 px-1.5 cursor-pointer rounded-full hover:bg-opacity-90 transition-all"
+                            className="bg-white border-none py-2 px-1 cursor-pointer rounded-full hover:bg-opacity-90 transition-all md:py-3 md:px-1.5 lg:py-3.5"
                             aria-label="Slide précédente"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
+                                width="20"
+                                height="20"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
                                 strokeWidth="2"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
+                                className="md:w-6 md:h-6"
                             >
                                 <path d="M8 6L12 2L16 6" />
                                 <path d="M12 2V22" />
@@ -151,19 +152,20 @@ const Carousel = ({ slides, autoPlayInterval = 6000, className = "" }: CarouselP
                         </button>
                         <button
                             onClick={nextSlide}
-                            className="bg-transparent border-2 border-white text-white py-3.5 px-1.5 cursor-pointer rounded-full hover:bg-white hover:bg-opacity-20 transition-all"
+                            className="bg-transparent border-2 border-white text-white py-2 px-1 cursor-pointer rounded-full hover:bg-white hover:bg-opacity-20 transition-all md:py-3 md:px-1.5 lg:py-3.5"
                             aria-label="Slide suivante"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
+                                width="20"
+                                height="20"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
                                 strokeWidth="2"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
+                                className="md:w-6 md:h-6"
                             >
                                 <path d="M8 18L12 22L16 18" />
                                 <path d="M12 2V22" />
@@ -172,12 +174,12 @@ const Carousel = ({ slides, autoPlayInterval = 6000, className = "" }: CarouselP
                     </div>
 
                     {/* Pagination */}
-                    <div className="flex gap-1.5 flex-col my-auto" role="tablist" aria-label="Pagination du carousel">
+                    <div className="flex gap-1 flex-col my-auto md:gap-1.5" role="tablist" aria-label="Pagination du carousel">
                         {slides.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => goToSlide(index)}
-                                className={`h-8 w-2 rounded-full cursor-pointer transition-all ${index === currentSlide ? "bg-white" : "bg-black bg-opacity-50 hover:bg-opacity-70"
+                                className={`h-6 w-1.5 rounded-full cursor-pointer transition-all md:h-7 md:w-2 lg:h-8 ${index === currentSlide ? "bg-white" : "bg-black bg-opacity-50 hover:bg-opacity-70"
                                     }`}
                                 role="tab"
                                 aria-selected={index === currentSlide}
@@ -190,7 +192,7 @@ const Carousel = ({ slides, autoPlayInterval = 6000, className = "" }: CarouselP
 
             {/* Voir Plus Button */}
             <a href="#" className="p-0 absolute top-0 right-0">
-                <div className="absolute top-6 right-5 z-10 w-30 h-30">
+                <div className="absolute top-3 right-3 z-10 w-20 h-20 md:top-5 md:right-4 md:w-24 md:h-24 lg:top-6 lg:right-5 lg:w-30 lg:h-30">
                     <img
                         src="/swiper/rond-voire-plus.svg"
                         alt=""
@@ -200,7 +202,7 @@ const Carousel = ({ slides, autoPlayInterval = 6000, className = "" }: CarouselP
                     <img
                         src="/swiper/arrow.svg"
                         alt="Voir plus"
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-8 h-8 transition-transform duration-300 hover:-translate-x-[35%] hover:-translate-y-1/2"
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-6 h-6 transition-transform duration-300 hover:-translate-x-[35%] hover:-translate-y-1/2 md:w-7 md:h-7 lg:w-8 lg:h-8"
                     />
                 </div>
             </a>

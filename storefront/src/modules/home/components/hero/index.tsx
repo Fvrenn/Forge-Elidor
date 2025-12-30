@@ -8,23 +8,23 @@ const Hero = () => {
   ]
 
   return (
-    <div className="flex flex-col md:flex-row items-stretch gap-6 lg:gap-8 mx-1.5 lg:mx-[clamp(6px,1vw+3rem,49px)]">
+    <div className="flex flex-col items-stretch gap-4 mx-1.5 md:flex-row md:gap-6 lg:gap-8 lg:mx-[clamp(6px,1vw+3rem,49px)]">
       {/* Hero Text Section */}
-      <div className="flex-1 flex flex-col justify-center bg-brand-brown px-2.5 pt-9 pb-11 pl-7 rounded-[46px] max-w-full md:max-w-[799px]">
-        <h2 className="mt-2 text-7xl text-brand-white font-bodoni font-normal optical-size-small">
+      <div className="flex-1 flex flex-col justify-center bg-brand-brown px-4 pt-6 pb-8 rounded-3xl max-w-full md:px-6 md:pt-8 md:pb-10 md:pl-7 md:rounded-[46px] md:max-w-[799px]">
+        <h2 className="mb-3 text-4xl text-brand-white font-bodoni font-normal optical-size-small md:mb-5 md:text-6xl lg:text-7xl">
           Forge Elidor
         </h2>
-        <h1 className="text-[84px] text-brand-white font-sans font-black uppercase">
+        <h1 className="text-3xl text-brand-white font-sans font-black uppercase leading-tight md:text-5xl md:leading-snug lg:text-[84px] lg:leading-[95px]">
           Coutelier dans la Vallée de Munster
         </h1>
-        <p className="mt-6 text-2xl text-brand-white font-sans font-normal">
+        <p className="mt-4 text-base text-brand-white font-sans font-normal md:mt-5 md:text-lg lg:mt-6 lg:text-xl">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor consequat ligula, sit amet
           vestibulum mi consequat a. Mauris sollicitudin ligula sit amet elit bibendum, id consequat lorem hendrerit.
         </p>
-        <div className="mt-9">
+        <div className="mt-6 md:mt-8 lg:mt-9">
           <a
             href="#"
-            className="inline-block text-brand-black no-underline font-sans font-medium bg-brand-light py-2.5 px-9 rounded-full text-2xl hover:bg-opacity-90 transition-all"
+            className="inline-block text-brand-black no-underline font-sans font-medium bg-brand-light py-2 px-6 rounded-full text-sm hover:bg-opacity-90 transition-all md:py-2.5 md:px-8 md:text-base lg:px-9"
           >
             Voir Plus
           </a>
