@@ -56,6 +56,10 @@
 }
 
 @layer components {
+  .big-container {
+    @apply max-w-[1705px] w-full mx-auto px-6;
+  }
+
   .content-container {
     @apply max-w-[1440px] w-full mx-auto px-6;
   }

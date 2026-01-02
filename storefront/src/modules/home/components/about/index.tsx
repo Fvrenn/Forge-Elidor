@@ -8,9 +8,8 @@ const About = () => {
         <p className="mb-5 text-sm font-sans text-brand-brown md:text-base lg:max-w-xl">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor consequat ligula, sit amet
         </p>
-        <p className="mb-8 text-sm font-sans text-brand-brown md:text-base lg:mb-10 lg:max-w-xl">
+        <p className="mb-8 text-sm font-sans text-brand-brown md:text-base xl:text-xl lg:mb-10 lg:max-w-xl">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor consequat ligula, sit amet Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor consequat ligula, sit amet Lorem
           ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor consequat ligula, sit amet Lorem
           ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor consequat ligula, sit amet Lorem
           ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor consequat ligula, sit amet Lorem

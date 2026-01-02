@@ -12,6 +12,7 @@ type ThumbnailProps = {
   isFeatured?: boolean
   className?: string
   "data-testid"?: string
+  children?: React.ReactNode
 }
 
 const Thumbnail: React.FC<ThumbnailProps> = ({
@@ -21,6 +22,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   isFeatured,
   className,
   "data-testid": dataTestid,
+  children,
 }) => {
   const initialImage = thumbnail || images?.[0]?.url
 
@@ -35,13 +37,14 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
           "aspect-[1/1]": size === "square",
           "w-[180px]": size === "small",
           "w-[290px]": size === "medium",
-          "w-[440px]": size === "large",
+          "w-[406px] h-[269px]": size === "large",
           "w-full": size === "full",
         }
       )}
       data-testid={dataTestid}
     >
       <ImageOrPlaceholder image={initialImage} size={size} />
+      {children}
     </Container>
   )
 }

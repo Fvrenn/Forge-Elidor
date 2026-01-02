@@ -3,7 +3,9 @@ import { Metadata } from "next"
 import About from "@modules/home/components/about"
 import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
+import LatestProducts from "@modules/home/components/latest-products"
 import { listCollections } from "@lib/data/collections"
+import { listProducts } from "@lib/data/products"
 import { getRegion } from "@lib/data/regions"
 
 export const metadata: Metadata = {
@@ -25,6 +27,15 @@ export default async function Home(props: {
     fields: "id, handle, title",
   })
 
+  // Fetch latest products
+  const { response: { products: latestProducts } } = await listProducts({
+    countryCode,
+    queryParams: { 
+      limit: 4, 
+      order: "-created_at" 
+    }
+  })
+
   if (!collections || !region) {
     return null
   }
@@ -32,6 +43,7 @@ export default async function Home(props: {
   return (
     <>
       <Hero />
+      <LatestProducts products={latestProducts} region={region} />
       <About />
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
