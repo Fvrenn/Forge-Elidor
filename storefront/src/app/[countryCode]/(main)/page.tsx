@@ -2,6 +2,7 @@ import { Metadata } from "next"
 
 import About from "@modules/home/components/about"
 import FeaturedProducts from "@modules/home/components/featured-products"
+import FeaturedSection from "@modules/home/components/featured-section"
 import Hero from "@modules/home/components/hero"
 import LatestProducts from "@modules/home/components/latest-products"
 import { listCollections } from "@lib/data/collections"
@@ -30,9 +31,9 @@ export default async function Home(props: {
   // Fetch latest products
   const { response: { products: latestProducts } } = await listProducts({
     countryCode,
-    queryParams: { 
-      limit: 4, 
-      order: "-created_at" 
+    queryParams: {
+      limit: 4,
+      order: "-created_at"
     }
   })
 
@@ -44,6 +45,7 @@ export default async function Home(props: {
     <>
       <Hero />
       <LatestProducts products={latestProducts} region={region} />
+      <FeaturedSection />
       <About />
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">

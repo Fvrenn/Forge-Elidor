@@ -1,23 +1,22 @@
-
 import Image from "next/image"
 
 const FeaturedSection = () => {
   return (
     <section className="w-full">
-      <div className="relative w-full h-[clamp(254px,34vw,652px)] mt-[35px] lg:mt-[clamp(79px,7vw,120px)]">
+      <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[652px] mt-8 lg:mt-24">
         <Image
-          src="/featured-banner.png"
+          src="/a-propos/baniere.jpg"
           alt="Couteaux forgés pour durer"
           fill
-          className="object-cover object-center rounded-[clamp(24px,2vw,45px)]"
+          className="object-cover object-center rounded-3xl lg:rounded-[45px]"
         />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] lg:w-[70%] text-center">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] lg:w-[80%] text-center">
           <div className="flex flex-col items-center">
             <h1 className="text-white text-center text-3xl md:text-5xl lg:text-7xl font-bold mb-4 drop-shadow-md">
               Des couteaux forgés pour durer, conçus pour exceller.
             </h1>
-            <div className="mt-[clamp(15px,2vw,29px)]">
-              <h6 className="font-lora text-[clamp(21px,2.9vw,44px)] font-light text-white text-center drop-shadow-sm">
+            <div className="mt-4 lg:mt-8">
+              <h6 className="font-serif text-2xl md:text-3xl lg:text-5xl font-light text-white text-center drop-shadow-sm">
                 Joel Matter
               </h6>
             </div>
