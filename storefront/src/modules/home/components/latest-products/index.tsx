@@ -9,7 +9,7 @@ export default function LatestProducts({
     region: HttpTypes.StoreRegion
 }) {
     return (
-        <div className="bg-brand-green rounded-3xl">
+        <div className="bg-brand-green rounded-3xl mt-6">
             <div className="big-container py-12 small:py-24">
                 <div className="flex flex-col md:flex-row justify-between mb-8 gap-6 md:gap-0">
                     <div className="flex flex-col lg:flex-row lg:items-center">

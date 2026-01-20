@@ -3,7 +3,7 @@ import Image from "next/image"
 const FeaturedSection = () => {
   return (
     <section className="w-full">
-      <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[652px] mt-8 lg:mt-24">
+      <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[652px] mt-8 lg:mt-16">
         <Image
           src="/a-propos/baniere.jpg"
           alt="Couteaux forgés pour durer"
