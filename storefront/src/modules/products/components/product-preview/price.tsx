@@ -1,7 +1,7 @@
 import { Text, clx } from "@medusajs/ui"
 import { VariantPrice } from "types/global"
 
-export default async function PreviewPrice({ price, isLight }: { price: VariantPrice; isLight?: boolean }) {
+export default async function PreviewPrice({ price, isLight, size = "lg" }: { price: VariantPrice; isLight?: boolean, size?: "base" | "lg" }) {
   if (!price) {
     return null
   }
@@ -17,7 +17,7 @@ export default async function PreviewPrice({ price, isLight }: { price: VariantP
         </Text>
       )}
       <Text
-        className={clx("font-sans text-lg font-medium", {
+        className={clx("font-sans font-medium", size === "lg" ? "text-lg" : "text-base", {
           "text-brand-green": price.price_type === "sale",
           "text-brand-light": isLight && price.price_type !== "sale",
           "text-brand-brown": !isLight && price.price_type !== "sale",

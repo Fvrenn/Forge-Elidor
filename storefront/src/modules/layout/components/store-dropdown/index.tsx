@@ -10,25 +10,25 @@ const StoreDropdown = () => {
     const categories = [
         {
             label: "Couteaux de cuisines",
-            href: "/store?category=cuisine",
+            href: "/store?category=couteaux-de-cuisine",
             icon: "/nav/cuisine.svg",
             iconHover: "/nav/cuisine-hover.svg",
         },
         {
             label: "Couteaux pliant",
-            href: "/store?category=pliant",
+            href: "/store?category=couteaux-pliant",
             icon: "/nav/pliant.svg",
             iconHover: "/nav/pliant-hover.svg",
         },
         {
             label: "Couteaux outdor",
-            href: "/store?category=outdoor",
+            href: "/store?category=couteaux-outdor",
             icon: "/nav/outdor.svg",
             iconHover: "/nav/outdor-hover.svg",
         },
         {
             label: "Couteaux d'exception",
-            href: "/store?category=exception",
+            href: "/store?category=couteaux-d'exception-",
             icon: "/nav/exception.svg",
             iconHover: "/nav/exception-hover.svg",
         },

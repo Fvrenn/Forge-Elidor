@@ -21,7 +21,7 @@ export default function LatestProducts({
                 <ul className="flex md:inline-flex flex-col md:flex-row gap-x-6 gap-y-8 mt-24">
                     {products.slice(0, 4).map((product) => (
                         <li key={product.id} className="w-full">
-                            <ProductPreview product={product} region={region} isFeatured isLight={true} />
+                            <ProductPreview product={product} region={region} isFeatured isLight={true} thumbnailSize="large" />
                         </li>
                     ))}
                 </ul>

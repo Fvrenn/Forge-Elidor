@@ -11,11 +11,13 @@ export default async function ProductPreview({
   isFeatured,
   region,
   isLight,
+  thumbnailSize,
 }: {
   product: HttpTypes.StoreProduct
   isFeatured?: boolean
   region: HttpTypes.StoreRegion
   isLight?: boolean
+  thumbnailSize?: "small" | "medium" | "large" | "full" | "square"
 }) {
   // const pricedProduct = await listProducts({
   //   regionId: region.id,
@@ -30,13 +32,15 @@ export default async function ProductPreview({
     product,
   })
 
+  const textSize = thumbnailSize === "square" ? "text-base" : "text-lg"
+
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group">
       <div data-testid="product-wrapper">
         <Thumbnail
           thumbnail={product.thumbnail}
           images={product.images}
-          size="large"
+          size={thumbnailSize || "large"}
           isFeatured={isFeatured}
         >
           <div className="absolute bottom-1 left-0 right-0 px-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:bottom-[18px] transition-all duration-300 ease-in-out z-10">
@@ -47,18 +51,18 @@ export default async function ProductPreview({
         </Thumbnail>
         <div>
           <div className="flex mt-4 justify-between">
-            <Text className={clx("font-sans text-lg font-medium", isLight ? "text-brand-light" : "text-brand-brown")} data-testid="product-title">
+            <Text className={clx("font-sans font-medium", textSize, isLight ? "text-brand-light" : "text-brand-brown")} data-testid="product-title">
               {product.title}
             </Text>
             <div>
-              {cheapestPrice && <PreviewPrice price={cheapestPrice} isLight={isLight} />}
+              {cheapestPrice && <PreviewPrice price={cheapestPrice} isLight={isLight} size={thumbnailSize === "square" ? "base" : "lg"} />}
             </div>
           </div>
           <div className="mt-1">
-            <Text className={clx("font-sans text-lg font-normal", isLight ? "text-brand-light" : "text-brand-brown")} data-testid="product-title">
+            <Text className={clx("font-sans font-normal", textSize, isLight ? "text-brand-light" : "text-brand-brown")} data-testid="product-title">
               {product.description}
             </Text>
-            <Text className={clx("font-sans text-lg font-normal", isLight ? "text-brand-light" : "text-brand-brown")} data-testid="product-title">
+            <Text className={clx("font-sans font-normal", textSize, isLight ? "text-brand-light" : "text-brand-brown")} data-testid="product-title">
               {product.subtitle}
             </Text>
           </div>

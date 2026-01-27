@@ -11,19 +11,19 @@ const BurgerMenu = () => {
     const categories = [
         {
             label: "Couteaux de cuisines",
-            href: "/store?category=cuisine",
+            href: "/store?category=couteaux-de-cuisine",
         },
         {
             label: "Couteaux pliant",
-            href: "/store?category=pliant",
+            href: "/store?category=couteaux-pliant",
         },
         {
             label: "Couteaux outdor",
-            href: "/store?category=outdoor",
+            href: "/store?category=couteaux-outdor",
         },
         {
             label: "Couteaux d'exception",
-            href: "/store?category=exception",
+            href: "/store?category=couteaux-d'exception-",
         },
     ]
 
