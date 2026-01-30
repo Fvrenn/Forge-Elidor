@@ -41,7 +41,7 @@ export default async function Nav() {
             <StoreDropdown />
             <LocalizedClientLink
               className="hover:text-ui-fg-base font-serif font-normal small:text-base h-full flex items-center transition-colors duration-200 border-b-2 border-transparent hover:border-brand-dark"
-              href="/collections"
+              href="/gallery"
             >
               Galerie des couteau
             </LocalizedClientLink>

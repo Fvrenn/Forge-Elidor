@@ -168,7 +168,7 @@ const BurgerMenu = () => {
                                         {/* Other navigation links */}
                                         <li>
                                             <LocalizedClientLink
-                                                href="/collections"
+                                                href="/gallery"
                                                 onClick={() => setIsOpen(false)}
                                                 className="block font-serif text-base text-ui-fg-subtle hover:text-ui-fg-base transition-colors duration-200 py-2"
                                             >
