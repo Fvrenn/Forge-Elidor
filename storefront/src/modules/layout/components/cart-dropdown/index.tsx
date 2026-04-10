@@ -82,7 +82,7 @@ const CartDropdown = ({
       <Popover className="relative h-full">
         <PopoverButton className="h-full">
           <LocalizedClientLink
-            className="hover:text-ui-fg-base flex gap-2 items-center"
+            className="hover:text-ui-fg-base flex gap-2 items-center transition-colors duration-200"
             href="/cart"
             data-testid="nav-cart-link"
           >
@@ -137,11 +137,11 @@ const CartDropdown = ({
         >
           <PopoverPanel
             static
-            className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border-b border-gray-200 w-[420px] text-ui-fg-base"
+            className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-brand-light border-x border-b border-ui-border-base w-[420px] text-brand-dark shadow-xl"
             data-testid="nav-cart-dropdown"
           >
-            <div className="p-4 flex items-center justify-center">
-              <h3 className="text-large-semi">Cart</h3>
+            <div className="p-4 flex items-center justify-center border-b border-ui-border-base">
+              <h3 className="font-serif text-lg text-brand-dark">Panier</h3>
             </div>
             {cartState && cartState.items?.length ? (
               <>
@@ -172,7 +172,7 @@ const CartDropdown = ({
                           <div className="flex flex-col flex-1">
                             <div className="flex items-start justify-between">
                               <div className="flex flex-col overflow-ellipsis whitespace-nowrap mr-4 w-[180px]">
-                                <h3 className="text-base-regular overflow-hidden text-ellipsis">
+                                <h3 className="font-serif text-base overflow-hidden text-ellipsis text-brand-dark">
                                   <LocalizedClientLink
                                     href={`/products/${item.product_handle}`}
                                     data-testid="product-link"
@@ -186,10 +186,11 @@ const CartDropdown = ({
                                   data-value={item.variant}
                                 />
                                 <span
+                                  className="text-sm text-ui-fg-subtle"
                                   data-testid="cart-item-quantity"
                                   data-value={item.quantity}
                                 >
-                                  Quantity: {item.quantity}
+                                  Quantité: {item.quantity}
                                 </span>
                               </div>
                               <div className="flex justify-end">
@@ -203,23 +204,23 @@ const CartDropdown = ({
                           </div>
                           <DeleteButton
                             id={item.id}
-                            className="mt-1"
+                            className="mt-1 text-sm text-ui-fg-subtle hover:text-brand-dark transition-colors duration-200"
                             data-testid="cart-item-remove-button"
                           >
-                            Remove
+                            Retirer
                           </DeleteButton>
                         </div>
                       </div>
                     ))}
                 </div>
-                <div className="p-4 flex flex-col gap-y-4 text-small-regular">
+                <div className="p-4 flex flex-col gap-y-4 text-sm border-t border-ui-border-base">
                   <div className="flex items-center justify-between">
-                    <span className="text-ui-fg-base font-semibold">
-                      Subtotal{" "}
-                      <span className="font-normal">(excl. taxes)</span>
+                    <span className="font-serif text-brand-dark font-semibold">
+                      Sous-total{" "}
+                      <span className="font-normal text-ui-fg-subtle">(hors taxes)</span>
                     </span>
                     <span
-                      className="text-large-semi"
+                      className="font-serif text-lg text-brand-dark font-semibold"
                       data-testid="cart-subtotal"
                       data-value={subtotal}
                     >
@@ -231,11 +232,11 @@ const CartDropdown = ({
                   </div>
                   <LocalizedClientLink href="/cart" passHref>
                     <Button
-                      className="w-full"
+                      className="w-full font-serif bg-brand-dark hover:bg-brand-brown text-brand-light transition-colors duration-200"
                       size="large"
                       data-testid="go-to-cart-button"
                     >
-                      Go to cart
+                      Voir le panier
                     </Button>
                   </LocalizedClientLink>
                 </div>
@@ -243,15 +244,20 @@ const CartDropdown = ({
             ) : (
               <div>
                 <div className="flex py-16 flex-col gap-y-4 items-center justify-center">
-                  <div className="bg-gray-900 text-small-regular flex items-center justify-center w-6 h-6 rounded-full text-white">
+                  <div className="bg-brand-dark text-sm flex items-center justify-center w-6 h-6 rounded-full text-brand-light">
                     <span>0</span>
                   </div>
-                  <span>Your shopping bag is empty.</span>
+                  <span className="font-serif text-brand-dark">Votre panier est vide.</span>
                   <div>
                     <LocalizedClientLink href="/store">
                       <>
-                        <span className="sr-only">Go to all products page</span>
-                        <Button onClick={close}>Explore products</Button>
+                        <span className="sr-only">Aller à la boutique</span>
+                        <Button
+                          onClick={close}
+                          className="font-serif bg-brand-dark hover:bg-brand-brown text-brand-light transition-colors duration-200"
+                        >
+                          Découvrir nos couteaux
+                        </Button>
                       </>
                     </LocalizedClientLink>
                   </div>

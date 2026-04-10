@@ -20,24 +20,23 @@ const Register = ({ setCurrentView }: Props) => {
       className="max-w-sm flex flex-col items-center"
       data-testid="register-page"
     >
-      <h1 className="text-large-semi uppercase mb-6">
-        Become a Medusa Store Member
+      <h1 className="font-serif text-2xl text-brand-dark uppercase mb-6">
+        Devenez membre Forge Elidor
       </h1>
-      <p className="text-center text-base-regular text-ui-fg-base mb-4">
-        Create your Medusa Store Member profile, and get access to an enhanced
-        shopping experience.
+      <p className="text-center text-base text-ui-fg-subtle mb-4">
+        Créez votre profil membre et accédez à une expérience d'achat améliorée.
       </p>
       <form className="w-full flex flex-col" action={formAction}>
         <div className="flex flex-col w-full gap-y-2">
           <Input
-            label="First name"
+            label="Prénom"
             name="first_name"
             required
             autoComplete="given-name"
             data-testid="first-name-input"
           />
           <Input
-            label="Last name"
+            label="Nom"
             name="last_name"
             required
             autoComplete="family-name"
@@ -52,14 +51,14 @@ const Register = ({ setCurrentView }: Props) => {
             data-testid="email-input"
           />
           <Input
-            label="Phone"
+            label="Téléphone"
             name="phone"
             type="tel"
             autoComplete="tel"
             data-testid="phone-input"
           />
           <Input
-            label="Password"
+            label="Mot de passe"
             name="password"
             required
             type="password"
@@ -68,34 +67,37 @@ const Register = ({ setCurrentView }: Props) => {
           />
         </div>
         <ErrorMessage error={message} data-testid="register-error" />
-        <span className="text-center text-ui-fg-base text-small-regular mt-6">
-          By creating an account, you agree to Medusa Store&apos;s{" "}
+        <span className="text-center text-ui-fg-subtle text-sm mt-6">
+          En créant un compte, vous acceptez la{" "}
           <LocalizedClientLink
             href="/content/privacy-policy"
-            className="underline"
+            className="underline text-brand-dark hover:text-ui-fg-base transition-colors duration-200"
           >
-            Privacy Policy
+            Politique de confidentialité
           </LocalizedClientLink>{" "}
-          and{" "}
+          et les{" "}
           <LocalizedClientLink
             href="/content/terms-of-use"
-            className="underline"
+            className="underline text-brand-dark hover:text-ui-fg-base transition-colors duration-200"
           >
-            Terms of Use
+            Conditions d'utilisation
           </LocalizedClientLink>
-          .
+          {" "}de Forge Elidor.
         </span>
-        <SubmitButton className="w-full mt-6" data-testid="register-button">
-          Join
+        <SubmitButton
+          className="w-full mt-6 font-serif bg-brand-dark hover:bg-brand-brown text-brand-light transition-colors duration-200"
+          data-testid="register-button"
+        >
+          Rejoindre
         </SubmitButton>
       </form>
-      <span className="text-center text-ui-fg-base text-small-regular mt-6">
-        Already a member?{" "}
+      <span className="text-center text-ui-fg-subtle text-sm mt-6">
+        Déjà membre?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
-          className="underline"
+          className="underline text-brand-dark hover:text-ui-fg-base transition-colors duration-200"
         >
-          Sign in
+          Se connecter
         </button>
         .
       </span>
