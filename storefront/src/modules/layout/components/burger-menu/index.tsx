@@ -112,7 +112,7 @@ const BurgerMenu = () => {
                                                     onClick={() => setIsStoreExpanded(!isStoreExpanded)}
                                                     className="flex items-center justify-between w-full text-left font-serif text-base text-ui-fg-subtle hover:text-ui-fg-base transition-colors duration-200 py-2"
                                                 >
-                                                    <span>Couteaux disponibles</span>
+                                                    <span>Galerie couteau</span>
                                                     <svg
                                                         className={`w-4 h-4 transition-transform duration-200 ${isStoreExpanded ? "rotate-180" : ""
                                                             }`}
@@ -146,7 +146,7 @@ const BurgerMenu = () => {
                                                                 onClick={() => setIsOpen(false)}
                                                                 className="block text-sm text-brand-dark hover:text-ui-fg-base transition-colors duration-200 py-1"
                                                             >
-                                                                Voir tous les couteaux
+                                                                Voir toute la galerie
                                                             </LocalizedClientLink>
                                                         </li>
                                                         {categories.map((cat) => (
@@ -168,11 +168,11 @@ const BurgerMenu = () => {
                                         {/* Other navigation links */}
                                         <li>
                                             <LocalizedClientLink
-                                                href="/gallery"
+                                                href="/store"
                                                 onClick={() => setIsOpen(false)}
                                                 className="block font-serif text-base text-ui-fg-subtle hover:text-ui-fg-base transition-colors duration-200 py-2"
                                             >
-                                                Galerie des couteau
+                                                Couteaux disponibles
                                             </LocalizedClientLink>
                                         </li>
 

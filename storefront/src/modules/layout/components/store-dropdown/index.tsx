@@ -45,7 +45,7 @@ const StoreDropdown = () => {
                     className="hover:text-ui-fg-base font-serif font-normal small:text-base h-full flex items-center transition-colors duration-200 border-b-2 border-transparent hover:border-brand-dark"
                     href="/store"
                 >
-                    Couteaux disponibles
+                    Galerie couteau
                     <svg
                         aria-hidden="true"
                         className={`w-3 h-3 ml-2 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
@@ -80,7 +80,7 @@ const StoreDropdown = () => {
                                     href="/store"
                                     className="flex items-center gap-x-3 text-brand-dark font-serif text-base group/all transition-colors duration-200 hover:opacity-80 border-b border-brand-accent pb-2 "
                                 >
-                                    Voir tous les couteaux disponibles
+                                    Voir toute la galerie
                                     <svg
                                         aria-hidden="true"
                                         className="w-5 h-5 transition-transform duration-200 group-hover/all:translate-x-1"
