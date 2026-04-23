@@ -10,20 +10,32 @@ const BurgerMenu = () => {
 
     const categories = [
         {
-            label: "Couteaux de cuisines",
-            href: "/store?category=couteaux-de-cuisine",
+            label: "Couteau Santoku",
+            href: "/galerie?categorie=couteau-santoku",
         },
         {
-            label: "Couteaux pliant",
-            href: "/store?category=couteaux-pliant",
+            label: "Couteau Petty",
+            href: "/galerie?categorie=couteau-petty",
         },
         {
-            label: "Couteaux outdor",
-            href: "/store?category=couteaux-outdor",
+            label: "Couteau Office",
+            href: "/galerie?categorie=couteau-office",
         },
         {
-            label: "Couteaux d'exception",
-            href: "/store?category=couteaux-d'exception-",
+            label: "Couteau Nakiri",
+            href: "/galerie?categorie=couteau-nakiri",
+        },
+        {
+            label: "Économe",
+            href: "/galerie?categorie=econome",
+        },
+        {
+            label: "Couteau de chef",
+            href: "/galerie?categorie=couteau-de-chef",
+        },
+        {
+            label: "Couteau à pain",
+            href: "/galerie?categorie=couteau-a-pain",
         },
     ]
 
@@ -105,7 +117,7 @@ const BurgerMenu = () => {
                                 {/* Navigation Links */}
                                 <nav className="flex-1 p-6">
                                     <ul className="space-y-4">
-                                        {/* Couteaux disponibles with expandable categories */}
+                                        {/* Galerie couteau with expandable categories */}
                                         <li>
                                             <div className="flex flex-col">
                                                 <button
@@ -142,7 +154,7 @@ const BurgerMenu = () => {
                                                     <ul className="mt-2 ml-4 space-y-2 border-l-2 border-brand-accent pl-4">
                                                         <li>
                                                             <LocalizedClientLink
-                                                                href="/store"
+                                                                href="/galerie"
                                                                 onClick={() => setIsOpen(false)}
                                                                 className="block text-sm text-brand-dark hover:text-ui-fg-base transition-colors duration-200 py-1"
                                                             >

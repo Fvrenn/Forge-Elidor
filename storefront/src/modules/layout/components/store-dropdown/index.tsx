@@ -9,28 +9,53 @@ const StoreDropdown = () => {
 
     const categories = [
         {
-            label: "Couteaux de cuisines",
-            href: "/store?category=couteaux-de-cuisine",
-            icon: "/nav/cuisine.svg",
-            iconHover: "/nav/cuisine-hover.svg",
+            label: "Couteau Santoku",
+            href: "/galerie?categorie=couteau-santoku",
+            icon: "/nav/santoku.svg",
+            iconHover: "/nav/santoku-hover.svg",
         },
         {
-            label: "Couteaux pliant",
-            href: "/store?category=couteaux-pliant",
-            icon: "/nav/pliant.svg",
-            iconHover: "/nav/pliant-hover.svg",
+            label: "Couteau Bunka",
+            href: "/galerie?categorie=couteau-bunka",
+            icon: "/nav/bunka.svg",
+            iconHover: "/nav/bunka-hover.svg",
+        },
+
+        {
+            label: "Couteau Petty",
+            href: "/galerie?categorie=couteau-petty",
+            icon: "/nav/petty.svg",
+            iconHover: "/nav/petty-hover.svg",
         },
         {
-            label: "Couteaux outdor",
-            href: "/store?category=couteaux-outdor",
-            icon: "/nav/outdor.svg",
-            iconHover: "/nav/outdor-hover.svg",
+            label: "Couteau Office",
+            href: "/galerie?categorie=couteau-office",
+            icon: "/nav/office.svg",
+            iconHover: "/nav/office-hover.svg",
         },
         {
-            label: "Couteaux d'exception",
-            href: "/store?category=couteaux-d'exception-",
-            icon: "/nav/exception.svg",
-            iconHover: "/nav/exception-hover.svg",
+            label: "Couteau Nakiri",
+            href: "/galerie?categorie=couteau-nakiri",
+            icon: "/nav/nakiri.svg",
+            iconHover: "/nav/nakiri-hover.svg",
+        },
+        {
+            label: "Économe",
+            href: "/galerie?categorie=econome",
+            icon: "/nav/econome.svg",
+            iconHover: "/nav/econome-hover.svg",
+        },
+        {
+            label: "Couteau de chef",
+            href: "/galerie?categorie=couteau-de-chef",
+            icon: "/nav/gyuto.svg",
+            iconHover: "/nav/gyuto-hover.svg",
+        },
+        {
+            label: "Couteau à pain",
+            href: "/galerie?categorie=couteau-a-pain",
+            icon: "/nav/pain.svg",
+            iconHover: "/nav/pain-hover.svg",
         },
     ]
 
@@ -43,7 +68,7 @@ const StoreDropdown = () => {
             <div className="flex items-center h-full">
                 <LocalizedClientLink
                     className="hover:text-ui-fg-base font-serif font-normal small:text-base h-full flex items-center transition-colors duration-200 border-b-2 border-transparent hover:border-brand-dark"
-                    href="/store"
+                    href="/galerie"
                 >
                     Galerie couteau
                     <svg
@@ -77,7 +102,7 @@ const StoreDropdown = () => {
                         <div className="flex h-full">
                             <li className="flex-none whitespace-nowrap mt-2">
                                 <LocalizedClientLink
-                                    href="/store"
+                                    href="/galerie"
                                     className="flex items-center gap-x-3 text-brand-dark font-serif text-base group/all transition-colors duration-200 hover:opacity-80 border-b border-brand-accent pb-2 "
                                 >
                                     Voir toute la galerie
@@ -98,7 +123,7 @@ const StoreDropdown = () => {
                             </li>
                             <div className="h-28 w-px bg-brand-accent ml-7 self-center" />
                             <div className="flex ml-7 mt-2 justify-between w-full">
-                                <div className="grid grid-cols-4 gap-x-8 w-full">
+                                <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
                                     {categories.map((cat) => (
                                         <li key={cat.label}>
                                             <LocalizedClientLink
