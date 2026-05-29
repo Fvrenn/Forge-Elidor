@@ -75,7 +75,7 @@ export default function GalerieFiltre({ photos, categories, activeCategorie }: G
     return (
         <div>
             {/* Instant Cross-fade Banner */}
-            <div className="w-full h-60 relative mb-12 md:mb-20 overflow-hidden group">
+            <div className="w-full h-60 relative md:mb-20 overflow-hidden group">
                 {/* All banners stacked with opacity */}
                 {Object.entries(bannerMapping).map(([slug, banner]) => (
                     <Image
@@ -132,13 +132,7 @@ export default function GalerieFiltre({ photos, categories, activeCategorie }: G
                 </div>
             </div>
 
-            <div className="py-12 px-6 md:px-12 max-w-7xl mx-auto">
-
-                <div className="mb-10">
-                    <h1 className="font-serif text-4xl text-brand-dark mb-2">Galerie</h1>
-                    <p className="text-ui-fg-subtle text-sm">Découvrez nos créations, filtrées par type de couteau.</p>
-                </div>
-
+            <div className="content-container">
                 {/* Filter buttons */}
                 <div className="flex gap-2 mb-10 flex-wrap">
                     <button
