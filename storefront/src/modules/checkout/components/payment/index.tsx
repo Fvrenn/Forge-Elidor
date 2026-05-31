@@ -105,29 +105,29 @@ const Payment = ({
   }, [isOpen])
 
   return (
-    <div className="bg-white">
+    <div className="bg-brand-light border border-ui-border-base rounded-lg px-6 py-6">
       <div className="flex flex-row items-center justify-between mb-6">
         <Heading
           level="h2"
           className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
+            "font-serif text-2xl text-brand-dark flex flex-row gap-x-2 items-baseline",
             {
-              "opacity-50 pointer-events-none select-none":
+              "opacity-40 pointer-events-none select-none":
                 !isOpen && !paymentReady,
             }
           )}
         >
-          Payment
-          {!isOpen && paymentReady && <CheckCircleSolid />}
+          Paiement
+          {!isOpen && paymentReady && <CheckCircleSolid className="text-brand-green" />}
         </Heading>
         {!isOpen && paymentReady && (
           <Text>
             <button
               onClick={handleEdit}
-              className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+              className="font-serif text-brand-dark underline underline-offset-2 hover:text-brand-green transition-colors duration-200"
               data-testid="edit-payment-button"
             >
-              Edit
+              Modifier
             </button>
           </Text>
         )}
@@ -166,14 +166,14 @@ const Payment = ({
 
           {paidByGiftcard && (
             <div className="flex flex-col w-1/3">
-              <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                Payment method
+              <Text className="txt-medium-plus text-brand-dark font-serif mb-1">
+                Méthode de paiement
               </Text>
               <Text
                 className="txt-medium text-ui-fg-subtle"
                 data-testid="payment-method-summary"
               >
-                Gift card
+                Carte cadeau
               </Text>
             </div>
           )}
@@ -185,7 +185,7 @@ const Payment = ({
 
           <Button
             size="large"
-            className="mt-6"
+            className="mt-6 bg-brand-dark hover:bg-brand-brown text-brand-light font-serif transition-colors duration-200"
             onClick={handleSubmit}
             isLoading={isLoading}
             disabled={
@@ -195,8 +195,8 @@ const Payment = ({
             data-testid="submit-payment-button"
           >
             {!activeSession && isStripeLike(selectedPaymentMethod)
-              ? " Enter card details"
-              : "Continue to review"}
+              ? "Entrer les informations de carte"
+              : "Continuer vers la vérification"}
           </Button>
         </div>
 
@@ -204,8 +204,8 @@ const Payment = ({
           {cart && paymentReady && activeSession ? (
             <div className="flex items-start gap-x-1 w-full">
               <div className="flex flex-col w-1/3">
-                <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Payment method
+                <Text className="txt-medium-plus text-brand-dark font-serif mb-1">
+                  Méthode de paiement
                 </Text>
                 <Text
                   className="txt-medium text-ui-fg-subtle"
@@ -216,8 +216,8 @@ const Payment = ({
                 </Text>
               </div>
               <div className="flex flex-col w-1/3">
-                <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Payment details
+                <Text className="txt-medium-plus text-brand-dark font-serif mb-1">
+                  Détails du paiement
                 </Text>
                 <div
                   className="flex gap-2 txt-medium text-ui-fg-subtle items-center"
@@ -238,20 +238,19 @@ const Payment = ({
             </div>
           ) : paidByGiftcard ? (
             <div className="flex flex-col w-1/3">
-              <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                Payment method
+              <Text className="txt-medium-plus text-brand-dark font-serif mb-1">
+                Méthode de paiement
               </Text>
               <Text
                 className="txt-medium text-ui-fg-subtle"
                 data-testid="payment-method-summary"
               >
-                Gift card
+                Carte cadeau
               </Text>
             </div>
           ) : null}
         </div>
       </div>
-      <Divider className="mt-8" />
     </div>
   )
 }

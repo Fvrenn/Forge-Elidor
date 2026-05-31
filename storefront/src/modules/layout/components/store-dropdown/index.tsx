@@ -70,7 +70,7 @@ const StoreDropdown = () => {
                     className="hover:text-ui-fg-base font-serif font-normal small:text-base h-full flex items-center transition-colors duration-200 border-b-2 border-transparent hover:border-brand-dark"
                     href="/galerie"
                 >
-                    Galerie couteau
+                    Galerie couteaux
                     <svg
                         aria-hidden="true"
                         className={`w-3 h-3 ml-2 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}

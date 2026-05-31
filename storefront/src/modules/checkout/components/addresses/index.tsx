@@ -40,23 +40,23 @@ const Addresses = ({
   const [message, formAction] = useActionState(setAddresses, null)
 
   return (
-    <div className="bg-white">
+    <div className="bg-brand-light border border-ui-border-base rounded-lg px-6 py-6">
       <div className="flex flex-row items-center justify-between mb-6">
         <Heading
           level="h2"
-          className="flex flex-row text-3xl-regular gap-x-2 items-baseline"
+          className="font-serif text-2xl text-brand-dark flex flex-row gap-x-2 items-baseline"
         >
-          Shipping Address
-          {!isOpen && <CheckCircleSolid />}
+          Adresse de livraison
+          {!isOpen && <CheckCircleSolid className="text-brand-green" />}
         </Heading>
         {!isOpen && cart?.shipping_address && (
           <Text>
             <button
               onClick={handleEdit}
-              className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+              className="font-serif text-brand-dark underline underline-offset-2 hover:text-brand-green transition-colors duration-200"
               data-testid="edit-address-button"
             >
-              Edit
+              Modifier
             </button>
           </Text>
         )}
@@ -75,16 +75,19 @@ const Addresses = ({
               <div>
                 <Heading
                   level="h2"
-                  className="text-3xl-regular gap-x-4 pb-6 pt-8"
+                  className="font-serif text-2xl text-brand-dark gap-x-4 pb-6 pt-8"
                 >
-                  Billing address
+                  Adresse de facturation
                 </Heading>
 
                 <BillingAddress cart={cart} />
               </div>
             )}
-            <SubmitButton className="mt-6" data-testid="submit-address-button">
-              Continue to delivery
+            <SubmitButton
+              className="mt-6 w-full bg-brand-dark hover:bg-brand-brown text-brand-light font-serif transition-colors duration-200"
+              data-testid="submit-address-button"
+            >
+              Continuer vers la livraison
             </SubmitButton>
             <ErrorMessage error={message} data-testid="address-error-message" />
           </div>
@@ -99,8 +102,8 @@ const Addresses = ({
                     className="flex flex-col w-1/3"
                     data-testid="shipping-address-summary"
                   >
-                    <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                      Shipping Address
+                    <Text className="txt-medium-plus text-brand-dark font-serif mb-1">
+                      Livraison
                     </Text>
                     <Text className="txt-medium text-ui-fg-subtle">
                       {cart.shipping_address.first_name}{" "}
@@ -120,10 +123,10 @@ const Addresses = ({
                   </div>
 
                   <div
-                    className="flex flex-col w-1/3 "
+                    className="flex flex-col w-1/3"
                     data-testid="shipping-contact-summary"
                   >
-                    <Text className="txt-medium-plus text-ui-fg-base mb-1">
+                    <Text className="txt-medium-plus text-brand-dark font-serif mb-1">
                       Contact
                     </Text>
                     <Text className="txt-medium text-ui-fg-subtle">
@@ -138,13 +141,13 @@ const Addresses = ({
                     className="flex flex-col w-1/3"
                     data-testid="billing-address-summary"
                   >
-                    <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                      Billing Address
+                    <Text className="txt-medium-plus text-brand-dark font-serif mb-1">
+                      Facturation
                     </Text>
 
                     {sameAsBilling ? (
                       <Text className="txt-medium text-ui-fg-subtle">
-                        Billing and delivery address are the same.
+                        Identique à l'adresse de livraison.
                       </Text>
                     ) : (
                       <>
@@ -176,7 +179,6 @@ const Addresses = ({
           </div>
         </div>
       )}
-      <Divider className="mt-8" />
     </div>
   )
 }
