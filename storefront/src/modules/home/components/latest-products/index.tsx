@@ -16,9 +16,9 @@ export default function LatestProducts({
                         <h2 className="text-3xl font-black font-sans uppercase md:text-5xl text-brand-light">derniers couteaux</h2>
                         <p className="text-brand-light text-lg font-sans lg:ml-10 mt-2 md:mt-0">Ces couteaux sont encore disponibles à la vente</p>
                     </div>
-                    <a href="#" className="bg-brand-light text-black text-lg font-sans font-medium rounded-full px-6 py-3 md:py-0 w-fit flex items-center gap-2">Voir Plus <ArrowRight /></a>
+                    <a href="/store" className="bg-brand-light text-black text-lg font-sans font-medium rounded-full px-6 py-3 md:py-0 w-fit flex items-center gap-2 self-start md:self-auto">Voir Plus <ArrowRight /></a>
                 </div>
-                <ul className="flex md:inline-flex flex-col md:flex-row gap-x-6 gap-y-8 mt-24">
+                <ul className="flex flex-col md:flex-row gap-x-6 gap-y-8 mt-4 md:mt-8">
                     {products.slice(0, 4).map((product) => (
                         <li key={product.id} className="w-full">
                             <ProductPreview product={product} region={region} isFeatured isLight={true} thumbnailSize="large" />

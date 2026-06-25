@@ -10,9 +10,9 @@ import { listProducts } from "@lib/data/products"
 import { getRegion } from "@lib/data/regions"
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: "Forge Elidor | Coutelier artisanal dans la Vallée de Munster",
   description:
-    "A performant frontend ecommerce starter template with Next.js 15 and Medusa.",
+    "Forge Elidor — couteaux de cuisine artisanaux et pièces uniques forgés à la main par Joël Matter.",
 }
 
 export default async function Home(props: {
@@ -47,11 +47,9 @@ export default async function Home(props: {
       <LatestProducts products={latestProducts} region={region} />
       <About />
       <FeaturedSection />
-      <div className="py-12">
-        <ul className="flex flex-col gap-x-6">
-          <FeaturedProducts collections={collections} region={region} />
-        </ul>
-      </div>
+      <ul className="flex flex-col">
+        <FeaturedProducts collections={collections} region={region} />
+      </ul>
     </>
   )
 }

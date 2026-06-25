@@ -23,7 +23,7 @@ const Hero = () => {
         </p>
         <div className="mt-6 md:mt-8 lg:mt-9">
           <a
-            href="#"
+            href="/store"
             className="inline-block text-brand-black no-underline font-sans font-medium bg-brand-light py-2 px-6 rounded-full text-sm hover:bg-opacity-90 transition-all md:py-2.5 md:px-8 md:text-base lg:px-9"
           >
             Voir Plus

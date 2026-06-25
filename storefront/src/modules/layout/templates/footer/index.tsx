@@ -14,7 +14,7 @@ export default async function Footer() {
   return (
     <footer className="border-t border-ui-border-base w-full">
       <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
+        <div className="flex flex-col gap-y-10 xsmall:flex-row items-start justify-between py-16 md:py-24">
           <div>
             <LocalizedClientLink
               href="/"
@@ -139,9 +139,9 @@ export default async function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
+        <div className="flex flex-col gap-y-4 small:flex-row w-full mb-12 small:items-center justify-between text-ui-fg-muted">
           <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Forge Elidor. All rights reserved.
+            © {new Date().getFullYear()} Forge Elidor. Tous droits réservés.
           </Text>
           <MedusaCTA />
         </div>
