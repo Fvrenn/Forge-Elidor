@@ -47,13 +47,13 @@ export default async function Nav() {
             </LocalizedClientLink>
             <LocalizedClientLink
               className="hover:text-ui-fg-base font-serif font-normal small:text-base h-full flex items-center transition-colors duration-200 border-b-2 border-transparent hover:border-brand-dark"
-              href="/about"
+              href="/atelier"
             >
               Atelier
             </LocalizedClientLink>
             <LocalizedClientLink
               className="hover:text-ui-fg-base font-serif font-normal small:text-base h-full flex items-center transition-colors duration-200 border-b-2 border-transparent hover:border-brand-dark"
-              href="/contact"
+              href="/actualite"
             >
               Actualité
             </LocalizedClientLink>

@@ -190,7 +190,7 @@ const BurgerMenu = () => {
 
                                         <li>
                                             <LocalizedClientLink
-                                                href="/about"
+                                                href="/atelier"
                                                 onClick={() => setIsOpen(false)}
                                                 className="block font-serif text-base text-ui-fg-subtle hover:text-ui-fg-base transition-colors duration-200 py-2"
                                             >
@@ -200,7 +200,7 @@ const BurgerMenu = () => {
 
                                         <li>
                                             <LocalizedClientLink
-                                                href="/contact"
+                                                href="/actualite"
                                                 onClick={() => setIsOpen(false)}
                                                 className="block font-serif text-base text-ui-fg-subtle hover:text-ui-fg-base transition-colors duration-200 py-2"
                                             >
