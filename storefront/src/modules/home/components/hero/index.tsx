@@ -2,9 +2,19 @@ import Carousel from "./Carousel"
 
 const Hero = () => {
   const slides = [
-    { image: "/swiper/swiper1.jpg", caption: "Caption 1" },
-    { image: "/swiper/swiper2.jpg", caption: "Caption 2" },
-    { image: "/swiper/swiper3.jpg", caption: "Caption 3" },
+    {
+      image: "/swiper/swiper1.jpg",
+      caption: "Couteau de cuisine artisanal forgé à la Forge Elidor",
+    },
+    {
+      image: "/swiper/swiper2.jpg",
+      caption:
+        "Trois couteaux de cuisine à lame damas et manches en bois précieux",
+    },
+    {
+      image: "/swiper/swiper3.jpg",
+      caption: "Couteau artisanal posé sur un établi de l'atelier",
+    },
   ]
 
   return (

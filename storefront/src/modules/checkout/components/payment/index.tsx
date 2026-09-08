@@ -231,7 +231,7 @@ const Payment = ({
                   <Text>
                     {isStripeLike(selectedPaymentMethod) && cardBrand
                       ? cardBrand
-                      : "Another step will appear"}
+                      : "Une étape supplémentaire suivra"}
                   </Text>
                 </div>
               </div>

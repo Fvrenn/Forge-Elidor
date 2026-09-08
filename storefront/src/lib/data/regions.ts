@@ -3,11 +3,12 @@
 import { sdk } from "@lib/config"
 import medusaError from "@lib/util/medusa-error"
 import { HttpTypes } from "@medusajs/types"
-import { getCacheOptions } from "./cookies"
+import { getCacheOptions, CATALOG_REVALIDATE } from "./cookies"
 
 export const listRegions = async () => {
   const next = {
     ...(await getCacheOptions("regions")),
+    revalidate: CATALOG_REVALIDATE,
   }
 
   return sdk.client
@@ -23,6 +24,7 @@ export const listRegions = async () => {
 export const retrieveRegion = async (id: string) => {
   const next = {
     ...(await getCacheOptions(["regions", id].join("-"))),
+    revalidate: CATALOG_REVALIDATE,
   }
 
   return sdk.client

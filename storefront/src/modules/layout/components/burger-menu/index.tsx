@@ -45,7 +45,7 @@ const BurgerMenu = () => {
             <button
                 onClick={() => setIsOpen(true)}
                 className="flex items-center justify-center w-10 h-10 text-ui-fg-subtle hover:text-ui-fg-base transition-colors duration-200 small:hidden"
-                aria-label="Open menu"
+                aria-label="Ouvrir le menu"
             >
                 <svg
                     className="w-6 h-6"
@@ -95,7 +95,7 @@ const BurgerMenu = () => {
                                     <button
                                         onClick={() => setIsOpen(false)}
                                         className="text-ui-fg-subtle hover:text-ui-fg-base transition-colors duration-200"
-                                        aria-label="Close menu"
+                                        aria-label="Fermer le menu"
                                     >
                                         <svg
                                             className="w-6 h-6"

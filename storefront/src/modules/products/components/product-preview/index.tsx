@@ -58,14 +58,13 @@ export default async function ProductPreview({
               {cheapestPrice && <PreviewPrice price={cheapestPrice} isLight={isLight} size={thumbnailSize === "square" ? "base" : "lg"} />}
             </div>
           </div>
-          <div className="mt-1">
-            <Text className={clx("font-sans font-normal", textSize, isLight ? "text-brand-light" : "text-brand-brown")} data-testid="product-title">
-              {product.description}
-            </Text>
-            <Text className={clx("font-sans font-normal", textSize, isLight ? "text-brand-light" : "text-brand-brown")} data-testid="product-title">
-              {product.subtitle}
-            </Text>
-          </div>
+          {product.subtitle && (
+            <div className="mt-1">
+              <Text className={clx("font-sans font-normal", textSize, isLight ? "text-brand-light" : "text-brand-brown")} data-testid="product-subtitle">
+                {product.subtitle}
+              </Text>
+            </div>
+          )}
         </div>
       </div>
     </LocalizedClientLink>

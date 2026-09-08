@@ -87,12 +87,17 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     notFound()
   }
 
+  const description =
+    product.subtitle ||
+    product.description ||
+    `${product.title}, couteau artisanal forgé à la main à la Forge Elidor.`
+
   return {
-    title: `${product.title} | Medusa Store`,
-    description: `${product.title}`,
+    title: product.title,
+    description,
     openGraph: {
-      title: `${product.title} | Medusa Store`,
-      description: `${product.title}`,
+      title: `${product.title} | Forge Elidor`,
+      description,
       images: product.thumbnail ? [product.thumbnail] : [],
     },
   }

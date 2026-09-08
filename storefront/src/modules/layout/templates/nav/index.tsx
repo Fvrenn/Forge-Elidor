@@ -67,7 +67,7 @@ export default async function Nav() {
                 href="/account"
                 data-testid="nav-account-link"
               >
-                Account
+                Compte
               </LocalizedClientLink>
             </div>
 

@@ -14,11 +14,11 @@ type ProductTabsProps = {
 const ProductTabs = ({ product }: ProductTabsProps) => {
   const tabs = [
     {
-      label: "Product Information",
+      label: "Caractéristiques",
       component: <ProductInfoTab product={product} />,
     },
     {
-      label: "Shipping & Returns",
+      label: "Livraison et retours",
       component: <ShippingInfoTab />,
     },
   ]
@@ -47,11 +47,11 @@ const ProductInfoTab = ({ product }: ProductTabsProps) => {
       <div className="grid grid-cols-2 gap-x-8">
         <div className="flex flex-col gap-y-4">
           <div>
-            <span className="font-semibold">Material</span>
+            <span className="font-semibold">Matériau</span>
             <p>{product.material ? product.material : "-"}</p>
           </div>
           <div>
-            <span className="font-semibold">Country of origin</span>
+            <span className="font-semibold">Pays d&apos;origine</span>
             <p>{product.origin_country ? product.origin_country : "-"}</p>
           </div>
           <div>
@@ -61,7 +61,7 @@ const ProductInfoTab = ({ product }: ProductTabsProps) => {
         </div>
         <div className="flex flex-col gap-y-4">
           <div>
-            <span className="font-semibold">Weight</span>
+            <span className="font-semibold">Poids</span>
             <p>{product.weight ? `${product.weight} g` : "-"}</p>
           </div>
           <div>
@@ -85,31 +85,32 @@ const ShippingInfoTab = () => {
         <div className="flex items-start gap-x-2">
           <FastDelivery />
           <div>
-            <span className="font-semibold">Fast delivery</span>
+            <span className="font-semibold">Expédition depuis l&apos;atelier</span>
             <p className="max-w-sm">
-              Your package will arrive in 3-5 business days at your pick up
-              location or in the comfort of your home.
+              Chaque commande est préparée et emballée à l&apos;atelier, puis
+              expédiée en colis suivi. Vous recevez le numéro de suivi dès
+              l&apos;expédition.
             </p>
           </div>
         </div>
         <div className="flex items-start gap-x-2">
           <Refresh />
           <div>
-            <span className="font-semibold">Simple exchanges</span>
+            <span className="font-semibold">Une question sur votre couteau&nbsp;?</span>
             <p className="max-w-sm">
-              Is the fit not quite right? No worries - we&apos;ll exchange your
-              product for a new one.
+              Écrivez-nous&nbsp;: nous répondons personnellement sur le choix
+              d&apos;une lame, son entretien ou son affûtage.
             </p>
           </div>
         </div>
         <div className="flex items-start gap-x-2">
           <Back />
           <div>
-            <span className="font-semibold">Easy returns</span>
+            <span className="font-semibold">Retour sous 14 jours</span>
             <p className="max-w-sm">
-              Just return your product and we&apos;ll refund your money. No
-              questions asked – we&apos;ll do our best to make sure your return
-              is hassle-free.
+              Conformément au droit de rétractation, vous disposez de 14 jours
+              après réception pour nous retourner un couteau non utilisé et en
+              être remboursé.
             </p>
           </div>
         </div>

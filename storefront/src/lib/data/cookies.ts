@@ -87,3 +87,7 @@ export const removeCartId = async () => {
     maxAge: -1,
   })
 }
+
+// Le catalogue est mis en cache par Next. Sans délai de revalidation, un
+// produit ajouté dans l'admin Medusa n'apparaît qu'après un redéploiement.
+export const CATALOG_REVALIDATE = 60

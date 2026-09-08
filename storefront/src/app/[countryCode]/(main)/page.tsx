@@ -9,7 +9,9 @@ import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 
 export const metadata: Metadata = {
-  title: "Forge Elidor | Coutelier artisanal dans la Vallée de Munster",
+  title: {
+    absolute: "Forge Elidor | Coutelier artisanal dans la Vallée de Munster",
+  },
   description:
     "Forge Elidor — couteaux de cuisine artisanaux et pièces uniques forgés à la main par Joël Matter.",
 }

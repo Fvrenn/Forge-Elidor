@@ -5,8 +5,9 @@ import StoreTemplate from "@modules/store/templates"
 import { getCategoryByHandle } from "@lib/data/categories"
 
 export const metadata: Metadata = {
-  title: "Store",
-  description: "Explore all of our products.",
+  title: "Couteaux disponibles",
+  description:
+    "Découvrez les couteaux artisanaux disponibles à la vente, forgés à la main à la Forge Elidor.",
 }
 
 type Params = {
