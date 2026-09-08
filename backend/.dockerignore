@@ -19,5 +19,5 @@ coverage
 .DS_Store
 integration-tests
 README.md
-dockerfile
+Dockerfile
 .dockerignore
