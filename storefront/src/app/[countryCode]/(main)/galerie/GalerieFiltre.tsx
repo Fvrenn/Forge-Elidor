@@ -37,7 +37,7 @@ export default function GalerieFiltre({ photos, categories, activeCategorie }: G
         "couteau-nakiri": { src: "/galerie-page/Nakiri_1.webp", alt: "Couteau Nakiri" },
         "econome": { src: "/galerie-page/Econome_1.webp", alt: "Économe" },
         "couteau-de-chef": { src: "/galerie-page/Gyuto_1.webp", alt: "Couteau de chef" },
-        "couteau-a-pain": { src: "/galerie-page/Couteau-a-pain_1.webp", alt: "Couteau à pain" },
+        "couteau-a-pain": { src: "/galerie-page/Couteau-a-pain.webp", alt: "Couteau à pain" },
         "couteau-bunka": { src: "/galerie-page/Bunka_1.webp", alt: "Couteau Bunka" },
     }
 

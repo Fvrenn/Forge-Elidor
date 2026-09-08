@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Actualité | Forge Elidor',
+  title: 'Actualité',
   description: "Suivez l'actualité et les activités de la Forge Elidor.",
 }
 
