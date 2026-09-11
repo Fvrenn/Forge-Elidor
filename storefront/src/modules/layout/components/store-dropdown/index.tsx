@@ -3,61 +3,10 @@
 import { useState, Fragment } from "react"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { Transition } from "@headlessui/react"
+import type { CategorieGalerie } from "@lib/data/categories-galerie"
 
-const StoreDropdown = () => {
+const StoreDropdown = ({ categories = [] }: { categories?: CategorieGalerie[] }) => {
     const [isOpen, setIsOpen] = useState(false)
-
-    const categories = [
-        {
-            label: "Couteau Santoku",
-            href: "/galerie?categorie=couteau-santoku",
-            icon: "/nav/santoku.svg",
-            iconHover: "/nav/santoku-hover.svg",
-        },
-        {
-            label: "Couteau Bunka",
-            href: "/galerie?categorie=couteau-bunka",
-            icon: "/nav/bunka.svg",
-            iconHover: "/nav/bunka-hover.svg",
-        },
-
-        {
-            label: "Couteau Petty",
-            href: "/galerie?categorie=couteau-petty",
-            icon: "/nav/petty.svg",
-            iconHover: "/nav/petty-hover.svg",
-        },
-        {
-            label: "Couteau Office",
-            href: "/galerie?categorie=couteau-office",
-            icon: "/nav/office.svg",
-            iconHover: "/nav/office-hover.svg",
-        },
-        {
-            label: "Couteau Nakiri",
-            href: "/galerie?categorie=couteau-nakiri",
-            icon: "/nav/nakiri.svg",
-            iconHover: "/nav/nakiri-hover.svg",
-        },
-        {
-            label: "Économe",
-            href: "/galerie?categorie=econome",
-            icon: "/nav/econome.svg",
-            iconHover: "/nav/econome-hover.svg",
-        },
-        {
-            label: "Couteau de chef",
-            href: "/galerie?categorie=couteau-de-chef",
-            icon: "/nav/gyuto.svg",
-            iconHover: "/nav/gyuto-hover.svg",
-        },
-        {
-            label: "Couteau à pain",
-            href: "/galerie?categorie=couteau-a-pain",
-            icon: "/nav/pain.svg",
-            iconHover: "/nav/pain-hover.svg",
-        },
-    ]
 
     return (
         <div
@@ -88,7 +37,7 @@ const StoreDropdown = () => {
             </div>
 
             <Transition
-                show={isOpen}
+                show={isOpen && categories.length > 0}
                 as={Fragment}
                 enter="transition ease-out duration-300"
                 enterFrom="opacity-0"
@@ -125,24 +74,28 @@ const StoreDropdown = () => {
                             <div className="flex ml-7 mt-2 justify-between w-full">
                                 <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
                                     {categories.map((cat) => (
-                                        <li key={cat.label}>
+                                        <li key={cat._id}>
                                             <LocalizedClientLink
-                                                href={cat.href}
+                                                href={`/galerie?categorie=${cat.slug}`}
                                                 className="flex items-center gap-x-[10px] text-black hover:text-brand-dark transition-colors duration-200 group/item"
                                             >
                                                 <span className="bg-brand-accent rounded-[100px] w-[100px] h-[55px] flex items-center justify-center transition-all duration-300 relative shrink-0 group-hover/item:bg-brand-dark group-hover/item:scale-105 group-hover/item:shadow-md">
-                                                    <img
-                                                        src={cat.icon}
-                                                        alt=""
-                                                        className="w-[70px] h-11 absolute transition-all duration-300 group-hover/item:opacity-0 group-hover/item:invisible"
-                                                    />
-                                                    <img
-                                                        src={cat.iconHover}
-                                                        alt=""
-                                                        className="w-[70px] h-11 absolute opacity-0 invisible transition-all duration-300 group-hover/item:opacity-100 group-hover/item:visible"
-                                                    />
+                                                    {cat.icone && (
+                                                        <img
+                                                            src={cat.icone}
+                                                            alt=""
+                                                            className="w-[70px] h-11 absolute transition-all duration-300 group-hover/item:opacity-0 group-hover/item:invisible"
+                                                        />
+                                                    )}
+                                                    {cat.iconeHover && (
+                                                        <img
+                                                            src={cat.iconeHover}
+                                                            alt=""
+                                                            className="w-[70px] h-11 absolute opacity-0 invisible transition-all duration-300 group-hover/item:opacity-100 group-hover/item:visible"
+                                                        />
+                                                    )}
                                                 </span>
-                                                <span className="font-serif text-base">{cat.label}</span>
+                                                <span className="font-serif text-base">{cat.nom}</span>
                                             </LocalizedClientLink>
                                         </li>
                                     ))}

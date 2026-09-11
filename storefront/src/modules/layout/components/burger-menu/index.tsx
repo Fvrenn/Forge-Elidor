@@ -3,41 +3,12 @@
 import { useState, Fragment } from "react"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { Transition, Dialog } from "@headlessui/react"
+import type { CategorieGalerie } from "@lib/data/categories-galerie"
 
-const BurgerMenu = () => {
+const BurgerMenu = ({ categories = [] }: { categories?: CategorieGalerie[] }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [isStoreExpanded, setIsStoreExpanded] = useState(false)
 
-    const categories = [
-        {
-            label: "Couteau Santoku",
-            href: "/galerie?categorie=couteau-santoku",
-        },
-        {
-            label: "Couteau Petty",
-            href: "/galerie?categorie=couteau-petty",
-        },
-        {
-            label: "Couteau Office",
-            href: "/galerie?categorie=couteau-office",
-        },
-        {
-            label: "Couteau Nakiri",
-            href: "/galerie?categorie=couteau-nakiri",
-        },
-        {
-            label: "Économe",
-            href: "/galerie?categorie=econome",
-        },
-        {
-            label: "Couteau de chef",
-            href: "/galerie?categorie=couteau-de-chef",
-        },
-        {
-            label: "Couteau à pain",
-            href: "/galerie?categorie=couteau-a-pain",
-        },
-    ]
 
     return (
         <>
@@ -162,13 +133,13 @@ const BurgerMenu = () => {
                                                             </LocalizedClientLink>
                                                         </li>
                                                         {categories.map((cat) => (
-                                                            <li key={cat.label}>
+                                                            <li key={cat._id}>
                                                                 <LocalizedClientLink
-                                                                    href={cat.href}
+                                                                    href={`/galerie?categorie=${cat.slug}`}
                                                                     onClick={() => setIsOpen(false)}
                                                                     className="block text-sm text-ui-fg-subtle hover:text-ui-fg-base transition-colors duration-200 py-1"
                                                                 >
-                                                                    {cat.label}
+                                                                    {cat.nom}
                                                                 </LocalizedClientLink>
                                                             </li>
                                                         ))}

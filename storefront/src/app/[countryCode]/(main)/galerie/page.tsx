@@ -1,14 +1,6 @@
 import { sanityClient } from '@lib/sanity'
+import { listCategoriesGalerie } from '@lib/data/categories-galerie'
 import GalerieFiltre from './GalerieFiltre'
-import Image from 'next/image'
-
-async function getCategories() {
-  return sanityClient.fetch(`
-    *[_type == "categorieGalerie"] | order(nom asc) {
-      _id, nom, "slug": slug.current
-    }
-  `)
-}
 
 async function getGalerie() {
   return sanityClient.fetch(`
@@ -25,7 +17,7 @@ export default async function GaleriePage({
   searchParams: { categorie?: string }
 }) {
   const photos = await getGalerie()
-  const categories = await getCategories()
+  const categories = await listCategoriesGalerie()
   const activeCategorie = searchParams?.categorie ?? null
 
   return (

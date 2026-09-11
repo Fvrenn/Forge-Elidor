@@ -4,12 +4,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useRouter, usePathname } from 'next/navigation'
 import { urlFor } from '@lib/sanity'
-
-interface Categorie {
-    _id: string
-    nom: string
-    slug: string
-}
+import type { CategorieGalerie } from '@lib/data/categories-galerie'
 
 interface Photo {
     _id: string
@@ -20,28 +15,18 @@ interface Photo {
 
 interface GaleireFiltrePops {
     photos: Photo[]
-    categories: Categorie[]
+    categories: CategorieGalerie[]
     activeCategorie: string | null
 }
+
+const DEFAULT_BANNER = { src: "/galerie-page/Bunka_1.webp", alt: "Galerie Forge Elidor" }
+const DEFAULT_DESCRIPTION = "L'art de la forge au service de votre cuisine. Découvrez nos pièces uniques façonnées à la main."
 
 export default function GalerieFiltre({ photos, categories, activeCategorie }: GaleireFiltrePops) {
     const router = useRouter()
     const pathname = usePathname()
     const [filtre, setFiltre] = useState<string | null>(activeCategorie)
     const [lightboxPhoto, setLightboxPhoto] = useState<Photo | null>(null)
-
-    const bannerMapping: Record<string, { src: string; alt: string }> = {
-        "couteau-santoku": { src: "/galerie-page/Santoku_1.webp", alt: "Couteau Santoku" },
-        "couteau-petty": { src: "/galerie-page/Petty_1.webp", alt: "Couteau Petty" },
-        "couteau-office": { src: "/galerie-page/Office_1.webp", alt: "Couteau Office" },
-        "couteau-nakiri": { src: "/galerie-page/Nakiri_1.webp", alt: "Couteau Nakiri" },
-        "econome": { src: "/galerie-page/Econome_1.webp", alt: "Économe" },
-        "couteau-de-chef": { src: "/galerie-page/Gyuto_1.webp", alt: "Couteau de chef" },
-        "couteau-a-pain": { src: "/galerie-page/Couteau-a-pain.webp", alt: "Couteau à pain" },
-        "couteau-bunka": { src: "/galerie-page/Bunka_1.webp", alt: "Couteau Bunka" },
-    }
-
-    const defaultBanner = { src: "/galerie-page/Bunka_1.webp", alt: "Galerie Forge Elidor" }
 
     // Sync filtre with URL param when navigating via nav links
     useEffect(() => {
@@ -61,39 +46,33 @@ export default function GalerieFiltre({ photos, categories, activeCategorie }: G
         ? photos.filter((p) => p.categorie?.slug === filtre)
         : photos
 
-    const descriptionMapping: Record<string, string> = {
-        "couteau-santoku": "Les couteaux Santoku sont parfaits pour ciseler et hacher avec une précision exceptionnelle.",
-        "couteau-petty": "Le couteau Petty est le compagnon indispensable pour tous les travaux délicats en cuisine.",
-        "couteau-office": "Petit et maniable, le couteau d'office est l'outil polyvalent par excellence pour éplucher et couper.",
-        "couteau-nakiri": "Spécialement conçu pour les légumes, le Nakiri permet une coupe nette et rapide grâce à sa lame rectangulaire.",
-        "econome": "Un classique revisité pour une prise en main parfaite et un épluchage sans effort.",
-        "couteau-de-chef": "Polyvalent et puissant, le couteau de chef est la pièce maîtresse de toute cuisine professionnelle.",
-        "couteau-a-pain": "Sa lame dentelée traverse les croûtes les plus dures sans écraser la mie moelleuse.",
-        "couteau-bunka": "Avec sa pointe biseautée caractéristique, le Bunka excelle autant dans le travail du poisson que de la viande.",
-    }
+    const categorieActive = categories.find((c) => c.slug === filtre)
+    // Categories without a banner fall back to the default one, already rendered below
+    const categoriesAvecBanniere = categories.filter((c) => c.banniere)
+    const banniereActiveVisible = Boolean(categorieActive?.banniere)
 
     return (
         <div>
             {/* Instant Cross-fade Banner */}
             <div className="w-full h-60 relative md:mb-20 overflow-hidden group">
                 {/* All banners stacked with opacity */}
-                {Object.entries(bannerMapping).map(([slug, banner]) => (
+                {categoriesAvecBanniere.map((cat) => (
                     <Image
-                        key={slug}
-                        src={banner.src}
-                        alt={banner.alt}
+                        key={cat._id}
+                        src={urlFor(cat.banniere).width(1920).url()}
+                        alt={cat.nom}
                         fill
                         priority
-                        className={`object-cover transition-opacity duration-1000 ease-in-out ${filtre === slug ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                        className={`object-cover transition-opacity duration-1000 ease-in-out ${filtre === cat.slug ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
                     />
                 ))}
-                {/* Default banner for "Tout" */}
+                {/* Default banner for "Tout" and categories without a banner */}
                 <Image
-                    src={defaultBanner.src}
-                    alt={defaultBanner.alt}
+                    src={DEFAULT_BANNER.src}
+                    alt={DEFAULT_BANNER.alt}
                     fill
                     priority
-                    className={`object-cover transition-opacity duration-1000 ease-in-out ${filtre === null ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                    className={`object-cover transition-opacity duration-1000 ease-in-out ${banniereActiveVisible ? 'opacity-0 z-0' : 'opacity-100 z-10'}`}
                 />
 
                 {/* Gradient Overlay for legibility */}
@@ -107,7 +86,7 @@ export default function GalerieFiltre({ photos, categories, activeCategorie }: G
                             <span className="hover:text-white transition-colors cursor-pointer" onClick={() => handleFilterChange(null)}>Galerie</span>
                             <span className="mx-3 opacity-40">/</span>
                             <span className="text-white">
-                                {categories.find(c => c.slug === filtre)?.nom || "Toutes les créations"}
+                                {categorieActive?.nom || "Toutes les créations"}
                             </span>
                         </nav>
                     </div>
@@ -116,16 +95,13 @@ export default function GalerieFiltre({ photos, categories, activeCategorie }: G
                     <div className="mt-9 flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-16 transition-all duration-1000 delay-300 transform translate-y-0 opacity-100">
                         <div className="flex-1">
                             <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-[1.1] drop-shadow-2xl">
-                                {categories.find(c => c.slug === filtre)?.nom || "Galerie Forge Elidor"}
+                                {categorieActive?.nom || "Galerie Forge Elidor"}
                             </h2>
                         </div>
 
                         <div className="max-w-md lg:max-w-lg md:max-w-sm md:mb-2">
                             <p className="text-white/80 text-base md:text-lg lg:text-xl font-light leading-relaxed drop-shadow-lg italic md:not-italic">
-                                {filtre && descriptionMapping[filtre]
-                                    ? descriptionMapping[filtre]
-                                    : "L'art de la forge au service de votre cuisine. Découvrez nos pièces uniques façonnées à la main."
-                                }
+                                {categorieActive?.description || DEFAULT_DESCRIPTION}
                             </p>
                         </div>
                     </div>

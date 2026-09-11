@@ -8,12 +8,14 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CartButton from "@modules/layout/components/cart-button"
 import StoreDropdown from "@modules/layout/components/store-dropdown"
 import BurgerMenu from "@modules/layout/components/burger-menu"
+import { listCategoriesGalerie } from "@lib/data/categories-galerie"
 
 export default async function Nav() {
-  const [regions, locales, currentLocale] = await Promise.all([
+  const [regions, locales, currentLocale, categoriesGalerie] = await Promise.all([
     listRegions().then((regions: StoreRegion[]) => regions),
     listLocales(),
     getLocale(),
+    listCategoriesGalerie(),
   ])
 
   return (
@@ -22,7 +24,7 @@ export default async function Nav() {
         <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
           {/* Mobile: Burger + Logo */}
           <div className="flex-none pr-4 small:pr-12 h-full flex items-center gap-x-2 small:gap-x-0">
-            <BurgerMenu />
+            <BurgerMenu categories={categoriesGalerie} />
             <LocalizedClientLink
               href="/"
               className="txt-compact-xlarge-plus uppercase"
@@ -38,7 +40,7 @@ export default async function Nav() {
 
           {/* Desktop: Navigation links (hidden on mobile) */}
           <div className="hidden small:flex items-center gap-x-8 h-full flex-grow">
-            <StoreDropdown />
+            <StoreDropdown categories={categoriesGalerie} />
             <LocalizedClientLink
               className="hover:text-ui-fg-base font-serif font-normal small:text-base h-full flex items-center transition-colors duration-200 border-b-2 border-transparent hover:border-brand-dark"
               href="/store"

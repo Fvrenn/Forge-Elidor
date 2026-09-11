@@ -1,67 +1,16 @@
 import Image from "next/image"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { ArrowRight } from "lucide-react"
+import { listCategoriesGalerie } from "@lib/data/categories-galerie"
+import { urlFor } from "@lib/sanity"
 
-const categories = [
-    {
-        label: "Couteau Santoku",
-        href: "/galerie?categorie=couteau-santoku",
-        icon: "/nav/santoku.svg",
-        iconHover: "/nav/santoku-hover.svg",
-        banner: "/galerie-page/Santoku_1.webp",
-    },
-    {
-        label: "Couteau Bunka",
-        href: "/galerie?categorie=couteau-bunka",
-        icon: "/nav/bunka.svg",
-        iconHover: "/nav/bunka-hover.svg",
-        banner: "/galerie-page/Bunka_1.webp",
-    },
-    {
-        label: "Couteau Petty",
-        href: "/galerie?categorie=couteau-petty",
-        icon: "/nav/petty.svg",
-        iconHover: "/nav/petty-hover.svg",
-        banner: "/galerie-page/Petty_1.webp",
-    },
-    {
-        label: "Couteau Office",
-        href: "/galerie?categorie=couteau-office",
-        icon: "/nav/office.svg",
-        iconHover: "/nav/office-hover.svg",
-        banner: "/galerie-page/Office_1.webp",
-    },
-    {
-        label: "Couteau Nakiri",
-        href: "/galerie?categorie=couteau-nakiri",
-        icon: "/nav/nakiri.svg",
-        iconHover: "/nav/nakiri-hover.svg",
-        banner: "/galerie-page/Nakiri_1.webp",
-    },
-    {
-        label: "Économe",
-        href: "/galerie?categorie=econome",
-        icon: "/nav/econome.svg",
-        iconHover: "/nav/econome-hover.svg",
-        banner: "/galerie-page/Econome_1.webp",
-    },
-    {
-        label: "Couteau de chef",
-        href: "/galerie?categorie=couteau-de-chef",
-        icon: "/nav/gyuto.svg",
-        iconHover: "/nav/gyuto-hover.svg",
-        banner: "/galerie-page/Gyuto_1.webp",
-    },
-    {
-        label: "Couteau à pain",
-        href: "/galerie?categorie=couteau-a-pain",
-        icon: "/nav/pain.svg",
-        iconHover: "/nav/pain-hover.svg",
-        banner: "/galerie-page/Couteau-a-pain.webp",
-    },
-]
+export default async function CategoriesSection() {
+    const categories = await listCategoriesGalerie()
 
-export default function CategoriesSection() {
+    if (!categories.length) {
+        return null
+    }
+
     return (
         <section className="bg-brand-green rounded-3xl mt-6">
             <div className="big-container py-12 small:py-24">
@@ -85,34 +34,38 @@ export default function CategoriesSection() {
 
                 <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                     {categories.map((cat) => (
-                        <li key={cat.label}>
+                        <li key={cat._id}>
                             <LocalizedClientLink
-                                href={cat.href}
+                                href={`/galerie?categorie=${cat.slug}`}
                                 className="group/cat relative flex flex-col items-center justify-between bg-brand-light rounded-2xl p-6 h-44 md:h-56 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                             >
                                 {/* Real knife photo revealed on hover */}
-                                <Image
-                                    src={cat.banner}
-                                    alt={cat.label}
-                                    fill
-                                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                                    className="object-cover z-0 opacity-0 scale-110 transition-all duration-700 ease-out group-hover/cat:opacity-100 group-hover/cat:scale-100"
-                                />
+                                {cat.banniere && (
+                                    <Image
+                                        src={urlFor(cat.banniere).width(600).url()}
+                                        alt={cat.nom}
+                                        fill
+                                        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                                        className="object-cover z-0 opacity-0 scale-110 transition-all duration-700 ease-out group-hover/cat:opacity-100 group-hover/cat:scale-100"
+                                    />
+                                )}
                                 {/* Gradient for label legibility over the photo */}
                                 <div className="absolute inset-0 z-[1] bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent opacity-0 transition-opacity duration-500 group-hover/cat:opacity-100" />
 
                                 {/* Line icon, fades out to reveal the photo */}
                                 <span className="relative z-10 flex-1 flex items-center justify-center w-28">
-                                    <img
-                                        src={cat.icon}
-                                        alt=""
-                                        className="w-28 h-14 object-contain transition-all duration-500 group-hover/cat:opacity-0 group-hover/cat:scale-90"
-                                    />
+                                    {cat.icone && (
+                                        <img
+                                            src={cat.icone}
+                                            alt=""
+                                            className="w-28 h-14 object-contain transition-all duration-500 group-hover/cat:opacity-0 group-hover/cat:scale-90"
+                                        />
+                                    )}
                                 </span>
 
                                 {/* Label: recolors to light over the photo */}
                                 <span className="relative z-10 font-serif text-lg md:text-xl text-brand-dark text-center transition-colors duration-500 group-hover/cat:text-brand-light">
-                                    {cat.label}
+                                    {cat.nom}
                                 </span>
 
                                 {/* Arrow appears on hover */}
