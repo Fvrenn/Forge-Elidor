@@ -17,6 +17,15 @@ export const metadata: Metadata = {
   },
   description:
     "Forge Elidor — couteaux de cuisine artisanaux et pièces uniques forgés à la main par Joël Matter, dans la Vallée de Munster.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+    ],
+    apple: [{ url: "/favicon/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/favicon/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "fr_FR",

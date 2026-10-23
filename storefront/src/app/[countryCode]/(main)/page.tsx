@@ -5,6 +5,7 @@ import FeaturedProducts from "@modules/home/components/featured-products"
 import FeaturedSection from "@modules/home/components/featured-section"
 import Hero from "@modules/home/components/hero"
 import CategoriesSection from "@modules/home/components/categories-section"
+import ActualitesSection from "@modules/home/components/actualites-section"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 
@@ -39,6 +40,7 @@ export default async function Home(props: {
       <CategoriesSection />
       <About />
       <FeaturedSection />
+      <ActualitesSection />
       <ul className="flex flex-col">
         <FeaturedProducts collections={collections} region={region} />
       </ul>

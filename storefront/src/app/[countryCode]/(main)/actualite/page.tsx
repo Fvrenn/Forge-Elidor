@@ -72,7 +72,8 @@ export default async function ActualitePage() {
             {actualites.map((item, index) => (
               <article
                 key={item._id}
-                className={`flex flex-col gap-6 md:gap-10 md:items-center ${
+                id={item._id}
+                className={`scroll-mt-24 flex flex-col gap-6 md:gap-10 md:items-center ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
               >
