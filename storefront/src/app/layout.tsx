@@ -2,6 +2,9 @@ import { getBaseURL } from "@lib/util/env"
 import { Metadata } from "next"
 import { Lora, Bodoni_Moda } from "next/font/google"
 import localFont from 'next/font/local'
+import { draftMode } from "next/headers"
+import { VisualEditing } from "next-sanity/visual-editing"
+import { SanityLive } from "@lib/sanity-live"
 import "styles/globals.css"
 
 // Préversion : NEXT_PUBLIC_NOINDEX=true ajoute un <meta name="robots" content="noindex">
@@ -56,11 +59,16 @@ const bodoniModa = Bodoni_Moda({
   style: ["normal", "italic"],
 })
 
-export default function RootLayout(props: { children: React.ReactNode }) {
+export default async function RootLayout(props: { children: React.ReactNode }) {
+  const { isEnabled: isDraftMode } = await draftMode()
+
   return (
     <html lang="fr" data-mode="light" className={`${satoshi.variable} ${lora.variable} ${bodoniModa.variable}`}>
       <body>
         <main className="relative">{props.children}</main>
+        {/* Mises à jour en direct + édition au clic dans l'aperçu Sanity */}
+        <SanityLive />
+        {isDraftMode && <VisualEditing />}
       </body>
     </html>
   )

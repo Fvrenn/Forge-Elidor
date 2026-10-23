@@ -1,11 +1,15 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
+import {defineLocations, presentationTool} from 'sanity/presentation'
 import {schemaTypes} from './schemaTypes'
 
 // Documents uniques : une seule instance, pas de création ni de suppression
 const SINGLETONS = [{type: 'pageAccueil', title: "Page d'accueil"}]
 const SINGLETON_TYPES = new Set(SINGLETONS.map((s) => s.type))
+
+// Adresse du site affiché dans l'aperçu (Presentation)
+const PREVIEW_URL = process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:8000'
 
 export default defineConfig({
   name: 'default',
@@ -29,6 +33,31 @@ export default defineConfig({
             S.divider(),
             ...S.documentTypeListItems().filter((item) => !SINGLETON_TYPES.has(item.getId()!)),
           ]),
+    }),
+    presentationTool({
+      title: 'Aperçu du site',
+      previewUrl: {
+        origin: PREVIEW_URL,
+        preview: '/fr',
+        previewMode: {enable: '/api/draft-mode/enable', disable: '/api/draft-mode/disable'},
+      },
+      // Pages du site où chaque document apparaît (bouton « Ouvrir dans l'aperçu »)
+      resolve: {
+        locations: {
+          pageAccueil: defineLocations({
+            locations: [{title: "Page d'accueil", href: '/fr'}],
+          }),
+          actualite: defineLocations({
+            select: {title: 'titre'},
+            resolve: (doc) => ({
+              locations: [
+                {title: "Page d'accueil", href: '/fr'},
+                {title: doc?.title || 'Actualité', href: '/fr/actualite'},
+              ],
+            }),
+          }),
+        },
+      },
     }),
     visionTool(),
   ],

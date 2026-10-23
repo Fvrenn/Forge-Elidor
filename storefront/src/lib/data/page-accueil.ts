@@ -1,4 +1,6 @@
-import { sanityClient, urlFor } from "@lib/sanity"
+import { stegaClean } from "next-sanity"
+import { urlFor } from "@lib/sanity"
+import { sanityFetch } from "@lib/sanity-live"
 
 export type PageAccueil = {
   hero: {
@@ -80,7 +82,7 @@ function ou<T>(valeur: T | null | undefined, defaut: T): T {
 export async function getPageAccueil(): Promise<PageAccueil> {
   let doc: any = null
   try {
-    doc = await sanityClient.fetch(PAGE_ACCUEIL_QUERY)
+    doc = (await sanityFetch({ query: PAGE_ACCUEIL_QUERY })).data
   } catch (e) {
     console.error("Sanity: impossible de récupérer la page d'accueil", e)
   }
@@ -95,7 +97,7 @@ export async function getPageAccueil(): Promise<PageAccueil> {
     .filter((photo: any) => photo?.asset)
     .map((photo: any) => ({
       image: urlFor(photo).width(1600).url(),
-      caption: photo.legende ?? "",
+      caption: stegaClean(photo.legende) ?? "",
     }))
 
   return {
@@ -104,7 +106,8 @@ export async function getPageAccueil(): Promise<PageAccueil> {
       titre: ou(hero.titre, DEFAUTS.hero.titre),
       texte: ou(hero.texte, DEFAUTS.hero.texte),
       boutonTexte: ou(hero.boutonTexte, DEFAUTS.hero.boutonTexte),
-      boutonLien: ou(hero.boutonLien, DEFAUTS.hero.boutonLien),
+      // Un lien ne doit pas contenir les marqueurs invisibles de l'aperçu
+      boutonLien: ou(stegaClean(hero.boutonLien), DEFAUTS.hero.boutonLien),
       photos: photos.length ? photos : DEFAUTS.hero.photos,
     },
     categories: {

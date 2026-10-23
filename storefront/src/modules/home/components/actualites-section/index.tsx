@@ -1,7 +1,9 @@
 import Image from "next/image"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { ArrowRight } from "lucide-react"
-import { sanityClient, urlFor } from "@lib/sanity"
+import { stegaClean } from "next-sanity"
+import { urlFor } from "@lib/sanity"
+import { sanityFetch } from "@lib/sanity-live"
 import type { PageAccueil } from "@lib/data/page-accueil"
 
 type Actualite = {
@@ -14,11 +16,12 @@ type Actualite = {
 
 async function getDernieresActualites(): Promise<Actualite[]> {
     try {
-        return await sanityClient.fetch(`
-            *[_type == "actualite"] | order(date desc)[0...4] {
+        const { data } = await sanityFetch({
+            query: `*[_type == "actualite"] | order(date desc)[0...4] {
                 _id, titre, date, image, texte
-            }
-        `)
+            }`,
+        })
+        return data
     } catch (e) {
         console.error("Sanity: impossible de récupérer les actualités", e)
         return []
@@ -28,7 +31,7 @@ async function getDernieresActualites(): Promise<Actualite[]> {
 // Badge court façon "30.03"
 function formatDateCourte(date: string) {
     try {
-        return new Date(date).toLocaleDateString("fr-FR", {
+        return new Date(stegaClean(date)).toLocaleDateString("fr-FR", {
             day: "2-digit",
             month: "2-digit",
         }).replace("/", ".")
@@ -77,7 +80,7 @@ export default async function ActualitesSection({
                             {item.image && (
                                 <Image
                                     src={urlFor(item.image).width(600).url()}
-                                    alt={item.titre}
+                                    alt={stegaClean(item.titre)}
                                     fill
                                     sizes="(max-width: 768px) 42vw, 21vw"
                                     className="object-cover"
