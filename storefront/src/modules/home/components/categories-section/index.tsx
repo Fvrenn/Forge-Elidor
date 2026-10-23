@@ -3,8 +3,13 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import { ArrowRight } from "lucide-react"
 import { listCategoriesGalerie } from "@lib/data/categories-galerie"
 import { urlFor } from "@lib/sanity"
+import type { PageAccueil } from "@lib/data/page-accueil"
 
-export default async function CategoriesSection() {
+export default async function CategoriesSection({
+    contenu,
+}: {
+    contenu: PageAccueil["categories"]
+}) {
     const categories = await listCategoriesGalerie()
 
     if (!categories.length) {
@@ -17,17 +22,17 @@ export default async function CategoriesSection() {
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 gap-6 md:gap-0">
                     <div className="flex flex-col lg:max-w-2xl">
                         <h2 className="text-3xl font-black font-sans uppercase md:text-5xl text-brand-light">
-                            Nos catégories de couteaux
+                            {contenu.titre}
                         </h2>
                         <p className="text-brand-light text-lg font-sans mt-3">
-                            Chaque lame a sa forme et son usage. Survolez une catégorie pour découvrir le couteau, et trouvez celui fait pour votre cuisine.
+                            {contenu.texte}
                         </p>
                     </div>
                     <LocalizedClientLink
                         href="/galerie"
                         className="group bg-brand-light text-black text-lg font-sans font-medium rounded-full px-6 py-3 w-fit h-fit flex items-center gap-2 shrink-0 hover:gap-3 transition-all duration-300"
                     >
-                        Voir la galerie
+                        {contenu.boutonTexte}
                         <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
                     </LocalizedClientLink>
                 </div>

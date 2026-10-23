@@ -88,14 +88,14 @@ const BurgerMenu = ({ categories = [] }: { categories?: CategorieGalerie[] }) =>
                                 {/* Navigation Links */}
                                 <nav className="flex-1 p-6">
                                     <ul className="space-y-4">
-                                        {/* Galerie couteau with expandable categories */}
+                                        {/* Galerie couteaux with expandable categories */}
                                         <li>
                                             <div className="flex flex-col">
                                                 <button
                                                     onClick={() => setIsStoreExpanded(!isStoreExpanded)}
                                                     className="flex items-center justify-between w-full text-left font-serif text-base text-ui-fg-subtle hover:text-ui-fg-base transition-colors duration-200 py-2"
                                                 >
-                                                    <span>Galerie couteau</span>
+                                                    <span>Galerie couteaux</span>
                                                     <svg
                                                         className={`w-4 h-4 transition-transform duration-200 ${isStoreExpanded ? "rotate-180" : ""
                                                             }`}
@@ -149,16 +149,6 @@ const BurgerMenu = ({ categories = [] }: { categories?: CategorieGalerie[] }) =>
                                         </li>
 
                                         {/* Other navigation links */}
-                                        <li>
-                                            <LocalizedClientLink
-                                                href="/store"
-                                                onClick={() => setIsOpen(false)}
-                                                className="block font-serif text-base text-ui-fg-subtle hover:text-ui-fg-base transition-colors duration-200 py-2"
-                                            >
-                                                Couteaux disponibles
-                                            </LocalizedClientLink>
-                                        </li>
-
                                         <li>
                                             <LocalizedClientLink
                                                 href="/atelier"

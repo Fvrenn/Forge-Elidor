@@ -8,6 +8,7 @@ import CategoriesSection from "@modules/home/components/categories-section"
 import ActualitesSection from "@modules/home/components/actualites-section"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
+import { getPageAccueil } from "@lib/data/page-accueil"
 
 export const metadata: Metadata = {
   title: {
@@ -26,9 +27,10 @@ export default async function Home(props: {
 
   const region = await getRegion(countryCode)
 
-  const { collections } = await listCollections({
-    fields: "id, handle, title",
-  })
+  const [{ collections }, contenu] = await Promise.all([
+    listCollections({ fields: "id, handle, title" }),
+    getPageAccueil(),
+  ])
 
   if (!collections || !region) {
     return null
@@ -36,11 +38,11 @@ export default async function Home(props: {
 
   return (
     <>
-      <Hero />
-      <CategoriesSection />
-      <About />
-      <FeaturedSection />
-      <ActualitesSection />
+      <Hero contenu={contenu.hero} />
+      <CategoriesSection contenu={contenu.categories} />
+      <About contenu={contenu.aPropos} />
+      <FeaturedSection contenu={contenu.banniere} />
+      <ActualitesSection contenu={contenu.actualites} />
       <ul className="flex flex-col">
         <FeaturedProducts collections={collections} region={region} />
       </ul>

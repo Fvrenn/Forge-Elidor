@@ -2,6 +2,7 @@ import Image from "next/image"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { ArrowRight } from "lucide-react"
 import { sanityClient, urlFor } from "@lib/sanity"
+import type { PageAccueil } from "@lib/data/page-accueil"
 
 type Actualite = {
     _id: string
@@ -36,7 +37,11 @@ function formatDateCourte(date: string) {
     }
 }
 
-export default async function ActualitesSection() {
+export default async function ActualitesSection({
+    contenu,
+}: {
+    contenu: PageAccueil["actualites"]
+}) {
     const actualites = await getDernieresActualites()
 
     if (!actualites.length) {
@@ -47,12 +52,12 @@ export default async function ActualitesSection() {
         <section className="big-container py-12 small:py-24">
             <div className="flex flex-col md:flex-row md:items-start justify-between mb-10 md:mb-14 gap-6 md:gap-10">
                 <h2 className="text-3xl font-black font-sans uppercase md:text-5xl lg:text-6xl text-brand-darkGray leading-none">
-                    L&apos;actualité récente
+                    {contenu.titre}
                 </h2>
 
                 <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8 shrink-0">
                     <p className="font-sans text-brand-brown text-sm md:max-w-[220px]">
-                        Les dernières pièces sorties de l&apos;atelier et les rendez-vous à venir.
+                        {contenu.texte}
                     </p>
                     <LocalizedClientLink
                         href="/actualite"
