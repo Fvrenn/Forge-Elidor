@@ -82,6 +82,8 @@ export const StripeCardContainer = ({
 
   const useOptions: StripeCardElementOptions = useMemo(() => {
     return {
+      // L'adresse (et son code postal) est déjà saisie à l'étape livraison
+      hidePostalCode: true,
       style: {
         base: {
           fontFamily: "Inter, sans-serif",
@@ -108,7 +110,7 @@ export const StripeCardContainer = ({
         (stripeReady ? (
           <div className="my-4 transition-all duration-150 ease-in-out">
             <Text className="txt-medium-plus text-ui-fg-base mb-1">
-              Enter your card details:
+              Saisissez votre carte bancaire :
             </Text>
             <CardElement
               options={useOptions as StripeCardElementOptions}

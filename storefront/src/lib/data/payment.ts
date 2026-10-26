@@ -21,7 +21,9 @@ export const listCartPaymentMethods = async (regionId: string) => {
         query: { region_id: regionId },
         headers,
         next,
-        cache: "force-cache",
+        // Pas de cache : sinon un moyen de paiement activé dans l'admin
+        // (ex. Stripe) n'apparaît pas tant que le cache n'est pas vidé
+        cache: "no-store",
       }
     )
     .then(({ payment_providers }) =>

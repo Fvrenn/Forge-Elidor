@@ -37,5 +37,31 @@ module.exports = defineConfig({
         ],
       },
     },
+    // Paiement par carte via Stripe, chargé seulement si la clé est définie
+    // (sinon le backend refuse de démarrer). Clés test (sk_test_...) pour
+    // essayer le checkout sans argent réel, clés live au lancement.
+    // Webhook Stripe à déclarer sur : <MEDUSA_BACKEND_URL>/hooks/payment/stripe_stripe
+    ...(process.env.STRIPE_API_KEY
+      ? [
+          {
+            resolve: "@medusajs/medusa/payment",
+            options: {
+              providers: [
+                {
+                  resolve: "@medusajs/medusa/payment-stripe",
+                  id: "stripe",
+                  options: {
+                    apiKey: process.env.STRIPE_API_KEY,
+                    webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
+                    // Encaisse directement à la commande : un paiement
+                    // seulement autorisé expire au bout de 7 jours
+                    capture: true,
+                  },
+                },
+              ],
+            },
+          },
+        ]
+      : []),
   ],
 })
