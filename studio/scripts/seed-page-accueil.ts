@@ -54,7 +54,7 @@ async function run() {
       texte:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor consequat ligula, sit amet vestibulum mi consequat a. Mauris sollicitudin ligula sit amet elit bibendum, id consequat lorem hendrerit.',
       boutonTexte: 'Voir Plus',
-      boutonLien: '/galerie',
+      boutonLien: '/store',
       photos: photosHero,
     },
     categories: {
